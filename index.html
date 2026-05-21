@@ -12,13 +12,15 @@
       :root {
         --navy: #1f3864;
         --navy-light: #2e5496;
+        --navy-dark: #16243f;
         --accent: #f97316;
+        --accent-dark: #ea670c;
         --ink: #1e293b;
         --muted: #5b6b82;
         --bg: #ffffff;
-        --bg-soft: #f1f5f9;
+        --bg-soft: #f4f6fb;
         --border: #e2e8f0;
-        --radius: 14px;
+        --radius: 16px;
       }
 
       * {
@@ -42,7 +44,7 @@
 
       .container {
         width: 100%;
-        max-width: 1080px;
+        max-width: 1100px;
         margin: 0 auto;
         padding: 0 20px;
       }
@@ -50,9 +52,9 @@
       h1,
       h2,
       h3 {
-        line-height: 1.2;
+        line-height: 1.15;
         color: var(--navy);
-        letter-spacing: -0.01em;
+        letter-spacing: -0.02em;
       }
 
       a {
@@ -61,13 +63,20 @@
 
       /* ---- Botões ---- */
       .btn {
-        display: inline-block;
-        padding: 14px 26px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 15px 28px;
         border-radius: 999px;
         font-weight: 700;
         font-size: 1rem;
         text-decoration: none;
-        transition: transform 0.08s ease, opacity 0.15s ease;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition:
+          transform 0.08s ease,
+          opacity 0.15s ease,
+          background 0.15s ease;
       }
       .btn:active {
         transform: translateY(1px);
@@ -77,7 +86,15 @@
         color: #fff;
       }
       .btn-accent:hover {
-        opacity: 0.92;
+        background: var(--accent-dark);
+      }
+      .btn-outline {
+        background: transparent;
+        color: var(--navy);
+        border-color: var(--border);
+      }
+      .btn-outline:hover {
+        border-color: var(--navy);
       }
       .btn-light {
         background: #fff;
@@ -87,298 +104,506 @@
         opacity: 0.92;
       }
 
-      /* ---- Cabeçalho ---- */
+      /* ---- BLOCO 1 — Navbar ---- */
       header {
         position: sticky;
         top: 0;
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 0.96);
         backdrop-filter: blur(8px);
         border-bottom: 1px solid var(--border);
-        z-index: 10;
+        z-index: 20;
       }
       .header-inner {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-top: 14px;
-        padding-bottom: 14px;
+        gap: 24px;
+        padding: 13px 0;
       }
       .logo {
         font-weight: 800;
-        font-size: 1.15rem;
+        font-size: 1.18rem;
         color: var(--navy);
         text-decoration: none;
+        white-space: nowrap;
       }
       .logo span {
         color: var(--accent);
       }
+      .nav-links {
+        display: flex;
+        gap: 26px;
+        list-style: none;
+      }
+      .nav-links a {
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: var(--muted);
+        transition: color 0.15s ease;
+      }
+      .nav-links a:hover {
+        color: var(--navy);
+      }
       .header-cta {
         font-weight: 700;
-        font-size: 0.95rem;
-        color: var(--navy);
-        text-decoration: none;
-        border: 2px solid var(--navy);
-        padding: 8px 18px;
-        border-radius: 999px;
+        font-size: 0.92rem;
+        padding: 10px 20px;
+        white-space: nowrap;
       }
 
-      /* ---- Hero ---- */
+      /* ---- BLOCO 2 — Hero ---- */
       .hero {
-        background: linear-gradient(160deg, var(--navy) 0%, var(--navy-light) 100%);
-        color: #fff;
+        background:
+          linear-gradient(180deg, rgba(244, 246, 251, 0) 0%, var(--bg-soft) 100%),
+          var(--bg-soft);
+        background-image:
+          linear-gradient(var(--border) 1px, transparent 1px),
+          linear-gradient(90deg, var(--border) 1px, transparent 1px);
+        background-size: 38px 38px;
         text-align: center;
-        padding: 80px 0 96px;
+        padding: 84px 0 96px;
+        border-bottom: 1px solid var(--border);
       }
       .badge {
         display: inline-block;
-        background: rgba(255, 255, 255, 0.14);
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        color: #fff;
+        background: #fff;
+        border: 1px solid var(--border);
+        color: var(--navy);
         font-size: 0.82rem;
-        font-weight: 600;
-        padding: 6px 14px;
+        font-weight: 700;
+        padding: 7px 16px;
         border-radius: 999px;
-        margin-bottom: 22px;
+        margin-bottom: 24px;
+        box-shadow: 0 1px 3px rgba(31, 56, 100, 0.06);
+      }
+      .badge::before {
+        content: "✦ ";
+        color: var(--accent);
       }
       .hero h1 {
-        color: #fff;
-        font-size: clamp(2rem, 5.5vw, 3.3rem);
-        max-width: 16ch;
-        margin: 0 auto 18px;
+        font-size: clamp(2.1rem, 6vw, 3.6rem);
+        max-width: 17ch;
+        margin: 0 auto 20px;
+        font-weight: 800;
+      }
+      .hero h1 .hl {
+        color: var(--accent);
       }
       .hero p {
-        color: #d6e0ee;
-        font-size: clamp(1.05rem, 2.4vw, 1.25rem);
-        max-width: 52ch;
+        color: var(--muted);
+        font-size: clamp(1.05rem, 2.4vw, 1.22rem);
+        max-width: 54ch;
         margin: 0 auto 32px;
       }
+      .hero-ctas {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
       .hero .note {
-        margin-top: 16px;
+        margin-top: 18px;
         font-size: 0.9rem;
-        color: #aebed4;
+        color: var(--muted);
       }
 
       /* ---- Seções ---- */
       section {
-        padding: 72px 0;
+        padding: 76px 0;
       }
       .section-soft {
         background: var(--bg-soft);
       }
+      .section-head {
+        text-align: center;
+        max-width: 60ch;
+        margin: 0 auto 44px;
+      }
       .eyebrow {
         text-transform: uppercase;
-        letter-spacing: 0.08em;
-        font-size: 0.82rem;
-        font-weight: 700;
+        letter-spacing: 0.09em;
+        font-size: 0.8rem;
+        font-weight: 800;
         color: var(--accent);
         margin-bottom: 10px;
       }
       .section-title {
-        font-size: clamp(1.6rem, 3.6vw, 2.3rem);
+        font-size: clamp(1.7rem, 4vw, 2.5rem);
         margin-bottom: 14px;
+        font-weight: 800;
       }
       .section-intro {
         color: var(--muted);
-        max-width: 56ch;
-        margin-bottom: 40px;
-        font-size: 1.05rem;
+        font-size: 1.06rem;
       }
 
-      /* ---- Listas e grids ---- */
-      .pains {
-        list-style: none;
+      /* ---- Cards genéricos em grid ---- */
+      .card-grid {
         display: grid;
-        gap: 14px;
-        max-width: 640px;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       }
-      .pains li {
+      .card {
         background: #fff;
         border: 1px solid var(--border);
         border-radius: var(--radius);
-        padding: 16px 18px;
-        padding-left: 46px;
-        position: relative;
-        color: var(--ink);
+        padding: 26px 24px;
+        box-shadow: 0 1px 3px rgba(31, 56, 100, 0.04);
       }
-      .pains li::before {
-        content: "✕";
-        position: absolute;
-        left: 16px;
-        top: 16px;
+      .card h3 {
+        font-size: 1.12rem;
+        margin-bottom: 8px;
+      }
+      .card p {
+        color: var(--muted);
+        font-size: 0.98rem;
+      }
+      .card-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: #fff4ec;
+        color: var(--accent);
+        font-size: 1.25rem;
+        margin-bottom: 16px;
+      }
+
+      /* ---- BLOCO 3 — Dor ---- */
+      .pain .card-icon {
+        background: #fef2f2;
         color: #dc2626;
-        font-weight: 700;
       }
       .punch {
-        margin-top: 26px;
-        font-size: 1.15rem;
+        text-align: center;
+        margin-top: 34px;
+        font-size: clamp(1.15rem, 2.6vw, 1.45rem);
         font-weight: 800;
         color: var(--navy);
       }
 
-      .grid {
+      /* ---- BLOCO 5 — Como funciona ---- */
+      .steps {
         display: grid;
-        gap: 22px;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      }
-
-      .step {
-        background: #fff;
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 26px 22px;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       }
       .step-num {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 40px;
-        height: 40px;
+        width: 42px;
+        height: 42px;
         border-radius: 50%;
-        background: var(--navy);
+        background: var(--accent);
         color: #fff;
         font-weight: 800;
         margin-bottom: 16px;
       }
-      .step h3 {
-        font-size: 1.15rem;
-        margin-bottom: 8px;
-      }
-      .step p {
-        color: var(--muted);
-        font-size: 0.98rem;
+      .center-cta {
+        text-align: center;
+        margin-top: 44px;
       }
 
-      .feature {
-        padding: 4px 0;
-      }
-      .feature h3 {
-        font-size: 1.05rem;
-        margin-bottom: 6px;
-      }
-      .feature h3::before {
-        content: "▪";
-        color: var(--accent);
-        margin-right: 8px;
-      }
-      .feature p {
-        color: var(--muted);
-        font-size: 0.96rem;
-        padding-left: 18px;
-      }
-
-      .audience {
-        display: grid;
-        gap: 22px;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      }
-      .audience-card {
-        border: 2px solid var(--border);
-        border-radius: var(--radius);
-        padding: 30px 26px;
-      }
-      .audience-card h3 {
-        font-size: 1.3rem;
-        margin-bottom: 10px;
-      }
-      .audience-card p {
-        color: var(--muted);
-      }
-
-      /* ---- CTA final ---- */
-      .cta {
+      /* ---- BLOCO 6 — Nicho (escuro) ---- */
+      .section-dark {
         background: var(--navy);
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+        background-size: 38px 38px;
+      }
+      .section-dark .section-title,
+      .section-dark .eyebrow {
         color: #fff;
+      }
+      .section-dark .eyebrow {
+        color: var(--accent);
+      }
+      .section-dark .section-intro {
+        color: #c4d0e4;
+      }
+      .card-dark {
+        background: var(--navy-dark);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .card-dark h3 {
+        color: #fff;
+      }
+      .card-dark p {
+        color: #c4d0e4;
+      }
+      .card-dark .card-icon {
+        background: rgba(249, 115, 22, 0.16);
+      }
+
+      /* ---- BLOCO 9 — FAQ ---- */
+      .faq {
+        max-width: 760px;
+        margin: 0 auto;
+        display: grid;
+        gap: 12px;
+      }
+      .faq details {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .faq summary {
+        list-style: none;
+        cursor: pointer;
+        padding: 18px 20px;
+        font-weight: 700;
+        color: var(--navy);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+      }
+      .faq summary::-webkit-details-marker {
+        display: none;
+      }
+      .faq summary::after {
+        content: "+";
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: var(--accent);
+        line-height: 1;
+      }
+      .faq details[open] summary::after {
+        content: "−";
+      }
+      .faq details p {
+        padding: 0 20px 18px;
+        color: var(--muted);
+      }
+
+      /* ---- BLOCO 10 — CTA final ---- */
+      .cta {
+        background: var(--navy-dark);
         text-align: center;
       }
       .cta h2 {
         color: #fff;
-        font-size: clamp(1.7rem, 4vw, 2.4rem);
+        font-size: clamp(1.8rem, 4.4vw, 2.6rem);
         max-width: 20ch;
         margin: 0 auto 14px;
+        font-weight: 800;
       }
       .cta p {
-        color: #d6e0ee;
-        max-width: 48ch;
+        color: #c4d0e4;
+        max-width: 50ch;
         margin: 0 auto 30px;
         font-size: 1.08rem;
       }
 
-      /* ---- Rodapé ---- */
+      /* ---- BLOCO 11 — Footer ---- */
       footer {
-        background: #16243f;
-        color: #aebed4;
-        text-align: center;
-        padding: 36px 0;
-        font-size: 0.9rem;
+        background: #0f1a30;
+        color: #9fb0cb;
+        padding: 40px 0 32px;
+        font-size: 0.92rem;
+      }
+      .footer-inner {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px 32px;
+        align-items: center;
+        justify-content: space-between;
       }
       footer .logo {
         color: #fff;
-        font-size: 1.05rem;
+        font-size: 1.08rem;
       }
-      footer p {
-        margin-top: 8px;
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 22px;
+        list-style: none;
+      }
+      .footer-links a {
+        text-decoration: none;
+        color: #9fb0cb;
+      }
+      .footer-links a:hover {
+        color: #fff;
+      }
+      .footer-copy {
+        margin-top: 22px;
+        padding-top: 22px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        color: #7e8fab;
+      }
+
+      /* ---- Responsivo ---- */
+      @media (max-width: 860px) {
+        .nav-links {
+          display: none;
+        }
+      }
+      @media (max-width: 720px) {
+        section {
+          padding: 60px 0;
+        }
+        .hero {
+          padding: 64px 0 72px;
+        }
       }
     </style>
   </head>
   <body>
+    <!-- BLOCO 1 — Navbar -->
     <header>
       <div class="container header-inner">
-        <a href="#" class="logo">Gráfica <span>no Bolso</span></a>
-        <a href="#contato" class="header-cta">Lista de espera</a>
+        <a href="#topo" class="logo">Gráfica <span>no Bolso</span></a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#problema">O problema</a></li>
+            <li><a href="#como-funciona">Como funciona</a></li>
+            <li><a href="#recursos">Recursos</a></li>
+            <li><a href="#para-quem">Para quem é</a></li>
+            <li><a href="#faq">Dúvidas</a></li>
+          </ul>
+        </nav>
+        <a href="#contato" class="btn btn-accent header-cta">Entrar na lista</a>
       </div>
     </header>
 
-    <main>
-      <!-- HERO -->
+    <main id="topo">
+      <!-- BLOCO 2 — Hero -->
       <section class="hero">
         <div class="container">
           <span class="badge">Em breve · lançamento 2026</span>
-          <h1>A sua gráfica organizada — no bolso.</h1>
+          <h1>A sua gráfica organizada — <span class="hl">no bolso</span>.</h1>
           <p>
             Pare de vender pela bagunça do WhatsApp. Monte um catálogo
             profissional, receba os pedidos organizados e acompanhe a produção —
             tudo em um link só.
           </p>
-          <a href="#contato" class="btn btn-accent">Entrar na lista de espera</a>
+          <div class="hero-ctas">
+            <a href="#contato" class="btn btn-accent">Entrar na lista de espera</a>
+            <a href="#como-funciona" class="btn btn-outline">Ver como funciona</a>
+          </div>
           <p class="note">
             Para gráficas, papelarias e quem vende impressos personalizados.
           </p>
         </div>
       </section>
 
-      <!-- PROBLEMA -->
-      <section>
+      <!-- BLOCO 3 — Dor -->
+      <section id="problema">
         <div class="container">
-          <p class="eyebrow">O problema</p>
-          <h2 class="section-title">A Síndrome do Pedido Perdido.</h2>
-          <p class="section-intro">
-            Você vende, atende, calcula preço, acompanha arte e produz — e tudo
-            isso vive espalhado entre a conversa, o caderno, a planilha e a
-            memória. No meio disso, o pedido se perde.
-          </p>
-          <ul class="pains">
-            <li>O pedido aprovado some no meio das mensagens do WhatsApp.</li>
-            <li>
-              O catálogo é foto solta e PDF velho — e faz a sua gráfica parecer
-              menor do que ela é.
-            </li>
-            <li>Cada orçamento é um cálculo no chute; às vezes você vende no prejuízo.</li>
-            <li>
-              Sem caçar conversa, você não sabe o que está em arte, em produção
-              ou pronto.
-            </li>
-          </ul>
+          <div class="section-head">
+            <p class="eyebrow">O problema</p>
+            <h2 class="section-title">A Síndrome do Pedido Perdido.</h2>
+            <p class="section-intro">
+              Você vende, atende, calcula preço, acompanha arte e produz — e tudo
+              isso vive espalhado entre a conversa, o caderno, a planilha e a
+              memória. No meio disso, o pedido se perde.
+            </p>
+          </div>
+          <div class="card-grid">
+            <div class="card pain">
+              <div class="card-icon">✕</div>
+              <h3>O pedido some no WhatsApp</h3>
+              <p>
+                O pedido aprovado se perde no meio das mensagens — e você só
+                lembra quando o cliente cobra.
+              </p>
+            </div>
+            <div class="card pain">
+              <div class="card-icon">✕</div>
+              <h3>Catálogo que envelhece</h3>
+              <p>
+                Foto solta e PDF velho fazem a sua gráfica parecer menor do que
+                ela realmente é.
+              </p>
+            </div>
+            <div class="card pain">
+              <div class="card-icon">✕</div>
+              <h3>Preço no chute</h3>
+              <p>
+                Cada orçamento é um cálculo de cabeça; às vezes você acaba
+                vendendo no prejuízo.
+              </p>
+            </div>
+            <div class="card pain">
+              <div class="card-icon">✕</div>
+              <h3>Produção às cegas</h3>
+              <p>
+                Sem caçar conversa, você não sabe o que está em arte, em produção
+                ou pronto para entrega.
+              </p>
+            </div>
+          </div>
           <p class="punch">Pedido perdido é dinheiro vazando.</p>
         </div>
       </section>
 
-      <!-- COMO FUNCIONA -->
-      <section class="section-soft">
+      <!-- BLOCO 4 — Benefícios / Recursos -->
+      <section id="recursos" class="section-soft">
         <div class="container">
-          <p class="eyebrow">Como funciona</p>
-          <h2 class="section-title">Pronto em três passos.</h2>
-          <div class="grid">
-            <div class="step">
+          <div class="section-head">
+            <p class="eyebrow">Recursos</p>
+            <h2 class="section-title">Tudo o que a sua operação precisa.</h2>
+            <p class="section-intro">
+              Uma ferramenta só, pensada para o jeito que a gráfica pequena
+              realmente trabalha.
+            </p>
+          </div>
+          <div class="card-grid">
+            <div class="card">
+              <div class="card-icon">▤</div>
+              <h3>Catálogo com link único</h3>
+              <p>Uma vitrine profissional, sempre atualizada em tempo real.</p>
+            </div>
+            <div class="card">
+              <div class="card-icon">☑</div>
+              <h3>Pedidos organizados</h3>
+              <p>
+                Cada pedido com itens, quantidades, opções e cliente — e com
+                status.
+              </p>
+            </div>
+            <div class="card">
+              <div class="card-icon">$</div>
+              <h3>Precificação de impresso</h3>
+              <p>
+                Faixas de preço por quantidade e acabamentos — do jeito do setor.
+              </p>
+            </div>
+            <div class="card">
+              <div class="card-icon">▢</div>
+              <h3>Feito para o celular</h3>
+              <p>Rápido, leve e mobile-first — para usar de qualquer lugar.</p>
+            </div>
+            <div class="card">
+              <div class="card-icon">✆</div>
+              <h3>Integrado ao WhatsApp</h3>
+              <p>O pedido chega por onde a venda realmente acontece.</p>
+            </div>
+            <div class="card">
+              <div class="card-icon">♟</div>
+              <h3>Gestão de clientes</h3>
+              <p>Histórico e recompra de cada cliente num só lugar.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLOCO 5 — Como funciona -->
+      <section id="como-funciona">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Como funciona</p>
+            <h2 class="section-title">Em 3 passos simples você está pronto.</h2>
+          </div>
+          <div class="steps">
+            <div class="card">
               <div class="step-num">1</div>
               <h3>Monte seu catálogo</h3>
               <p>
@@ -386,7 +611,7 @@
                 impresso — gramatura, acabamento, tiragem.
               </p>
             </div>
-            <div class="step">
+            <div class="card">
               <div class="step-num">2</div>
               <h3>Compartilhe seu link</h3>
               <p>
@@ -394,7 +619,7 @@
                 WhatsApp. Adeus PDF velho e print solto.
               </p>
             </div>
-            <div class="step">
+            <div class="card">
               <div class="step-num">3</div>
               <h3>Receba e organize</h3>
               <p>
@@ -403,57 +628,33 @@
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      <!-- RECURSOS -->
-      <section>
-        <div class="container">
-          <p class="eyebrow">Recursos</p>
-          <h2 class="section-title">Tudo o que a sua operação precisa.</h2>
-          <div class="grid">
-            <div class="feature">
-              <h3>Catálogo com link único</h3>
-              <p>Uma vitrine profissional, sempre atualizada em tempo real.</p>
-            </div>
-            <div class="feature">
-              <h3>Pedidos organizados</h3>
-              <p>Cada pedido com itens, quantidades, opções e cliente — com status.</p>
-            </div>
-            <div class="feature">
-              <h3>Precificação de impresso</h3>
-              <p>Faixas de preço por quantidade e acabamentos — do jeito do setor.</p>
-            </div>
-            <div class="feature">
-              <h3>Feito para o celular</h3>
-              <p>Rápido, leve e mobile-first — para usar de qualquer lugar.</p>
-            </div>
-            <div class="feature">
-              <h3>Integrado ao WhatsApp</h3>
-              <p>O pedido chega por onde a venda realmente acontece.</p>
-            </div>
-            <div class="feature">
-              <h3>Gestão de clientes</h3>
-              <p>Histórico e recompra de cada cliente num só lugar.</p>
-            </div>
+          <div class="center-cta">
+            <a href="#contato" class="btn btn-accent">Quero entrar na lista</a>
           </div>
         </div>
       </section>
 
-      <!-- PARA QUEM -->
-      <section class="section-soft">
+      <!-- BLOCO 6 — Feito para o seu negócio (escuro) -->
+      <section id="para-quem" class="section-dark">
         <div class="container">
-          <p class="eyebrow">Para quem é</p>
-          <h2 class="section-title">Para gráficas e para quem vende personalizados.</h2>
-          <div class="audience">
-            <div class="audience-card">
+          <div class="section-head">
+            <p class="eyebrow">Para quem é</p>
+            <h2 class="section-title">Feito para o seu negócio.</h2>
+            <p class="section-intro">
+              Para gráficas e para quem vende impressos personalizados.
+            </p>
+          </div>
+          <div class="card-grid">
+            <div class="card card-dark">
+              <div class="card-icon">⎙</div>
               <h3>Gráfica rápida</h3>
               <p>
                 Profissionalize a vitrine e centralize os pedidos — do balcão ao
                 WhatsApp, num sistema só.
               </p>
             </div>
-            <div class="audience-card">
+            <div class="card card-dark">
+              <div class="card-icon">★</div>
               <h3>Papelaria e personalizados</h3>
               <p>
                 Tags, cartelas, convites, adesivos, brindes: receba pedidos
@@ -464,7 +665,55 @@
         </div>
       </section>
 
-      <!-- CTA FINAL -->
+      <!-- BLOCO 9 — FAQ -->
+      <section id="faq" class="section-soft">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Dúvidas</p>
+            <h2 class="section-title">Perguntas frequentes.</h2>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>O que é o Gráfica no Bolso?</summary>
+              <p>
+                É um catálogo digital e um sistema de pedidos para gráficas e
+                vendedores de impressos personalizados. Substitui o PDF estático
+                e a bagunça do WhatsApp por um link único e profissional.
+              </p>
+            </details>
+            <details>
+              <summary>Quando vai lançar?</summary>
+              <p>
+                Está em desenvolvimento, com lançamento previsto para 2026. Quem
+                entrar na lista de espera é avisado primeiro.
+              </p>
+            </details>
+            <details>
+              <summary>Quanto vai custar?</summary>
+              <p>
+                O preço ainda está sendo definido. Quem entrar na lista de espera
+                terá uma condição especial no lançamento.
+              </p>
+            </details>
+            <details>
+              <summary>Preciso entender de tecnologia?</summary>
+              <p>
+                Não. O Gráfica no Bolso é feito para ser simples e usado direto
+                do celular, sem instalar nada.
+              </p>
+            </details>
+            <details>
+              <summary>Serve para a minha gráfica ou papelaria?</summary>
+              <p>
+                Sim, se você vende impressos ou personalizados sob demanda —
+                cartões, panfletos, adesivos, banners, tags, convites e afins.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLOCO 10 — CTA final -->
       <section class="cta" id="contato">
         <div class="container">
           <h2>A gráfica pequena também merece sistema de gente grande.</h2>
@@ -472,21 +721,33 @@
             O Gráfica no Bolso está chegando. Entre na lista de espera e tenha
             vantagem no lançamento.
           </p>
-          <!-- Destino temporário: e-mail do fundador. Trocar por WhatsApp ou formulário quando decidido. -->
+          <!-- Destino temporário: e-mail do fundador. Trocar por formulário (Resend) quando pronto. -->
           <a
             href="mailto:ulisgd@gmail.com?subject=Lista de espera - Grafica no Bolso"
-            class="btn btn-light"
+            class="btn btn-accent"
             >Quero entrar na lista</a
           >
         </div>
       </section>
     </main>
 
+    <!-- BLOCO 11 — Footer -->
     <footer>
       <div class="container">
-        <a href="#" class="logo">Gráfica <span style="color: #f97316">no Bolso</span></a>
-        <p>Catálogo digital e pedidos organizados para o mercado de impressos.</p>
-        <p>© 2026 Gráfica no Bolso · graficanobolso.com.br</p>
+        <div class="footer-inner">
+          <a href="#topo" class="logo">Gráfica <span style="color: #f97316">no Bolso</span></a>
+          <ul class="footer-links">
+            <li><a href="#problema">O problema</a></li>
+            <li><a href="#como-funciona">Como funciona</a></li>
+            <li><a href="#recursos">Recursos</a></li>
+            <li><a href="#para-quem">Para quem é</a></li>
+            <li><a href="#faq">Dúvidas</a></li>
+          </ul>
+        </div>
+        <p class="footer-copy">
+          © 2026 Gráfica no Bolso · graficanobolso.com.br — catálogo digital e
+          pedidos organizados para o mercado de impressos.
+        </p>
       </div>
     </footer>
   </body>
