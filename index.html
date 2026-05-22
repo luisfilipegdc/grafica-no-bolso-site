@@ -3,587 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Gráfica no Bolso — vitrine e pedidos organizados para gráficas</title>
+    <title>Gráfica no Bolso — vitrine, pedidos e clientes no celular</title>
     <meta
       name="description"
-      content="Chega de pedido perdido no WhatsApp. Monte uma vitrine profissional, receba pedidos completos e acompanhe cada produção em um só lugar. Para gráficas e quem vende impressos personalizados."
+      content="Vitrine digital com link único, pedidos organizados num só lugar e cadastro de clientes — mobile-first, feito por quem é dono de gráfica."
     />
     <link rel="icon" type="image/svg+xml" href="icon.svg" />
     <link rel="preconnect" href="https://use.typekit.net" crossorigin />
     <link rel="stylesheet" href="https://use.typekit.net/yhy8nmx.css" />
-    <style>
-      :root {
-        --ink: #1c1c1e;
-        --paper: #f3e9e1;
-        --cream: #ece1d5;
-        --card: #ffffff;
-        --brand: #aa6bfb;
-        --brand-dark: #8b46e8;
-        --gold: #fec806;
-        --cta: #ff621c;
-        --cta-dark: #e5530f;
-        --muted: #8a8077;
-        --border: #e7ddd0;
-        --radius: 16px;
-      }
-
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        font-family: "basic-sans", system-ui, sans-serif;
-        color: var(--ink);
-        background: var(--paper);
-        line-height: 1.6;
-        -webkit-font-smoothing: antialiased;
-      }
-      h1,
-      h2,
-      h3 {
-        font-family: "basic-sans", sans-serif;
-        line-height: 1.1;
-        letter-spacing: -0.015em;
-      }
-      a {
-        color: inherit;
-      }
-      /* Acento manuscrito da marca (Chantal). */
-      .font-script {
-        font-family: "chantal", cursive;
-        font-weight: 600;
-      }
-      .container {
-        width: 100%;
-        max-width: 1120px;
-        margin: 0 auto;
-        padding: 0 22px;
-      }
-      .eyebrow {
-        font-family: "basic-sans", sans-serif;
-        font-size: 0.74rem;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        color: var(--brand);
-        margin-bottom: 14px;
-      }
-
-      /* ---- Botões ---- */
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 14px 26px;
-        border-radius: 999px;
-        font-family: "basic-sans", sans-serif;
-        font-weight: 600;
-        font-size: 1rem;
-        text-decoration: none;
-        border: 2px solid transparent;
-        cursor: pointer;
-        transition:
-          transform 0.08s ease,
-          background 0.15s ease,
-          border-color 0.15s ease;
-      }
-      .btn:active {
-        transform: translateY(1px);
-      }
-      .btn-cta {
-        background: var(--cta);
-        color: #fff;
-      }
-      .btn-cta:hover {
-        background: var(--cta-dark);
-      }
-      .btn-brand {
-        background: var(--brand);
-        color: #fff;
-      }
-      .btn-brand:hover {
-        background: var(--brand-dark);
-      }
-      .btn-outline {
-        background: transparent;
-        color: var(--ink);
-        border-color: var(--border);
-      }
-      .btn-outline:hover {
-        border-color: var(--brand);
-        color: var(--brand);
-      }
-
-      /* ---- Navbar ---- */
-      header {
-        position: sticky;
-        top: 0;
-        background: rgba(247, 244, 239, 0.95);
-        backdrop-filter: blur(8px);
-        border-bottom: 1px solid var(--border);
-        z-index: 20;
-      }
-      .header-inner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 24px;
-        padding: 12px 0;
-      }
-      .nav-links {
-        display: flex;
-        gap: 26px;
-        list-style: none;
-      }
-      .nav-links a {
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 0.94rem;
-        color: var(--muted);
-        transition: color 0.15s ease;
-      }
-      .nav-links a:hover {
-        color: var(--ink);
-      }
-      .header-cta {
-        font-size: 0.9rem;
-        padding: 10px 20px;
-        white-space: nowrap;
-      }
-
-      /* ---- Hero ---- */
-      .hero {
-        background:
-          radial-gradient(
-            circle at 85% 0%,
-            rgba(26, 124, 124, 0.08) 0%,
-            transparent 45%
-          ),
-          var(--paper);
-        border-bottom: 1px solid var(--border);
-      }
-      .hero-inner {
-        display: grid;
-        grid-template-columns: 1.05fr 0.95fr;
-        gap: 56px;
-        align-items: center;
-        padding: 80px 0 88px;
-      }
-      .badge {
-        display: inline-block;
-        background: var(--card);
-        border: 1px solid var(--border);
-        color: var(--ink);
-        font-family: "basic-sans", sans-serif;
-        font-size: 0.74rem;
-        letter-spacing: 0.06em;
-        padding: 7px 15px;
-        border-radius: 999px;
-        margin-bottom: 22px;
-      }
-      .badge b {
-        color: var(--brand);
-      }
-      .hero h1 {
-        font-size: clamp(2.2rem, 5.2vw, 3.5rem);
-        font-weight: 800;
-        margin-bottom: 18px;
-      }
-      .hero h1 .hl {
-        color: var(--brand);
-      }
-      .hero-sub {
-        font-size: 1.12rem;
-        color: var(--muted);
-        max-width: 38ch;
-        margin-bottom: 30px;
-      }
-      .hero-ctas {
-        display: flex;
-        gap: 13px;
-        flex-wrap: wrap;
-      }
-      .hero-note {
-        margin-top: 18px;
-        font-size: 0.86rem;
-        color: var(--muted);
-      }
-
-      /* ---- Mockup de celular ---- */
-      .phone {
-        justify-self: center;
-        width: 270px;
-        background: var(--ink);
-        border-radius: 34px;
-        padding: 10px;
-        box-shadow: 0 30px 60px -20px rgba(15, 14, 13, 0.35);
-      }
-      .phone-screen {
-        background: var(--paper);
-        border-radius: 26px;
-        overflow: hidden;
-      }
-      .phone-top {
-        background: var(--brand);
-        color: #fff;
-        padding: 22px 16px 16px;
-      }
-      .phone-top .ps-name {
-        font-family: "basic-sans", sans-serif;
-        font-weight: 700;
-        font-size: 1rem;
-      }
-      .phone-top .ps-tag {
-        font-size: 0.72rem;
-        opacity: 0.85;
-      }
-      .phone-body {
-        padding: 14px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-      }
-      .pp-card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        overflow: hidden;
-      }
-      .pp-img {
-        height: 64px;
-        background: var(--cream);
-      }
-      .pp-info {
-        padding: 8px 9px 10px;
-      }
-      .pp-info .pp-n {
-        font-size: 0.7rem;
-        font-weight: 600;
-        line-height: 1.3;
-      }
-      .pp-info .pp-p {
-        font-size: 0.7rem;
-        font-weight: 700;
-        color: var(--brand);
-        margin-top: 4px;
-      }
-      .phone-cta {
-        margin: 4px 14px 16px;
-        background: var(--cta);
-        color: #fff;
-        text-align: center;
-        font-size: 0.74rem;
-        font-weight: 600;
-        padding: 9px;
-        border-radius: 999px;
-      }
-
-      /* ---- Seções ---- */
-      section {
-        padding: 80px 0;
-      }
-      .section-cream {
-        background: var(--cream);
-      }
-      .section-ink {
-        background: var(--ink);
-        color: var(--paper);
-      }
-      .section-ink h2,
-      .section-ink h3 {
-        color: var(--paper);
-      }
-      .section-ink .eyebrow {
-        color: var(--gold);
-      }
-      .section-head {
-        max-width: 60ch;
-        margin-bottom: 46px;
-      }
-      .section-head.center {
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-      }
-      .section-title {
-        font-size: clamp(1.7rem, 3.6vw, 2.5rem);
-        font-weight: 800;
-        margin-bottom: 14px;
-      }
-      .section-intro {
-        color: var(--muted);
-        font-size: 1.04rem;
-      }
-      .section-ink .section-intro {
-        color: #b3ada3;
-      }
-
-      /* ---- Grid de cards ---- */
-      .grid {
-        display: grid;
-        gap: 18px;
-        grid-template-columns: repeat(auto-fit, minmax(248px, 1fr));
-      }
-      .card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 24px 22px;
-      }
-      .card h3 {
-        font-size: 1.12rem;
-        font-weight: 700;
-        margin-bottom: 8px;
-      }
-      .card p {
-        color: var(--muted);
-        font-size: 0.96rem;
-      }
-      .card-num {
-        font-family: "basic-sans", sans-serif;
-        font-size: 0.78rem;
-        color: var(--cta);
-        margin-bottom: 12px;
-      }
-      .section-ink .card {
-        background: #1b1a18;
-        border-color: #2c2a27;
-      }
-      .section-ink .card p {
-        color: #b3ada3;
-      }
-
-      /* ---- Pedido Inteligente (destaque) ---- */
-      .feature-hero {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-        align-items: center;
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        padding: 44px;
-      }
-      .feature-hero .tag {
-        display: inline-block;
-        background: var(--brand);
-        color: #fff;
-        font-family: "basic-sans", sans-serif;
-        font-size: 0.7rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        padding: 5px 12px;
-        border-radius: 999px;
-        margin-bottom: 16px;
-      }
-      .feature-hero h3 {
-        font-size: 1.7rem;
-        font-weight: 800;
-        margin-bottom: 12px;
-      }
-      .feature-hero p {
-        color: var(--muted);
-      }
-      .order-fields {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-      .order-field {
-        display: flex;
-        justify-content: space-between;
-        gap: 14px;
-        background: var(--paper);
-        border: 1px solid var(--border);
-        border-radius: 9px;
-        padding: 10px 14px;
-        font-size: 0.86rem;
-      }
-      .order-field span:first-child {
-        color: var(--muted);
-      }
-      .order-field span:last-child {
-        font-weight: 600;
-        text-align: right;
-      }
-
-      /* ---- Antes e depois ---- */
-      .ba-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-      }
-      .ba-card {
-        border-radius: var(--radius);
-        padding: 26px 24px;
-      }
-      .ba-before {
-        background: #fdf3f1;
-        border: 1px solid #ecc9c2;
-      }
-      .ba-after {
-        background: var(--card);
-        border: 1px solid var(--brand);
-      }
-      .ba-label {
-        font-family: "basic-sans", sans-serif;
-        font-size: 0.72rem;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        margin-bottom: 16px;
-      }
-      .ba-before .ba-label {
-        color: var(--cta);
-      }
-      .ba-after .ba-label {
-        color: var(--brand);
-      }
-      .chat-bubble {
-        background: #fff;
-        border: 1px solid #ecc9c2;
-        border-radius: 4px 14px 14px 14px;
-        padding: 14px 16px;
-        font-size: 0.96rem;
-        color: var(--ink);
-      }
-      .chat-meta {
-        margin-top: 10px;
-        font-size: 0.82rem;
-        color: var(--muted);
-      }
-
-      /* ---- FAQ ---- */
-      .faq {
-        max-width: 760px;
-        margin: 0 auto;
-        display: grid;
-        gap: 12px;
-      }
-      .faq details {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        overflow: hidden;
-      }
-      .faq summary {
-        list-style: none;
-        cursor: pointer;
-        padding: 18px 20px;
-        font-weight: 600;
-        font-size: 1rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 16px;
-      }
-      .faq summary::-webkit-details-marker {
-        display: none;
-      }
-      .faq summary::after {
-        content: "+";
-        font-size: 1.4rem;
-        color: var(--brand);
-        line-height: 1;
-      }
-      .faq details[open] summary::after {
-        content: "\2212";
-      }
-      .faq details p {
-        padding: 0 20px 18px;
-        color: var(--muted);
-      }
-
-      /* ---- CTA final ---- */
-      .cta-final {
-        text-align: center;
-      }
-      .cta-final h2 {
-        font-size: clamp(1.8rem, 4vw, 2.6rem);
-        max-width: 20ch;
-        margin: 0 auto 14px;
-        font-weight: 800;
-      }
-      .cta-final p {
-        color: #b3ada3;
-        max-width: 48ch;
-        margin: 0 auto 28px;
-      }
-
-      /* ---- Footer ---- */
-      footer {
-        background: #0a0908;
-        color: #8a847b;
-        padding: 38px 0 30px;
-        font-size: 0.9rem;
-      }
-      .footer-inner {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 18px 32px;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .footer-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px 22px;
-        list-style: none;
-      }
-      .footer-links a {
-        text-decoration: none;
-        color: #8a847b;
-      }
-      .footer-links a:hover {
-        color: var(--paper);
-      }
-      .footer-copy {
-        margin-top: 22px;
-        padding-top: 20px;
-        border-top: 1px solid #211f1c;
-        color: #6a655d;
-      }
-
-      @media (max-width: 880px) {
-        .nav-links {
-          display: none;
-        }
-      }
-      @media (max-width: 760px) {
-        section {
-          padding: 60px 0;
-        }
-        .hero-inner {
-          grid-template-columns: 1fr;
-          gap: 44px;
-          padding: 56px 0 64px;
-        }
-        .hero-sub {
-          max-width: none;
-        }
-        .feature-hero {
-          grid-template-columns: 1fr;
-          padding: 30px 24px;
-          gap: 26px;
-        }
-        .ba-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Navbar -->
-    <header>
+    <!-- ==================== NAVBAR ==================== -->
+    <header class="site-header">
       <div class="container header-inner">
-        <a
-          href="#topo"
-          aria-label="Gráfica no Bolso"
-          style="display: flex; align-items: center; gap: 8px; text-decoration: none"
-        >
-          <svg width="30" height="30" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+        <a href="index.html" class="logo" aria-label="Gráfica no Bolso">
+          <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
             <path d="M31 48C16 47 16 68 32 67" stroke="#aa6bfb" stroke-width="7.5" stroke-linecap="round"/>
             <path d="M69 48C84 47 84 68 68 67" stroke="#aa6bfb" stroke-width="7.5" stroke-linecap="round"/>
             <path d="M33 33Q50 25 67 33Q74 36 74 46L74 60Q74 85 50 85Q26 85 26 60L26 46Q26 36 33 33Z" fill="#aa6bfb"/>
@@ -591,77 +26,101 @@
             <rect x="41.5" y="83" width="7" height="13" rx="3.5" fill="#aa6bfb"/>
             <rect x="51.5" y="83" width="7" height="13" rx="3.5" fill="#aa6bfb"/>
           </svg>
-          <span style="font-weight: 700; font-size: 1.3rem; color: var(--ink)">Gráfica</span>
-          <span style="font-weight: 700; font-size: 1.3rem; color: var(--cta)">no Bolso</span>
+          <span class="wm"><span class="wm-ink">Gráfica</span> <span class="wm-cta">no Bolso</span></span>
         </a>
-        <nav>
-          <ul class="nav-links">
-            <li><a href="#problema">O problema</a></li>
-            <li><a href="#pedido">Pedido Inteligente</a></li>
-            <li><a href="#como-funciona">Como funciona</a></li>
-            <li><a href="#para-quem">Para quem é</a></li>
-            <li><a href="#faq">Dúvidas</a></li>
-          </ul>
-        </nav>
-        <a href="#contato" class="btn btn-brand header-cta">Quero testar primeiro</a>
+        <ul class="nav-links">
+          <li><a href="grafica.html">Para gráfica</a></li>
+          <li><a href="revendedor.html">Para revendedor</a></li>
+          <li><a href="como-funciona.html">Como funciona</a></li>
+          <li><a href="precos.html">Preços</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+        <div class="nav-spacer"></div>
+        <div class="nav-right">
+          <a href="https://app.graficanobolso.com.br/login" class="nav-enter">Entrar</a>
+          <a href="precos.html" class="btn btn-brand btn-sm">Criar minha vitrine <span class="arr">&rarr;</span></a>
+        </div>
+        <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.mobile-menu').style.display = document.querySelector('.mobile-menu').style.display === 'block' ? 'none' : 'block'">&#9776;</button>
+      </div>
+      <div class="mobile-menu">
+        <a href="grafica.html">Para gráfica</a>
+        <a href="revendedor.html">Para revendedor</a>
+        <a href="como-funciona.html">Como funciona</a>
+        <a href="precos.html">Preços</a>
+        <a href="faq.html">FAQ</a>
+        <div class="mm-actions">
+          <a href="https://app.graficanobolso.com.br/login" class="btn btn-outline">Entrar</a>
+          <a href="precos.html" class="btn btn-brand">Criar vitrine</a>
+        </div>
       </div>
     </header>
 
-    <main id="topo">
-      <!-- Hero -->
+    <main>
+      <!-- ==================== HERO ==================== -->
       <section class="hero">
         <div class="container hero-inner">
           <div>
-            <span class="badge">✦ <b>Beta fechado</b> · gráficas e personalizados</span>
-            <h1>Chega de pedido perdido no <span class="hl">WhatsApp</span>.</h1>
+            <span class="badge"><span class="dot"></span> MVP em construção · entre na lista</span>
+            <h1>
+              Sua gráfica <em class="hl">(e seu cliente)</em> merecem mais que um
+              PDF e um WhatsApp bagunçado.
+            </h1>
             <p class="hero-sub">
-              Monte uma vitrine profissional para a sua gráfica, receba pedidos
-              completos e acompanhe cada produção em um só lugar.
+              Vitrine digital com link único, pedidos organizados num só lugar e
+              cadastro de clientes — mobile-first, feito por quem é dono de
+              gráfica.
             </p>
             <div class="hero-ctas">
-              <a href="#contato" class="btn btn-cta">Quero testar primeiro</a>
-              <a href="#como-funciona" class="btn btn-outline">Ver como funciona</a>
+              <a href="precos.html" class="btn btn-cta">Criar minha vitrine grátis <span class="arr">&rarr;</span></a>
+              <a href="como-funciona.html" class="btn btn-outline">Ver como funciona</a>
             </div>
-            <p class="hero-note">
-              Acesso antecipado para gráficas, papelarias e quem vende impressos
-              personalizados.
-            </p>
+            <div class="hero-checks">
+              <span><span class="ck">&#10003;</span> Sem cartão de crédito</span>
+              <span><span class="ck">&#10003;</span> Cancele quando quiser</span>
+              <span><span class="ck">&#10003;</span> Em português</span>
+            </div>
           </div>
-
           <!-- Mockup: vitrine no celular -->
-          <div class="phone" aria-hidden="true">
+          <div class="phone center" aria-hidden="true">
             <div class="phone-screen">
               <div class="phone-top">
+                <div class="ps-tag">Catálogo</div>
                 <div class="ps-name">Gráfica Demonstração</div>
-                <div class="ps-tag">Catálogo de produtos</div>
+              </div>
+              <div class="phone-search">Buscar produto&hellip;</div>
+              <div class="phone-chips">
+                <span class="on">Tudo</span>
+                <span>Cartões</span>
+                <span>Banners</span>
+                <span>Adesivos</span>
               </div>
               <div class="phone-body">
                 <div class="pp-card">
-                  <div class="pp-img"></div>
+                  <div class="pp-img b"></div>
                   <div class="pp-info">
-                    <div class="pp-n">Cartão de Visita</div>
-                    <div class="pp-p">a partir de R$ 35</div>
+                    <div class="pp-n">Cartão Couché 300g</div>
+                    <div class="pp-meta"><span class="pp-tag">1000un</span><span class="pp-p">R$ 35</span></div>
                   </div>
                 </div>
                 <div class="pp-card">
                   <div class="pp-img"></div>
                   <div class="pp-info">
-                    <div class="pp-n">Panfleto 14×10</div>
-                    <div class="pp-p">a partir de R$ 124</div>
+                    <div class="pp-n">Banner 1m &times; 80cm</div>
+                    <div class="pp-meta"><span class="pp-tag">Lona</span><span class="pp-p">R$ 49</span></div>
+                  </div>
+                </div>
+                <div class="pp-card">
+                  <div class="pp-img b"></div>
+                  <div class="pp-info">
+                    <div class="pp-n">Panfleto A5</div>
+                    <div class="pp-meta"><span class="pp-tag">500un</span><span class="pp-p">R$ 89</span></div>
                   </div>
                 </div>
                 <div class="pp-card">
                   <div class="pp-img"></div>
                   <div class="pp-info">
-                    <div class="pp-n">Adesivo em Vinil</div>
-                    <div class="pp-p">a partir de R$ 70</div>
-                  </div>
-                </div>
-                <div class="pp-card">
-                  <div class="pp-img"></div>
-                  <div class="pp-info">
-                    <div class="pp-n">Banner em Lona</div>
-                    <div class="pp-p">a partir de R$ 90</div>
+                    <div class="pp-n">Adesivo vinil</div>
+                    <div class="pp-meta"><span class="pp-tag">Por m&sup2;</span><span class="pp-p">R$ 18</span></div>
                   </div>
                 </div>
               </div>
@@ -671,322 +130,581 @@
         </div>
       </section>
 
-      <!-- Problema -->
-      <section id="problema">
+      <!-- ==================== PRINCÍPIOS / TRUST ==================== -->
+      <section style="padding: 36px 0 56px">
         <div class="container">
-          <div class="section-head center">
-            <p class="eyebrow">O problema</p>
-            <h2 class="section-title">A Síndrome do Pedido Perdido.</h2>
-            <p class="section-intro">
-              Você vende, atende, calcula preço, acompanha arte e produz — e tudo
-              isso vive espalhado entre a conversa, o caderno, a planilha e a
-              memória. No meio disso, o pedido se perde.
-            </p>
-          </div>
-          <div class="grid">
-            <div class="card">
-              <h3>O pedido some no WhatsApp</h3>
-              <p>
-                Pedido aprovado some no meio das mensagens e ninguém lembra em
-                que etapa ele está.
-              </p>
-            </div>
-            <div class="card">
-              <h3>Catálogo que envelhece</h3>
-              <p>
-                Seu catálogo ainda é foto solta, PDF antigo ou print perdido — e
-                faz a gráfica parecer menor do que é.
-              </p>
-            </div>
-            <div class="card">
-              <h3>Preço no chute</h3>
-              <p>
-                Cada orçamento vira um cálculo manual — e às vezes você acaba
-                vendendo no prejuízo.
-              </p>
-            </div>
-            <div class="card">
-              <h3>Produção às cegas</h3>
-              <p>
-                Sem caçar conversa, você não sabe o que está aguardando arte, em
-                produção ou pronto para entrega.
-              </p>
-            </div>
+          <p class="eyebrow" style="text-align: center">Princípios de construção</p>
+          <div class="trust">
+            <div><div class="t-l">Multi-tenant</div><div class="t-n">isolamento por conta</div></div>
+            <div><div class="t-l">Mobile-first</div><div class="t-n">rotina no celular</div></div>
+            <div><div class="t-l">Self-hosted</div><div class="t-n">VPS própria, sem refém</div></div>
+            <div><div class="t-l">Brasileiro</div><div class="t-n">feito aqui, em pt-BR</div></div>
+            <div><div class="t-l">Dogfooding</div><div class="t-n">fundador é dono de gráfica</div></div>
           </div>
         </div>
       </section>
 
-      <!-- Pedido Inteligente -->
-      <section id="pedido" class="section-cream">
+      <!-- ==================== O PROBLEMA ==================== -->
+      <section class="section-cream">
         <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">O diferencial</p>
-            <h2 class="section-title">Pedido Inteligente.</h2>
-            <p class="section-intro">
-              O coração do Gráfica no Bolso — o que separa um pedido organizado
-              de uma mensagem solta.
-            </p>
-          </div>
-          <div class="feature-hero">
+          <div style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 52px; align-items: center" class="problem-grid">
             <div>
-              <span class="tag">Pedido Inteligente</span>
-              <h3>O pedido chega completo, não como recado.</h3>
-              <p>
-                Cada produto pode ter os campos certos: quantidade, acabamento,
-                prazo, arquivo de arte, observações e dados do cliente. O que
-                chegava como “quanto custa?” agora chega pronto para produzir.
-              </p>
+              <div class="section-head" style="margin-bottom: 24px">
+                <p class="eyebrow">O problema</p>
+                <h2 class="section-title">A "síndrome do <em class="hl">pedido perdido</em>".</h2>
+                <p class="section-intro">
+                  Quem trabalha com impressos vive entre o WhatsApp lotado, o PDF
+                  desatualizado e a planilha que ninguém lembra de abrir. O
+                  cliente desiste; a margem some.
+                </p>
+              </div>
+              <div class="symptoms">
+                <div class="symptom"><span class="x">&times;</span><span>PDF que ninguém atualiza</span></div>
+                <div class="symptom"><span class="x">&times;</span><span>Pedidos perdidos no scroll do WhatsApp</span></div>
+                <div class="symptom"><span class="x">&times;</span><span>Cliente perguntando preço pela 5&ordf; vez</span></div>
+                <div class="symptom"><span class="x">&times;</span><span>Cadastro num caderno (ou em lugar nenhum)</span></div>
+                <div class="symptom"><span class="x">&times;</span><span>Tabelas de Excel desencontradas</span></div>
+                <div class="symptom"><span class="x">&times;</span><span>Sem ideia de quem comprou o que, quando</span></div>
+              </div>
             </div>
-            <div class="order-fields">
-              <div class="order-field"><span>Produto</span><span>Cartão de visita</span></div>
-              <div class="order-field"><span>Quantidade</span><span>500 unidades</span></div>
-              <div class="order-field"><span>Papel</span><span>Couché 300g</span></div>
-              <div class="order-field"><span>Acabamento</span><span>Laminação fosca</span></div>
-              <div class="order-field"><span>Arte</span><span>Cliente tem pronta</span></div>
-              <div class="order-field"><span>Prazo</span><span>Sexta-feira</span></div>
+            <div class="wpp-mess">
+              <div class="wpp-head">
+                <div class="wh-l">
+                  <div class="wh-av"></div>
+                  <div>
+                    <div class="wh-t">WhatsApp · Gráfica</div>
+                    <div class="wh-s">14 não lidas · 6 conversas abertas</div>
+                  </div>
+                </div>
+                <span class="wh-badge">14</span>
+              </div>
+              <div class="wpp-msgs">
+                <div class="wpp-msg in"><div class="bub"><div class="who">Cliente · Marcos</div>Bom dia! Vc tem cartão couché?</div></div>
+                <div class="wpp-msg out"><div class="bub"><div class="who">Você</div>Tenho! 1000 unid R$ 35</div></div>
+                <div class="wpp-msg in"><div class="bub"><div class="who">Cliente · Bia</div>Oi! Vi seu PDF, ainda vale o preço?</div></div>
+                <div class="wpp-msg in"><div class="bub"><div class="who">Cliente · Marcos</div>Combinado, depois mando arte</div></div>
+                <div class="wpp-msg in"><div class="bub"><div class="who">Cliente · Felipe</div>Cadê meu pedido?</div></div>
+                <div class="wpp-msg in"><div class="bub"><div class="who">Cliente · Bia</div>Você me passou o PIX?</div></div>
+              </div>
+              <div class="wpp-note">&#9888; Cliente perdido em algum lugar do scroll</div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Recursos -->
-      <section id="recursos">
+      <!-- ==================== A PROPOSTA ==================== -->
+      <section>
         <div class="container">
           <div class="section-head center">
-            <p class="eyebrow">Recursos</p>
-            <h2 class="section-title">Tudo o que a operação precisa.</h2>
+            <p class="eyebrow">A proposta</p>
+            <h2 class="section-title">
+              Um lugar pra <em class="hl">vitrine</em>, um lugar pros
+              <em class="hl">pedidos</em>, um lugar pros <em class="hl">clientes</em>.
+            </h2>
             <p class="section-intro">
-              Uma ferramenta só, pensada para o jeito que a gráfica pequena
-              realmente trabalha.
+              Três módulos costurados num produto só. Mobile-first. Sem migrar
+              tudo, sem aprender ERP.
             </p>
           </div>
-          <div class="grid">
-            <div class="card">
-              <h3>Catálogo com link único</h3>
-              <p>Uma vitrine profissional, sempre atualizada em tempo real.</p>
+          <div class="grid cols-3">
+            <div class="card pillar">
+              <div class="p-head">
+                <div class="icon-chip dark">&#9638;</div>
+                <span class="kbd">módulo 1</span>
+              </div>
+              <h3>Vitrine pública</h3>
+              <p>
+                Catálogo digital com link único — substitui o PDF. Categorias,
+                fotos, preços por faixa e variações.
+              </p>
+              <div class="pillar-stats">
+                <div class="st"><span class="k">link único</span><span class="v">sua-marca.gnb.com.br</span></div>
+                <div class="st"><span class="k">atualização</span><span class="v">em segundos</span></div>
+              </div>
             </div>
-            <div class="card">
+            <div class="card pillar">
+              <div class="p-head">
+                <div class="icon-chip dark">&#9776;</div>
+                <span class="kbd">módulo 2</span>
+              </div>
               <h3>Pedidos organizados</h3>
-              <p>Cada pedido com itens, quantidades, opções e cliente — e com status.</p>
-            </div>
-            <div class="card">
-              <h3>Status de produção</h3>
-              <p>Da arte à entrega: você sabe onde cada pedido está, sem caçar conversa.</p>
-            </div>
-            <div class="card">
-              <h3>Precificação de impresso</h3>
-              <p>Faixas de preço por quantidade e acabamentos — do jeito do setor.</p>
-            </div>
-            <div class="card">
-              <h3>Clientes e histórico</h3>
-              <p>Histórico e recompra de cada cliente num só lugar.</p>
-            </div>
-            <div class="card">
-              <h3>Integrado ao WhatsApp</h3>
-              <p>O pedido chega por onde a venda realmente acontece — e mobile-first.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Como funciona -->
-      <section id="como-funciona" class="section-cream">
-        <div class="container">
-          <div class="section-head center">
-            <p class="eyebrow">Como funciona</p>
-            <h2 class="section-title">Em 3 passos você está pronto.</h2>
-          </div>
-          <div class="grid">
-            <div class="card">
-              <div class="card-num">01</div>
-              <h3>Monte seu catálogo</h3>
               <p>
-                Cadastre seus produtos com fotos, preços e as variações do
-                impresso — gramatura, acabamento, tiragem.
+                Pipeline kanban: criando arte &rarr; em produção &rarr; pronto
+                &rarr; entregue. Cada pedido com cliente, valor e histórico.
               </p>
+              <div class="pillar-stats">
+                <div class="st"><span class="k">status</span><span class="v">7 padrão</span></div>
+                <div class="st"><span class="k">histórico</span><span class="v">sempre salvo</span></div>
+              </div>
             </div>
-            <div class="card">
-              <div class="card-num">02</div>
-              <h3>Compartilhe seu link</h3>
+            <div class="card pillar">
+              <div class="p-head">
+                <div class="icon-chip dark">&#9786;</div>
+                <span class="kbd">módulo 3</span>
+              </div>
+              <h3>Cadastro de clientes</h3>
               <p>
-                Um link único e profissional para a bio do Instagram e o
-                WhatsApp. Adeus PDF velho e print solto.
+                Ficha de cliente com pedidos, totalizadores e WhatsApp na mão.
+                Pare de procurar nome no caderno.
               </p>
-            </div>
-            <div class="card">
-              <div class="card-num">03</div>
-              <h3>Receba o pedido pronto para atender</h3>
-              <p>
-                O cliente envia produto, quantidade, acabamento, prazo e
-                observações. O pedido cai organizado no painel e no WhatsApp.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Antes e depois -->
-      <section id="antes-depois">
-        <div class="container">
-          <div class="section-head center">
-            <p class="eyebrow">Olha a diferença</p>
-            <h2 class="section-title">Antes e depois do Gráfica no Bolso.</h2>
-          </div>
-          <div class="ba-grid">
-            <div class="ba-card ba-before">
-              <div class="ba-label">✕ Antes — pedido solto</div>
-              <div class="chat-bubble">“Oi, quero cartão de visita. Quanto fica?”</div>
-              <p class="chat-meta">
-                Aí começa a novela: quantos? que papel? tem arte? para quando? —
-                e cada resposta se perde na conversa.
-              </p>
-            </div>
-            <div class="ba-card ba-after">
-              <div class="ba-label">✓ Depois — Pedido Inteligente</div>
-              <div class="order-fields">
-                <div class="order-field"><span>Produto</span><span>Cartão de visita</span></div>
-                <div class="order-field"><span>Quantidade</span><span>500 un. · Couché 300g</span></div>
-                <div class="order-field"><span>Acabamento</span><span>Laminação fosca</span></div>
-                <div class="order-field"><span>Arte / prazo</span><span>Pronta · sexta-feira</span></div>
+              <div class="pillar-stats">
+                <div class="st"><span class="k">ficha</span><span class="v">auto-gerada</span></div>
+                <div class="st"><span class="k">filtro</span><span class="v">ativos / inativos</span></div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Para quem é -->
-      <section id="para-quem" class="section-ink">
+      <!-- ==================== DOIS PÚBLICOS ==================== -->
+      <section class="section-cream">
         <div class="container">
-          <div class="section-head center">
-            <p class="eyebrow">Para quem é</p>
-            <h2 class="section-title">Feito para o seu negócio.</h2>
+          <div class="section-head">
+            <p class="eyebrow">Para os dois lados do balcão</p>
+            <h2 class="section-title">Um produto, <em class="hl">dois públicos</em>, o mesmo núcleo.</h2>
             <p class="section-intro">
-              Para gráficas e para quem vende impressos personalizados.
+              Gráfica que produz e revendedor que terceiriza começam com a mesma
+              base: vitrine, pedidos e clientes. Módulos específicos vêm depois.
             </p>
           </div>
-          <div class="grid">
-            <div class="card">
-              <h3>Gráfica rápida</h3>
-              <p>
-                Profissionalize a vitrine e centralize os pedidos — do balcão ao
-                WhatsApp, num sistema só.
-              </p>
+          <div class="grid cols-2">
+            <div class="card aud-card">
+              <div class="a-top">
+                <p class="eyebrow" style="margin: 0">Para gráfica</p>
+                <span class="a-tag">01</span>
+              </div>
+              <h3>Sua gráfica vendendo no celular do cliente.</h3>
+              <ul>
+                <li><span class="ck">&#10003;</span> Cliente abre o link, escolhe, manda o pedido — você produz</li>
+                <li><span class="ck">&#10003;</span> Atendente para de copiar tabela de preço no WhatsApp</li>
+                <li><span class="ck">&#10003;</span> PDV, financeiro e produção entram na Fase 2</li>
+              </ul>
+              <div class="aud-visual">
+                <div class="mock-window" style="width: 100%">
+                  <div class="mock-bar">
+                    <div class="mock-dots"><i style="background:#e96b65"></i><i style="background:#fec806"></i><i style="background:#00b978"></i></div>
+                    <div class="mock-url">demo.graficanobolso.com.br/admin</div>
+                  </div>
+                  <div class="kanban" style="grid-template-columns: 1fr 1fr; padding: 12px">
+                    <div>
+                      <div class="kan-col-head"><span class="lab"><i style="background:#b0a799"></i> Criando arte</span><span class="n">2</span></div>
+                      <div class="kan-cards">
+                        <div class="kan-card"><div class="kc-c">Marcos / Aurora</div><div class="kc-p">Cartões couché</div></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="kan-col-head"><span class="lab"><i style="background:#00b978"></i> Pronto</span><span class="n">1</span></div>
+                      <div class="kan-cards">
+                        <div class="kan-card"><div class="kc-c">Sofia / Doceria</div><div class="kc-p">Cartões 90&times;50</div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a href="grafica.html" class="btn btn-outline" style="align-self: flex-start">Ver para gráfica <span class="arr">&rarr;</span></a>
             </div>
-            <div class="card">
-              <h3>Papelaria e personalizados</h3>
-              <p>
-                Tags, cartelas, convites, adesivos, brindes: pedidos organizados,
-                com cada detalhe no lugar certo.
-              </p>
-            </div>
-            <div class="card">
-              <h3>Designer que revende impressos</h3>
-              <p>
-                Venda arte + impressão com uma vitrine profissional, mesmo sem
-                ter gráfica própria.
-              </p>
-            </div>
-            <div class="card">
-              <h3>Comunicação visual e brindes</h3>
-              <p>
-                Organize pedidos sob medida com quantidade, medidas, acabamento
-                e prazo.
-              </p>
+            <div class="card aud-card">
+              <div class="a-top">
+                <p class="eyebrow" style="margin: 0">Para revendedor</p>
+                <span class="a-tag">02</span>
+              </div>
+              <h3>Captou no Instagram, terceiriza, entrega.</h3>
+              <ul>
+                <li><span class="ck">&#10003;</span> Você capta no tráfego, o cliente compra direto na sua vitrine</li>
+                <li><span class="ck">&#10003;</span> Pedido organizado pra você repassar pra gráfica fornecedora</li>
+                <li><span class="ck">&#10003;</span> Rede de terceirização integrada na Fase 3</li>
+              </ul>
+              <div class="aud-visual">
+                <div class="phone" style="width: 210px">
+                  <div class="phone-screen">
+                    <div class="phone-top" style="padding: 14px 13px 11px">
+                      <div class="ps-tag">Catálogo</div>
+                      <div class="ps-name" style="font-size: .92rem">Sua Marca</div>
+                    </div>
+                    <div class="phone-body" style="padding: 10px">
+                      <div class="pp-card"><div class="pp-img b"></div><div class="pp-info"><div class="pp-n">Cartão de visita</div></div></div>
+                      <div class="pp-card"><div class="pp-img"></div><div class="pp-info"><div class="pp-n">Adesivo vinil</div></div></div>
+                    </div>
+                    <div class="phone-cta">Fazer pedido</div>
+                  </div>
+                </div>
+              </div>
+              <a href="revendedor.html" class="btn btn-outline" style="align-self: flex-start">Ver para revendedor <span class="arr">&rarr;</span></a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- FAQ -->
-      <section id="faq" class="section-cream">
+      <!-- ==================== RECURSOS ==================== -->
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">O que está no produto hoje</p>
+            <h2 class="section-title">Tudo que cabe num <em class="hl">MVP honesto</em>.</h2>
+            <p class="section-intro">
+              Nada de prometer o que não está pronto. Esta é a lista do que já
+              vai no ar — o resto está em roadmap público.
+            </p>
+          </div>
+          <div class="grid cols-3">
+            <div class="card">
+              <div class="icon-chip">&#9783;</div>
+              <h3>Link único da marca</h3>
+              <p>Subdomínio próprio — sua-marca.graficanobolso.com.br. Compartilha em qualquer lugar.</p>
+            </div>
+            <div class="card">
+              <div class="icon-chip">&#9636;</div>
+              <h3>Catálogo por categoria</h3>
+              <p>Organiza por categoria, faixa de preço, variações (cor, gramatura, acabamento) e múltiplas fotos.</p>
+            </div>
+            <div class="card">
+              <div class="icon-chip">&#9776;</div>
+              <h3>Pedidos no Kanban</h3>
+              <p>Pipeline visual com 7 status padrão — criando arte, em produção, pronto, entregue e mais.</p>
+            </div>
+            <div class="card">
+              <div class="icon-chip">&#128722;</div>
+              <h3>Carrinho público</h3>
+              <p>Cliente monta o carrinho, finaliza com nome + WhatsApp, e o pedido cai no seu painel.</p>
+            </div>
+            <div class="card">
+              <div class="icon-chip">&#9786;</div>
+              <h3>Cadastro de clientes</h3>
+              <p>Cadastro automático pelo WhatsApp; histórico, total gasto e última compra na ficha.</p>
+            </div>
+            <div class="card">
+              <div class="icon-chip">&#128172;</div>
+              <h3>Saída via WhatsApp</h3>
+              <p>Cada pedido vira uma mensagem pronta pra abrir o WhatsApp do cliente — pra confirmar.</p>
+            </div>
+            <div class="card">
+              <div class="icon-chip">&#127912;</div>
+              <h3>Aparência simples</h3>
+              <p>Logo, cor, capa, modo claro/escuro. Sem editor complexo — defaults bons.</p>
+            </div>
+            <div class="card">
+              <div class="icon-chip">&#128737;</div>
+              <h3>Multi-tenant seguro</h3>
+              <p>Isolamento por conta na camada de dados. Cabeçalhos de segurança ligados desde o dia 1.</p>
+            </div>
+            <div class="card">
+              <div class="icon-chip">&#9889;</div>
+              <h3>Mobile-first de verdade</h3>
+              <p>Toda tela testada no celular antes do desktop. Vitrine roda como PWA no aparelho do cliente.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== COMO FUNCIONA (4 passos) ==================== -->
+      <section class="section-ink">
+        <div class="container">
+          <div class="section-head" style="margin-bottom: 48px">
+            <p class="eyebrow">Como funciona</p>
+            <h2 class="section-title">Quatro passos. <em class="hl">Sem treinamento.</em></h2>
+          </div>
+          <div class="flow-grid">
+            <div>
+              <span class="f-n">01</span>
+              <h3>Cadastre sua gráfica</h3>
+              <p>Email, senha e o nome do seu link. 90 segundos. Sem cartão.</p>
+            </div>
+            <div>
+              <span class="f-n">02</span>
+              <h3>Suba seu catálogo</h3>
+              <p>Cole produtos, categorias e fotos. Defaults inteligentes pra você não travar.</p>
+            </div>
+            <div>
+              <span class="f-n">03</span>
+              <h3>Compartilhe o link</h3>
+              <p>Bio do Instagram, status do WhatsApp, etiqueta na embalagem — onde quiser.</p>
+            </div>
+            <div>
+              <span class="f-n">04</span>
+              <h3>Receba pedidos organizados</h3>
+              <p>Cliente compra, pedido cai no kanban, dados do cliente ficam salvos.</p>
+            </div>
+          </div>
+          <div style="margin-top: 36px">
+            <a href="como-funciona.html" style="display: inline-flex; align-items: center; gap: 8px; font-size: .95rem; border-bottom: 1px solid rgba(243,233,225,.3); padding-bottom: 4px">
+              Detalhamento de cada etapa <span class="arr">&rarr;</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== POR DENTRO (mockup) ==================== -->
+      <section>
         <div class="container">
           <div class="section-head center">
-            <p class="eyebrow">Dúvidas</p>
-            <h2 class="section-title">Perguntas frequentes.</h2>
+            <p class="eyebrow">Captura de tela</p>
+            <h2 class="section-title">Veja por dentro <em class="hl">(de verdade)</em>.</h2>
+            <p class="section-intro">
+              Telas do produto em construção. Tudo o que aparece aqui já funciona
+              no ambiente de demonstração.
+            </p>
           </div>
-          <div class="faq">
-            <details>
-              <summary>O que é o Gráfica no Bolso?</summary>
-              <p>
-                É uma vitrine digital e um sistema de pedidos para gráficas e
-                vendedores de impressos personalizados. Substitui o PDF estático
-                e a bagunça do WhatsApp por um link único e pedidos completos.
-              </p>
-            </details>
-            <details>
-              <summary>Quando vai lançar?</summary>
-              <p>
-                Está em desenvolvimento, com acesso antecipado em beta fechado.
-                Quem entra na lista de espera é avisado primeiro.
-              </p>
-            </details>
-            <details>
-              <summary>Quanto vai custar?</summary>
-              <p>
-                O preço ainda está sendo definido. Quem entrar na lista de espera
-                terá uma condição especial no lançamento.
-              </p>
-            </details>
-            <details>
-              <summary>Preciso entender de tecnologia?</summary>
-              <p>
-                Não. O Gráfica no Bolso é feito para ser simples e usado direto
-                do celular, sem instalar nada.
-              </p>
-            </details>
-            <details>
-              <summary>Serve para a minha gráfica ou papelaria?</summary>
-              <p>
-                Sim, se você vende impressos ou personalizados sob demanda —
-                cartões, panfletos, adesivos, banners, tags, convites e afins.
-              </p>
-            </details>
+          <div class="mock-window">
+            <div class="mock-bar">
+              <div class="mock-dots"><i style="background:#e96b65"></i><i style="background:#fec806"></i><i style="background:#00b978"></i></div>
+              <div class="mock-url">demo.graficanobolso.com.br/admin/pedidos</div>
+            </div>
+            <div class="mock-subnav">
+              <strong>Pedidos</strong><span>Clientes</span><span>Catálogo</span><span>Aparência</span>
+              <span class="pill">Hoje · 9 pedidos</span>
+            </div>
+            <div class="kanban">
+              <div>
+                <div class="kan-col-head"><span class="lab"><i style="background:#b0a799"></i> Criando arte</span><span class="n">2</span></div>
+                <div class="kan-cards">
+                  <div class="kan-card"><div class="kc-c">Marcos / Aurora MEI</div><div class="kc-p">Cartões couché</div><div class="kc-foot"><span class="kc-id">#2840</span><span class="kc-v">R$ 240</span></div></div>
+                  <div class="kan-card"><div class="kc-c">Bia / Studio Coral</div><div class="kc-p">Panfleto A5</div><div class="kc-foot"><span class="kc-id">#2841</span><span class="kc-v">R$ 89</span></div></div>
+                  <div class="kan-add">+</div>
+                </div>
+              </div>
+              <div>
+                <div class="kan-col-head"><span class="lab"><i style="background:#fec806"></i> Em produção</span><span class="n">3</span></div>
+                <div class="kan-cards">
+                  <div class="kan-card"><div class="kc-c">Felipe / Joalheria F.</div><div class="kc-p">Tags + cartelas</div><div class="kc-foot"><span class="kc-id">#2840</span><span class="kc-v">R$ 410</span></div></div>
+                  <div class="kan-card"><div class="kc-c">Eduarda / Pet Shop</div><div class="kc-p">Adesivos vinil</div><div class="kc-foot"><span class="kc-id">#2841</span><span class="kc-v">R$ 165</span></div></div>
+                  <div class="kan-card"><div class="kc-c">Luís / Bar do Luís</div><div class="kc-p">Cardápios A4</div><div class="kc-foot"><span class="kc-id">#2842</span><span class="kc-v">R$ 320</span></div></div>
+                  <div class="kan-add">+</div>
+                </div>
+              </div>
+              <div>
+                <div class="kan-col-head"><span class="lab"><i style="background:#00b978"></i> Pronto</span><span class="n">1</span></div>
+                <div class="kan-cards">
+                  <div class="kan-card"><div class="kc-c">Sofia / Doceria Sofi</div><div class="kc-p">Cartões 90&times;50</div><div class="kc-foot"><span class="kc-id">#2840</span><span class="kc-v">R$ 95</span></div></div>
+                  <div class="kan-add">+</div>
+                </div>
+              </div>
+              <div>
+                <div class="kan-col-head"><span class="lab"><i style="background:#1c1c1e"></i> Entregue</span><span class="n">1</span></div>
+                <div class="kan-cards">
+                  <div class="kan-card"><div class="kc-c">Heitor / Construtora H</div><div class="kc-p">Banner 3&times;1m</div><div class="kc-foot"><span class="kc-id">#2840</span><span class="kc-v">R$ 1.240</span></div></div>
+                  <div class="kan-add">+</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid cols-2" style="margin-top: 20px">
+            <div class="card" style="padding: 0; overflow: hidden">
+              <div class="mock-bar">
+                <div class="mock-dots"><i style="background:#e96b65"></i><i style="background:#fec806"></i><i style="background:#00b978"></i></div>
+                <div class="mock-url">demo.graficanobolso.com.br/clientes</div>
+              </div>
+              <div style="padding: 14px 0 6px">
+                <table class="tbl-mock">
+                  <thead><tr><th>Nome</th><th>Empresa</th><th>Pedidos</th><th>Total</th></tr></thead>
+                  <tbody>
+                    <tr><td><span class="av"><i>MA</i> Marcos Andrade</span></td><td style="color:var(--muted)">Aurora MEI</td><td>8 pedidos</td><td class="num">R$ 2.140</td></tr>
+                    <tr><td><span class="av"><i>BL</i> Bianca Lemos</span></td><td style="color:var(--muted)">Studio Coral</td><td>3 pedidos</td><td class="num">R$ 380</td></tr>
+                    <tr><td><span class="av"><i>FT</i> Felipe Tanaka</span></td><td style="color:var(--muted)">Joalheria Tanaka</td><td>21 pedidos</td><td class="num">R$ 9.420</td></tr>
+                    <tr><td><span class="av"><i>ER</i> Eduarda Rocha</span></td><td style="color:var(--muted)">Pet Shop Pati</td><td>5 pedidos</td><td class="num">R$ 720</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="card" style="display: flex; align-items: center; justify-content: center; background: var(--cream)">
+              <div class="phone" style="width: 230px">
+                <div class="phone-screen">
+                  <div class="phone-top">
+                    <div class="ps-tag">Catálogo / Cartões</div>
+                    <div class="ps-name">Cartão de visita</div>
+                  </div>
+                  <div style="padding: 14px">
+                    <div style="font-size:.78rem;color:var(--muted)">Couché 300g · 4&times;4 cores · verniz total</div>
+                    <div style="margin-top:12px;border:1px solid var(--border);border-radius:9px;padding:10px;background:var(--card)">
+                      <div style="font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">Quantidade</div>
+                      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:6px">
+                        <div style="text-align:center;border:1px solid var(--border);border-radius:6px;padding:5px 2px"><div style="font-size:.7rem;font-weight:700">100</div><div style="font-size:.6rem;color:var(--muted)">R$ 19</div></div>
+                        <div style="text-align:center;border:1px solid var(--border);border-radius:6px;padding:5px 2px"><div style="font-size:.7rem;font-weight:700">500</div><div style="font-size:.6rem;color:var(--muted)">R$ 28</div></div>
+                        <div style="text-align:center;border:1px solid var(--brand);background:var(--brand);color:#fff;border-radius:6px;padding:5px 2px"><div style="font-size:.7rem;font-weight:700">1000</div><div style="font-size:.6rem;opacity:.85">R$ 35</div></div>
+                        <div style="text-align:center;border:1px solid var(--border);border-radius:6px;padding:5px 2px"><div style="font-size:.7rem;font-weight:700">2000</div><div style="font-size:.6rem;color:var(--muted)">R$ 56</div></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="phone-cta" style="margin-top: 4px">&#128172; Pedir · R$ 35</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- CTA final -->
-      <section class="section-ink cta-final" id="contato">
+      <!-- ==================== COMPARATIVO ==================== -->
+      <section class="section-cream">
         <div class="container">
-          <p class="eyebrow">Acesso antecipado</p>
-          <h2>Sua gráfica não precisa de mais conversa perdida. Precisa de pedido organizado.</h2>
-          <p>
-            Entre na lista de espera e seja um dos primeiros a testar o Gráfica
-            no Bolso.
-          </p>
-          <!-- Destino temporário: e-mail do fundador. Trocar por formulário (Resend) quando pronto. -->
-          <a
-            href="mailto:ulisgd@gmail.com?subject=Lista de espera - Grafica no Bolso"
-            class="btn btn-cta"
-            >Quero testar primeiro</a
-          >
+          <div class="section-head">
+            <p class="eyebrow">Comparativo</p>
+            <h2 class="section-title">Por que <em class="hl">não</em> é só mais um catálogo.</h2>
+            <p class="section-intro">
+              Comparado com o que você usa hoje — e com o que tentou usar e
+              desistiu.
+            </p>
+          </div>
+          <div class="cmp-wrap">
+            <table class="cmp">
+              <thead>
+                <tr>
+                  <th>Recurso</th>
+                  <th class="us">Gráfica no Bolso <span class="tag-us">nós</span></th>
+                  <th>PDF + WhatsApp</th>
+                  <th>ERP gráfico tradicional</th>
+                  <th>Loja virtual genérica</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Link único da marca</td><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="no">&times;</span></td><td><span class="maybe">às vezes</span></td><td><span class="no">&times;</span></td></tr>
+                <tr><td>Catálogo organizado</td><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="no">&times;</span></td><td><span class="yes">&#10003;</span></td><td><span class="no">&times;</span></td></tr>
+                <tr><td>Pedidos no kanban</td><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="no">&times;</span></td><td><span class="maybe">extra</span></td><td><span class="no">&times;</span></td></tr>
+                <tr><td>Cadastro de cliente automático</td><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="no">&times;</span></td><td><span class="no">&times;</span></td><td><span class="no">&times;</span></td></tr>
+                <tr><td>Mobile-first</td><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="no">&times;</span></td><td><span class="no">&times;</span></td><td><span class="no">&times;</span></td></tr>
+                <tr><td>Setup em minutos</td><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="yes">&#10003;</span></td><td><span class="no">&times;</span></td><td><span class="yes">&#10003;</span></td></tr>
+                <tr><td>Histórico do cliente</td><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="no">&times;</span></td><td><span class="yes">&#10003;</span></td><td><span class="no">&times;</span></td></tr>
+                <tr><td>Sem cartão pra testar</td><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="yes">&#10003;</span></td><td><span class="maybe">às vezes</span></td><td><span class="yes">&#10003;</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== POR QUE CONFIAR ==================== -->
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Por que confiar</p>
+            <h2 class="section-title">Construído por quem <em class="hl">vive</em> a gráfica.</h2>
+            <p class="section-intro">
+              O fundador é dono de uma gráfica em operação. Cada feature do MVP
+              nasce de uma dor real — não de um deck.
+            </p>
+          </div>
+          <div class="grid cols-2">
+            <div class="card diff-card">
+              <div>
+                <p class="eyebrow" style="margin: 0">Dogfooding</p>
+                <h3>O fundador usa o produto na própria gráfica.</h3>
+                <p>A vitrine de demonstração é a vitrine real da gráfica do fundador. Quando um botão estiver errado, ele perde dinheiro junto com você.</p>
+              </div>
+              <div class="diff-kpi"><div class="k">100%</div><div class="ks">das features validadas em operação real</div></div>
+            </div>
+            <div class="card diff-card">
+              <div>
+                <p class="eyebrow" style="margin: 0">Mobile-first</p>
+                <h3>O cliente final entra do celular. Sempre.</h3>
+                <p>O PDF do concorrente foi desenhado pra desktop. Aqui cada tela começa no celular. Toque, polegar, scroll vertical.</p>
+              </div>
+              <div class="diff-kpi"><div class="k">&gt;90%</div><div class="ks">do tráfego previsto em mobile</div></div>
+            </div>
+            <div class="card diff-card">
+              <div>
+                <p class="eyebrow" style="margin: 0">Ética</p>
+                <h3>Sem prova social fabricada. Sem urgência falsa.</h3>
+                <p>Você não vai ver "2.847 gráficas usam" aqui. Quando tivermos dados reais, mostramos. Padrão registrado em design-comportamental.md.</p>
+              </div>
+              <div class="diff-kpi"><div class="k">0</div><div class="ks">dark patterns · política não-negociável</div></div>
+            </div>
+            <div class="card diff-card">
+              <div>
+                <p class="eyebrow" style="margin: 0">Soberania</p>
+                <h3>Self-hosted, com seus dados na nossa VPS.</h3>
+                <p>Sem refém de plataforma. Postgres, MinIO e Evolution API rodam em servidor próprio. Backup e exportação previstos no roadmap.</p>
+              </div>
+              <div class="diff-kpi"><div class="k">VPS</div><div class="ks">Traefik · Postgres · Docker</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FAQ TEASE ==================== -->
+      <section class="section-cream">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Perguntas frequentes</p>
+            <h2 class="section-title">Dúvidas honestas, <em class="hl">respostas honestas</em>.</h2>
+          </div>
+          <div class="grid cols-2">
+            <div class="card">
+              <h3 style="font-size: 1.04rem">Quanto custa?</h3>
+              <p>Planos a definir. Vamos publicar antes do lançamento — sem trial enganoso, sem letra miúda.</p>
+            </div>
+            <div class="card">
+              <h3 style="font-size: 1.04rem">Preciso ter conhecimento técnico?</h3>
+              <p>Não. Se você sabe mandar PDF no WhatsApp, sabe usar.</p>
+            </div>
+            <div class="card">
+              <h3 style="font-size: 1.04rem">Posso usar com o WhatsApp da minha empresa?</h3>
+              <p>Sim. Toda comunicação inicial continua no WhatsApp — só fica organizada.</p>
+            </div>
+            <div class="card">
+              <h3 style="font-size: 1.04rem">Meus dados ficam onde?</h3>
+              <p>Em VPS própria, no Brasil. Backup e exportação no roadmap antes do lançamento pago.</p>
+            </div>
+          </div>
+          <div style="text-align: center; margin-top: 26px">
+            <a href="faq.html" class="btn btn-outline">Ver todas as perguntas <span class="arr">&rarr;</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== CTA FINAL ==================== -->
+      <section class="cta-block">
+        <div class="container">
+          <div class="cta-inner">
+            <p class="eyebrow">Pronto?</p>
+            <h2>Sua próxima venda começa com <em class="hl">um link</em>.</h2>
+            <p>
+              Crie sua vitrine, organize os pedidos e pare de perder cliente no
+              WhatsApp. Em construção — entre na lista de fundadores.
+            </p>
+            <div class="cta-actions">
+              <a href="precos.html" class="btn btn-light">Entrar na lista de fundadores <span class="arr">&rarr;</span></a>
+              <a href="como-funciona.html" class="btn btn-outline" style="color: var(--paper); border-color: rgba(243,233,225,.25)">Ver como funciona</a>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
-    <!-- Footer -->
-    <footer>
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer">
       <div class="container">
-        <div class="footer-inner">
-          <span
-            aria-label="Gráfica no Bolso"
-            style="display: flex; align-items: baseline; gap: 5px"
-          >
-            <span style="font-weight: 700; font-size: 1.25rem; color: var(--paper)">Gráfica</span>
-            <span style="font-weight: 700; font-size: 1.25rem; color: var(--cta)">no Bolso</span>
-          </span>
-          <ul class="footer-links">
-            <li><a href="#problema">O problema</a></li>
-            <li><a href="#pedido">Pedido Inteligente</a></li>
-            <li><a href="#como-funciona">Como funciona</a></li>
-            <li><a href="#para-quem">Para quem é</a></li>
-            <li><a href="#faq">Dúvidas</a></li>
-          </ul>
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <span class="wm"><span class="wm-ink">Gráfica</span> <span class="wm-cta">no Bolso</span></span>
+            <p>Vitrine digital, pedidos organizados e cadastro de clientes — para quem vive de impressos no Brasil.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Produto</h4>
+            <ul>
+              <li><a href="grafica.html">Para gráfica</a></li>
+              <li><a href="revendedor.html">Para revendedor</a></li>
+              <li><a href="como-funciona.html">Como funciona</a></li>
+              <li><a href="precos.html">Preços</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Recursos</h4>
+            <ul>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="index.html">Início</a></li>
+              <li><a href="como-funciona.html">Fluxo do produto</a></li>
+              <li><a href="precos.html">Planos</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Empresa</h4>
+            <ul>
+              <li><a href="faq.html">Contato</a></li>
+              <li><a href="precos.html">Lista de espera</a></li>
+            </ul>
+          </div>
         </div>
-        <p class="footer-copy">
-          © 2026 Gráfica no Bolso · graficanobolso.com.br — vitrine digital e
-          pedidos organizados para o mercado de impressos.
-        </p>
+        <div class="footer-bottom">
+          <span>&copy; 2026 Gráfica no Bolso · graficanobolso.com.br</span>
+          <span>v0.1 — MVP em construção</span>
+        </div>
       </div>
     </footer>
   </body>
