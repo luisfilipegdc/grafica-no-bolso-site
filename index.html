@@ -10,28 +10,24 @@
     />
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 56'%3E%3Crect width='56' height='56' rx='14' fill='%231a7c7c'/%3E%3Cpath d='M38 0 L56 18 L38 18 Z' fill='white' opacity='0.22'/%3E%3Ctext x='12' y='40' font-family='sans-serif' font-weight='800' font-size='28' fill='white'%3EG%3C/text%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 56'%3E%3Crect width='56' height='56' rx='14' fill='%23aa6bfb'/%3E%3Cpath d='M38 0 L56 18 L38 18 Z' fill='white' opacity='0.25'/%3E%3Ctext x='12' y='40' font-family='sans-serif' font-weight='800' font-size='28' fill='white'%3EG%3C/text%3E%3C/svg%3E"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin />
+    <link rel="stylesheet" href="https://use.typekit.net/yhy8nmx.css" />
     <style>
       :root {
-        --ink: #0f0e0d;
-        --paper: #f7f4ef;
-        --cream: #ede8df;
+        --ink: #1c1c1e;
+        --paper: #f3e9e1;
+        --cream: #ece1d5;
         --card: #ffffff;
-        --teal: #1a7c7c;
-        --teal-dark: #145e5e;
-        --gold: #c9991a;
-        --cta: #c8341a;
-        --cta-dark: #a82a14;
-        --muted: #7a746c;
-        --border: #d8d1c4;
-        --radius: 14px;
+        --brand: #aa6bfb;
+        --brand-dark: #8b46e8;
+        --gold: #fec806;
+        --cta: #ff621c;
+        --cta-dark: #e5530f;
+        --muted: #8a8077;
+        --border: #e7ddd0;
+        --radius: 16px;
       }
 
       * {
@@ -43,7 +39,7 @@
         scroll-behavior: smooth;
       }
       body {
-        font-family: "Space Grotesk", system-ui, sans-serif;
+        font-family: "basic-sans", system-ui, sans-serif;
         color: var(--ink);
         background: var(--paper);
         line-height: 1.6;
@@ -52,12 +48,17 @@
       h1,
       h2,
       h3 {
-        font-family: "Syne", sans-serif;
+        font-family: "basic-sans", sans-serif;
         line-height: 1.1;
         letter-spacing: -0.015em;
       }
       a {
         color: inherit;
+      }
+      /* Acento manuscrito da marca (Chantal). */
+      .font-script {
+        font-family: "chantal", cursive;
+        font-weight: 600;
       }
       .container {
         width: 100%;
@@ -66,11 +67,11 @@
         padding: 0 22px;
       }
       .eyebrow {
-        font-family: "DM Mono", monospace;
+        font-family: "basic-sans", sans-serif;
         font-size: 0.74rem;
         letter-spacing: 0.22em;
         text-transform: uppercase;
-        color: var(--teal);
+        color: var(--brand);
         margin-bottom: 14px;
       }
 
@@ -81,7 +82,7 @@
         gap: 8px;
         padding: 14px 26px;
         border-radius: 999px;
-        font-family: "Space Grotesk", sans-serif;
+        font-family: "basic-sans", sans-serif;
         font-weight: 600;
         font-size: 1rem;
         text-decoration: none;
@@ -102,12 +103,12 @@
       .btn-cta:hover {
         background: var(--cta-dark);
       }
-      .btn-teal {
-        background: var(--teal);
+      .btn-brand {
+        background: var(--brand);
         color: #fff;
       }
-      .btn-teal:hover {
-        background: var(--teal-dark);
+      .btn-brand:hover {
+        background: var(--brand-dark);
       }
       .btn-outline {
         background: transparent;
@@ -115,8 +116,8 @@
         border-color: var(--border);
       }
       .btn-outline:hover {
-        border-color: var(--teal);
-        color: var(--teal);
+        border-color: var(--brand);
+        color: var(--brand);
       }
 
       /* ---- Navbar ---- */
@@ -179,7 +180,7 @@
         background: var(--card);
         border: 1px solid var(--border);
         color: var(--ink);
-        font-family: "DM Mono", monospace;
+        font-family: "basic-sans", sans-serif;
         font-size: 0.74rem;
         letter-spacing: 0.06em;
         padding: 7px 15px;
@@ -187,7 +188,7 @@
         margin-bottom: 22px;
       }
       .badge b {
-        color: var(--teal);
+        color: var(--brand);
       }
       .hero h1 {
         font-size: clamp(2.2rem, 5.2vw, 3.5rem);
@@ -195,7 +196,7 @@
         margin-bottom: 18px;
       }
       .hero h1 .hl {
-        color: var(--teal);
+        color: var(--brand);
       }
       .hero-sub {
         font-size: 1.12rem;
@@ -229,12 +230,12 @@
         overflow: hidden;
       }
       .phone-top {
-        background: var(--teal);
+        background: var(--brand);
         color: #fff;
         padding: 22px 16px 16px;
       }
       .phone-top .ps-name {
-        font-family: "Syne", sans-serif;
+        font-family: "basic-sans", sans-serif;
         font-weight: 700;
         font-size: 1rem;
       }
@@ -269,7 +270,7 @@
       .pp-info .pp-p {
         font-size: 0.7rem;
         font-weight: 700;
-        color: var(--teal);
+        color: var(--brand);
         margin-top: 4px;
       }
       .phone-cta {
@@ -345,7 +346,7 @@
         font-size: 0.96rem;
       }
       .card-num {
-        font-family: "DM Mono", monospace;
+        font-family: "basic-sans", sans-serif;
         font-size: 0.78rem;
         color: var(--cta);
         margin-bottom: 12px;
@@ -371,9 +372,9 @@
       }
       .feature-hero .tag {
         display: inline-block;
-        background: var(--teal);
+        background: var(--brand);
         color: #fff;
-        font-family: "DM Mono", monospace;
+        font-family: "basic-sans", sans-serif;
         font-size: 0.7rem;
         letter-spacing: 0.12em;
         text-transform: uppercase;
@@ -428,10 +429,10 @@
       }
       .ba-after {
         background: var(--card);
-        border: 1px solid var(--teal);
+        border: 1px solid var(--brand);
       }
       .ba-label {
-        font-family: "DM Mono", monospace;
+        font-family: "basic-sans", sans-serif;
         font-size: 0.72rem;
         letter-spacing: 0.14em;
         text-transform: uppercase;
@@ -441,7 +442,7 @@
         color: var(--cta);
       }
       .ba-after .ba-label {
-        color: var(--teal);
+        color: var(--brand);
       }
       .chat-bubble {
         background: #fff;
@@ -487,7 +488,7 @@
       .faq summary::after {
         content: "+";
         font-size: 1.4rem;
-        color: var(--teal);
+        color: var(--brand);
         line-height: 1;
       }
       .faq details[open] summary::after {
@@ -580,15 +581,13 @@
     <!-- Navbar -->
     <header>
       <div class="container header-inner">
-        <a href="#topo" aria-label="Gráfica no Bolso">
-          <svg width="186" height="44" viewBox="0 0 240 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="1" y="1" width="46" height="46" rx="8" stroke="#1a7c7c" stroke-width="1.5" fill="none" />
-            <path d="M31 1 L47 17 L31 17 Z" fill="#1a7c7c" opacity="0.22" />
-            <path d="M31 1 L47 17" stroke="#1a7c7c" stroke-width="1.5" />
-            <text x="11" y="35" font-family="Syne, sans-serif" font-weight="800" font-size="22" fill="#0f0e0d">G</text>
-            <text x="62" y="24" font-family="Syne, sans-serif" font-weight="800" font-size="17" fill="#0f0e0d" letter-spacing="-0.3">GRÁFICA</text>
-            <text x="62" y="43" font-family="DM Mono, monospace" font-weight="400" font-size="12" fill="#1a7c7c" letter-spacing="3">NO BOLSO</text>
-          </svg>
+        <a
+          href="#topo"
+          aria-label="Gráfica no Bolso"
+          style="display: flex; align-items: baseline; gap: 5px; text-decoration: none"
+        >
+          <span style="font-weight: 700; font-size: 1.4rem; color: var(--ink)">Gráfica</span>
+          <span class="font-script" style="font-size: 1.85rem; line-height: 1; color: var(--cta)">no Bolso</span>
         </a>
         <nav>
           <ul class="nav-links">
@@ -599,7 +598,7 @@
             <li><a href="#faq">Dúvidas</a></li>
           </ul>
         </nav>
-        <a href="#contato" class="btn btn-teal header-cta">Quero testar primeiro</a>
+        <a href="#contato" class="btn btn-brand header-cta">Quero testar primeiro</a>
       </div>
     </header>
 
@@ -964,14 +963,13 @@
     <footer>
       <div class="container">
         <div class="footer-inner">
-          <svg width="170" height="40" viewBox="0 0 240 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Gráfica no Bolso">
-            <rect x="1" y="1" width="46" height="46" rx="8" stroke="#1a7c7c" stroke-width="1.5" fill="none" />
-            <path d="M31 1 L47 17 L31 17 Z" fill="#1a7c7c" opacity="0.3" />
-            <path d="M31 1 L47 17" stroke="#1a7c7c" stroke-width="1.5" />
-            <text x="11" y="35" font-family="Syne, sans-serif" font-weight="800" font-size="22" fill="#f7f4ef">G</text>
-            <text x="62" y="24" font-family="Syne, sans-serif" font-weight="800" font-size="17" fill="#f7f4ef" letter-spacing="-0.3">GRÁFICA</text>
-            <text x="62" y="43" font-family="DM Mono, monospace" font-weight="400" font-size="12" fill="#1a7c7c" letter-spacing="3">NO BOLSO</text>
-          </svg>
+          <span
+            aria-label="Gráfica no Bolso"
+            style="display: flex; align-items: baseline; gap: 5px"
+          >
+            <span style="font-weight: 700; font-size: 1.25rem; color: var(--paper)">Gráfica</span>
+            <span class="font-script" style="font-size: 1.6rem; line-height: 1; color: var(--cta)">no Bolso</span>
+          </span>
           <ul class="footer-links">
             <li><a href="#problema">O problema</a></li>
             <li><a href="#pedido">Pedido Inteligente</a></li>
