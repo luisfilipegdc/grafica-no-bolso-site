@@ -16,10 +16,10 @@
     <meta property="og:description" content="Da criação da conta ao primeiro pedido organizado: quatro etapas, sem treinamento. Veja o fluxo completo do Gráfica no Bolso." />
     <meta property="og:image" content="https://graficanobolso.com.br/icon.svg" />
     <meta name="twitter:card" content="summary" />
-    <link rel="icon" type="image/svg+xml" href="icon.svg?v=loteA" />
+    <link rel="icon" type="image/svg+xml" href="icon.svg?v=loteC" />
     <link rel="preconnect" href="https://use.typekit.net" crossorigin />
     <link rel="stylesheet" href="https://use.typekit.net/yhy8nmx.css" />
-    <link rel="stylesheet" href="styles.css?v=loteA" />
+    <link rel="stylesheet" href="styles.css?v=loteC" />
   </head>
   <body>
     <header class="site-header">
@@ -39,7 +39,7 @@
           <a href="https://app.graficanobolso.com.br/login" class="nav-enter">Entrar</a>
           <a href="precos.html" class="btn btn-brand btn-sm">Ver planos <span class="arr">&rarr;</span></a>
         </div>
-        <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.mobile-menu').style.display = document.querySelector('.mobile-menu').style.display === 'block' ? 'none' : 'block'">&#9776;</button>
+        <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu"><span class="bar"></span></button>
       </div>
       <div class="mobile-menu">
         <a href="grafica.html">Para gráfica</a>
@@ -321,25 +321,43 @@
         </div>
       </div>
     </footer>
+    <!-- Bottom sticky CTA (mobile only) -->
+    <div class="mobile-sticky-cta" id="msc" aria-hidden="true">
+      <a href="https://app.graficanobolso.com.br/login" class="btn btn-outline">Entrar</a>
+      <a href="precos.html" class="btn btn-cta">Ver os planos <span class="arr">&rarr;</span></a>
+    </div>
     <script>
       (function () {
         var t = document.querySelector('.nav-toggle');
         var m = document.querySelector('.mobile-menu');
-        if (!t || !m) return;
-        t.setAttribute('aria-expanded', 'false');
-        t.setAttribute('aria-controls', 'mobile-menu');
-        m.id = 'mobile-menu';
-        t.addEventListener('click', function () {
-          setTimeout(function () {
-            t.setAttribute('aria-expanded', m.style.display === 'block' ? 'true' : 'false');
-          }, 0);
-        });
-        m.querySelectorAll('a').forEach(function (a) {
-          a.addEventListener('click', function () {
-            m.style.display = 'none';
-            t.setAttribute('aria-expanded', 'false');
+        if (t && m) {
+          m.id = 'mobile-menu';
+          t.addEventListener('click', function () {
+            var open = m.classList.toggle('is-open');
+            t.setAttribute('aria-expanded', open ? 'true' : 'false');
           });
-        });
+          m.querySelectorAll('a').forEach(function (a) {
+            a.addEventListener('click', function () {
+              m.classList.remove('is-open');
+              t.setAttribute('aria-expanded', 'false');
+            });
+          });
+        }
+        var msc = document.getElementById('msc');
+        var hero = document.querySelector('.hero, .page-hero');
+        var ctaBlock = document.querySelector('.cta-block');
+        if (!msc || !hero) return;
+        function update() {
+          var heroBottom = hero.getBoundingClientRect().bottom;
+          var ctaTop = ctaBlock ? ctaBlock.getBoundingClientRect().top : Infinity;
+          var vh = window.innerHeight;
+          var shouldShow = heroBottom < 60 && ctaTop > vh - 80;
+          msc.classList.toggle('is-visible', shouldShow);
+          msc.setAttribute('aria-hidden', shouldShow ? 'false' : 'true');
+        }
+        window.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update);
+        update();
       })();
     </script>
   </body>
