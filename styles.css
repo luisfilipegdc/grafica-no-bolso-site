@@ -1968,3 +1968,38 @@ footer.site-footer {
     grid-template-columns: 1fr 1fr !important;
   }
 }
+
+/* ---- Polimento round B/C ---- */
+
+/* Card em destaque (Recursos) — quebra hierarquia dos 9 idênticos */
+.card-featured {
+  background: var(--brand-soft);
+  border-color: var(--brand);
+}
+.card-featured .icon-chip {
+  background: var(--brand);
+  color: #fff;
+}
+
+/* Hero mobile: cabe na primeira dobra */
+@media (max-width: 720px) {
+  .hero-inner {
+    padding: 28px 0 36px;
+    gap: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(1.6rem, 6vw, 2rem);
+  }
+  .hero-sub {
+    font-size: 0.96rem;
+  }
+  .hero-checks {
+    margin-top: 14px;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .badge {
+    margin-bottom: 14px;
+    font-size: 0.7rem;
+  }
+}
