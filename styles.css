@@ -181,7 +181,7 @@ header.site-header {
   color: var(--ink);
 }
 .logo .wm-cta {
-  color: var(--cta);
+  color: var(--ink);
 }
 .nav-links {
   display: flex;
@@ -1810,7 +1810,7 @@ footer.site-footer {
   color: var(--paper);
 }
 .footer-brand .wm-cta {
-  color: var(--cta);
+  color: var(--paper);
 }
 .footer-brand p {
   font-size: 0.9rem;
