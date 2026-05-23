@@ -8,6 +8,14 @@
       name="description"
       content="Transparente antes de cobrar. Os valores finais saem antes do lançamento — sem trial enganoso, sem letra miúda. Veja a estrutura de planos prevista."
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Gráfica no Bolso" />
+    <meta property="og:url" content="https://graficanobolso.com.br/precos.html" />
+    <meta property="og:title" content="Preços — Gráfica no Bolso" />
+    <meta property="og:description" content="Transparente antes de cobrar. Os valores finais saem antes do lançamento — sem trial enganoso, sem letra miúda. Veja a estrutura de planos prevista." />
+    <meta property="og:image" content="https://graficanobolso.com.br/icon.svg" />
+    <meta name="twitter:card" content="summary" />
     <link rel="icon" type="image/svg+xml" href="icon.svg" />
     <link rel="preconnect" href="https://use.typekit.net" crossorigin />
     <link rel="stylesheet" href="https://use.typekit.net/yhy8nmx.css" />
@@ -239,5 +247,26 @@
         </div>
       </div>
     </footer>
+    <script>
+      (function () {
+        var t = document.querySelector('.nav-toggle');
+        var m = document.querySelector('.mobile-menu');
+        if (!t || !m) return;
+        t.setAttribute('aria-expanded', 'false');
+        t.setAttribute('aria-controls', 'mobile-menu');
+        m.id = 'mobile-menu';
+        t.addEventListener('click', function () {
+          setTimeout(function () {
+            t.setAttribute('aria-expanded', m.style.display === 'block' ? 'true' : 'false');
+          }, 0);
+        });
+        m.querySelectorAll('a').forEach(function (a) {
+          a.addEventListener('click', function () {
+            m.style.display = 'none';
+            t.setAttribute('aria-expanded', 'false');
+          });
+        });
+      })();
+    </script>
   </body>
 </html>

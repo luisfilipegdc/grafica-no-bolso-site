@@ -8,6 +8,14 @@
       name="description"
       content="Vitrine digital com link único, pedidos organizados num só lugar e cadastro de clientes — mobile-first, feito por quem é dono de gráfica."
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Gráfica no Bolso" />
+    <meta property="og:url" content="https://graficanobolso.com.br/" />
+    <meta property="og:title" content="Gráfica no Bolso — vitrine, pedidos e clientes no celular" />
+    <meta property="og:description" content="Vitrine digital com link único, pedidos organizados num só lugar e cadastro de clientes — mobile-first, feito por quem é dono de gráfica." />
+    <meta property="og:image" content="https://graficanobolso.com.br/icon.svg" />
+    <meta name="twitter:card" content="summary" />
     <link rel="icon" type="image/svg+xml" href="icon.svg" />
     <link rel="preconnect" href="https://use.typekit.net" crossorigin />
     <link rel="stylesheet" href="https://use.typekit.net/yhy8nmx.css" />
@@ -98,7 +106,7 @@
                   <div class="pp-img b"></div>
                   <div class="pp-info">
                     <div class="pp-n">Cartão Couché 300g</div>
-                    <div class="pp-meta"><span class="pp-tag">1000un</span><span class="pp-p">R$ 35</span></div>
+                    <div class="pp-meta"><span class="pp-tag">1000 un.</span><span class="pp-p">R$ 35</span></div>
                   </div>
                 </div>
                 <div class="pp-card">
@@ -112,7 +120,7 @@
                   <div class="pp-img b"></div>
                   <div class="pp-info">
                     <div class="pp-n">Panfleto A5</div>
-                    <div class="pp-meta"><span class="pp-tag">500un</span><span class="pp-p">R$ 89</span></div>
+                    <div class="pp-meta"><span class="pp-tag">500 un.</span><span class="pp-p">R$ 89</span></div>
                   </div>
                 </div>
                 <div class="pp-card">
@@ -701,5 +709,26 @@
         </div>
       </div>
     </footer>
+    <script>
+      (function () {
+        var t = document.querySelector('.nav-toggle');
+        var m = document.querySelector('.mobile-menu');
+        if (!t || !m) return;
+        t.setAttribute('aria-expanded', 'false');
+        t.setAttribute('aria-controls', 'mobile-menu');
+        m.id = 'mobile-menu';
+        t.addEventListener('click', function () {
+          setTimeout(function () {
+            t.setAttribute('aria-expanded', m.style.display === 'block' ? 'true' : 'false');
+          }, 0);
+        });
+        m.querySelectorAll('a').forEach(function (a) {
+          a.addEventListener('click', function () {
+            m.style.display = 'none';
+            t.setAttribute('aria-expanded', 'false');
+          });
+        });
+      })();
+    </script>
   </body>
 </html>

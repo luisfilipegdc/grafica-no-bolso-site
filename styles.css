@@ -1122,26 +1122,6 @@ em.hl {
 .diff-card p {
   margin: 0;
 }
-.diff-kpi {
-  text-align: right;
-  padding-left: 18px;
-  border-left: 1px solid var(--border);
-  min-width: 130px;
-}
-.diff-kpi .k {
-  font-size: 1.9rem;
-  font-weight: 800;
-  color: var(--brand);
-  line-height: 1.05;
-}
-.diff-kpi .ks {
-  font-size: 0.7rem;
-  color: var(--muted);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin-top: 5px;
-}
-
 /* ---- Antes/Depois ---- */
 .ba-card {
   border-radius: var(--radius);
@@ -1917,13 +1897,6 @@ footer.site-footer {
   .diff-card {
     grid-template-columns: 1fr;
     gap: 16px;
-  }
-  .diff-kpi {
-    border-left: none;
-    border-top: 1px solid var(--border);
-    padding-left: 0;
-    padding-top: 14px;
-    text-align: left;
   }
   .tech-block {
     padding: 30px 24px;

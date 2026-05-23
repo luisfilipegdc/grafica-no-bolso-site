@@ -8,6 +8,14 @@
       name="description"
       content="Da criação da conta ao primeiro pedido organizado: quatro etapas, sem treinamento. Veja o fluxo completo do Gráfica no Bolso."
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Gráfica no Bolso" />
+    <meta property="og:url" content="https://graficanobolso.com.br/como-funciona.html" />
+    <meta property="og:title" content="Como funciona — Gráfica no Bolso" />
+    <meta property="og:description" content="Da criação da conta ao primeiro pedido organizado: quatro etapas, sem treinamento. Veja o fluxo completo do Gráfica no Bolso." />
+    <meta property="og:image" content="https://graficanobolso.com.br/icon.svg" />
+    <meta name="twitter:card" content="summary" />
     <link rel="icon" type="image/svg+xml" href="icon.svg" />
     <link rel="preconnect" href="https://use.typekit.net" crossorigin />
     <link rel="stylesheet" href="https://use.typekit.net/yhy8nmx.css" />
@@ -188,9 +196,9 @@
                     <span class="on">Tudo</span><span>Cartões</span><span>Banners</span><span>Adesivos</span>
                   </div>
                   <div class="phone-body">
-                    <div class="pp-card"><div class="pp-img b"></div><div class="pp-info"><div class="pp-n">Cartão Couché 300g</div><div class="pp-meta"><span class="pp-tag">1000un</span><span class="pp-p">R$ 35</span></div></div></div>
+                    <div class="pp-card"><div class="pp-img b"></div><div class="pp-info"><div class="pp-n">Cartão Couché 300g</div><div class="pp-meta"><span class="pp-tag">1000 un.</span><span class="pp-p">R$ 35</span></div></div></div>
                     <div class="pp-card"><div class="pp-img"></div><div class="pp-info"><div class="pp-n">Banner 1m &times; 80cm</div><div class="pp-meta"><span class="pp-tag">Lona</span><span class="pp-p">R$ 49</span></div></div></div>
-                    <div class="pp-card"><div class="pp-img b"></div><div class="pp-info"><div class="pp-n">Panfleto A5</div><div class="pp-meta"><span class="pp-tag">500un</span><span class="pp-p">R$ 89</span></div></div></div>
+                    <div class="pp-card"><div class="pp-img b"></div><div class="pp-info"><div class="pp-n">Panfleto A5</div><div class="pp-meta"><span class="pp-tag">500 un.</span><span class="pp-p">R$ 89</span></div></div></div>
                     <div class="pp-card"><div class="pp-img"></div><div class="pp-info"><div class="pp-n">Adesivo vinil</div><div class="pp-meta"><span class="pp-tag">Por m&sup2;</span><span class="pp-p">R$ 18</span></div></div></div>
                   </div>
                   <div class="phone-cta">Fazer pedido</div>
@@ -323,5 +331,26 @@
         </div>
       </div>
     </footer>
+    <script>
+      (function () {
+        var t = document.querySelector('.nav-toggle');
+        var m = document.querySelector('.mobile-menu');
+        if (!t || !m) return;
+        t.setAttribute('aria-expanded', 'false');
+        t.setAttribute('aria-controls', 'mobile-menu');
+        m.id = 'mobile-menu';
+        t.addEventListener('click', function () {
+          setTimeout(function () {
+            t.setAttribute('aria-expanded', m.style.display === 'block' ? 'true' : 'false');
+          }, 0);
+        });
+        m.querySelectorAll('a').forEach(function (a) {
+          a.addEventListener('click', function () {
+            m.style.display = 'none';
+            t.setAttribute('aria-expanded', 'false');
+          });
+        });
+      })();
+    </script>
   </body>
 </html>
