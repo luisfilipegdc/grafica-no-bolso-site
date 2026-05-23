@@ -2003,3 +2003,10 @@ footer.site-footer {
     font-size: 0.7rem;
   }
 }
+
+/* Eyebrow do hero — dourado, faz hierarquia antes do H1 */
+.hero-eyebrow {
+  color: var(--brand);
+  margin: 14px 0 8px;
+  font-weight: 700;
+}
