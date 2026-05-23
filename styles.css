@@ -1,42 +1,43 @@
 /* Gráfica no Bolso — site de marketing
-   Identidade: dark + dourado, logo só no texto. Fonte basic-sans (Adobe Fonts). */
+   Identidade: ICP-aligned (Bling/Conta Azul/WhatsApp). Branco + verde + laranja CTA. */
 
 :root {
   /* Texto */
-  --ink: #1A1A1A;            /* texto principal sobre claro */
-  --paper-ink: #FFFFFF;      /* texto principal sobre escuro */
-  --paper-ink-soft: #F2F2F2; /* texto secundário sobre escuro */
-  --muted: #888580;
-  --muted-2: #aaa5a0;
+  --ink: #111827;            /* texto principal sobre claro */
+  --ink-soft: #4B5563;       /* texto secundário sobre claro */
+  --paper-ink: #FFFFFF;      /* texto sobre escuro (footer) */
+  --paper-ink-soft: #D1D5DB; /* texto secundário sobre escuro */
+  --muted: #6B7280;
+  --muted-2: #9CA3AF;
 
   /* Backgrounds */
-  --paper: #F5F0E8;          /* creme quente — body / seções claras default */
-  --cream: #E2D8C6;          /* creme mais fundo — alternância (.section-cream) */
-  --card: #FFFFFF;           /* cards brancos */
-  --bg-dark: #0D0D0D;        /* preto profundo — hero, CTA, nav, section-ink */
-  --bg-dark-warm: #1A1410;   /* preto quente — depth alternativo */
-  --bg-footer: #111010;      /* preto rodapé */
+  --paper: #FFFFFF;          /* base branca — body, default */
+  --cream: #F9FAFB;          /* alternância de seções claras (.section-cream agora cinza-claro) */
+  --card: #FFFFFF;
+  --bg-soft: #F9FAFB;
+  --bg-cta: #16A34A;         /* CTA bloc verde */
+  --bg-footer: #111827;      /* footer dark pra frame visual */
 
-  /* Marca: dourado */
-  --brand: #D7AD44;
-  --brand-dark: #B8860B;     /* hover / depth */
-  --brand-text: #9A6F00;     /* dourado pra texto sobre claro (contraste WCAG) */
-  --brand-soft: rgba(215, 173, 68, 0.15);
-  --gold: #D7AD44;
+  /* Marca: verde (WhatsApp / operacional / confiança) */
+  --brand: #16A34A;
+  --brand-dark: #15803D;
+  --brand-text: #15803D;
+  --brand-soft: #DCFCE7;
+  --gold: #16A34A;           /* alias mantido por compat */
 
-  /* CTA = dourado (substitui o laranja) */
-  --cta: #D7AD44;
-  --cta-dark: #B8860B;
-  --cta-soft: rgba(215, 173, 68, 0.15);
+  /* CTA primário = laranja (ação, energia) */
+  --cta: #FF6B2B;
+  --cta-dark: #E85820;
+  --cta-soft: #FFF4EC;
 
   /* Acentos */
-  --accent: #C0622F;         /* terracota — segunda cor de acento */
-  --green: #22C55E;          /* WhatsApp */
+  --accent: #FF6B2B;
+  --green: #16A34A;
 
   /* Bordas */
-  --border: rgba(0, 0, 0, 0.08);
-  --border-dark: rgba(0, 0, 0, 0.16);
-  --radius: 16px;
+  --border: #E5E7EB;
+  --border-dark: #D1D5DB;
+  --radius: 12px;
 }
 
 * {
@@ -148,18 +149,22 @@ svg {
   border-color: var(--brand);
   color: var(--brand);
 }
-/* Inversão em fundos escuros (nav, section-ink, CTA) */
-header .btn-outline,
-.section-ink .btn-outline,
+/* Inversão dentro do .cta-inner (único bloco escuro/verde restante) */
 .cta-inner .btn-outline {
   color: var(--paper-ink);
-  border-color: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.32);
 }
-header .btn-outline:hover,
-.section-ink .btn-outline:hover,
 .cta-inner .btn-outline:hover {
+  background: var(--paper-ink);
   color: var(--brand);
-  border-color: var(--brand);
+  border-color: var(--paper-ink);
+}
+.cta-inner .btn-light {
+  background: var(--paper-ink);
+  color: var(--brand);
+}
+.cta-inner .btn-light:hover {
+  background: rgba(255, 255, 255, 0.9);
 }
 .btn-light {
   background: var(--paper);
@@ -181,9 +186,9 @@ header .btn-outline:hover,
 header.site-header {
   position: sticky;
   top: 0;
-  background: rgba(13, 13, 13, 0.92);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--border);
   z-index: 50;
 }
 .header-inner {
@@ -203,16 +208,27 @@ header.site-header {
   width: 30px;
   height: 30px;
 }
+.logo {
+  display: inline-flex;
+  align-items: center;
+}
 .logo .wm {
   font-weight: 800;
   font-size: 1.22rem;
   letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--ink);
 }
-.logo .wm-ink {
-  color: var(--paper-ink);
-}
-.logo .wm-cta {
+.logo .wm-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
   color: var(--brand);
+}
+.logo .wm-ink, .logo .wm-cta {
+  color: var(--ink);
 }
 .nav-links {
   display: flex;
@@ -223,7 +239,7 @@ header.site-header {
 .nav-links a {
   font-weight: 500;
   font-size: 0.92rem;
-  color: var(--paper-ink-soft);
+  color: var(--ink-soft);
   padding: 8px 12px;
   border-radius: 9px;
   transition:
@@ -231,11 +247,11 @@ header.site-header {
     background 0.15s ease;
 }
 .nav-links a:hover {
-  color: var(--paper-ink);
+  color: var(--ink);
 }
 .nav-links a.active {
   color: var(--brand);
-  background: rgba(215, 173, 68, 0.12);
+  background: var(--brand-soft);
 }
 .nav-spacer {
   flex: 1;
@@ -257,9 +273,9 @@ header.site-header {
   display: none;
   width: 40px;
   height: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--paper-ink);
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--ink);
   border-radius: 10px;
   cursor: pointer;
   align-items: center;
@@ -268,8 +284,8 @@ header.site-header {
 }
 .mobile-menu {
   display: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  background: var(--bg-dark);
+  border-top: 1px solid var(--border);
+  background: var(--card);
   padding: 10px 24px 18px;
 }
 .mobile-menu a {
@@ -277,8 +293,8 @@ header.site-header {
   padding: 11px 0;
   font-size: 1rem;
   font-weight: 500;
-  color: var(--paper-ink-soft);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--ink);
+  border-bottom: 1px solid var(--border);
 }
 .mobile-menu .mm-actions {
   display: flex;
@@ -311,8 +327,8 @@ section {
   border-bottom: 1px solid var(--border);
 }
 .section-ink {
-  background: var(--bg-dark);
-  color: var(--paper-ink);
+  background: var(--bg-soft);
+  color: var(--ink);
 }
 .section-ink h1,
 .section-ink h2,
@@ -457,14 +473,8 @@ em.hl {
 
 /* ---- Hero da landing ---- */
 .hero {
-  background:
-    radial-gradient(
-      circle at 88% 4%,
-      rgba(215, 173, 68, 0.22) 0%,
-      transparent 50%
-    ),
-    var(--bg-dark);
-  color: var(--paper-ink);
+  background: linear-gradient(180deg, #FFFFFF 0%, var(--bg-soft) 100%);
+  color: var(--ink);
 }
 .hero-inner {
   display: grid;
@@ -481,9 +491,9 @@ em.hl {
   border: 1px solid var(--border);
 }
 .hero .badge {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  color: var(--paper-ink-soft);
+  background: var(--brand-soft);
+  border: 1px solid transparent;
+  color: var(--brand-text);
 }
 .hero .badge .dot {
   background: var(--brand);
@@ -1791,7 +1801,7 @@ em.hl {
   padding: 44px 0;
 }
 .cta-inner {
-  background: var(--bg-dark);
+  background: var(--bg-cta);
   color: var(--paper);
   border-radius: 20px;
   padding: 56px 40px;
@@ -1833,11 +1843,18 @@ footer.site-footer {
 .footer-brand .wm {
   font-weight: 800;
   font-size: 1.2rem;
-}
-.footer-brand .wm-ink {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
   color: var(--paper-ink);
 }
-.footer-brand .wm-cta {
+.footer-brand .wm-ink, .footer-brand .wm-cta {
+  color: var(--paper-ink);
+}
+.footer-brand .wm-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
   color: var(--brand);
 }
 .footer-brand p {
