@@ -16,10 +16,10 @@
     <meta property="og:description" content="Para o revendedor que vende impressos com tráfego pago: vitrine com link único, pedidos organizados e clientes salvos — mobile-first." />
     <meta property="og:image" content="https://graficanobolso.com.br/icon.svg" />
     <meta name="twitter:card" content="summary" />
-    <link rel="icon" type="image/svg+xml" href="icon.svg?v=loteC" />
+    <link rel="icon" type="image/svg+xml" href="icon.svg?v=loteB" />
     <link rel="preconnect" href="https://use.typekit.net" crossorigin />
     <link rel="stylesheet" href="https://use.typekit.net/yhy8nmx.css" />
-    <link rel="stylesheet" href="styles.css?v=loteC" />
+    <link rel="stylesheet" href="styles.css?v=loteB" />
   </head>
   <body>
     <header class="site-header">
@@ -283,6 +283,7 @@
     </div>
     <script>
       (function () {
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         var t = document.querySelector('.nav-toggle');
         var m = document.querySelector('.mobile-menu');
         if (t && m) {
@@ -298,21 +299,54 @@
             });
           });
         }
-        var msc = document.getElementById('msc');
+        var header = document.querySelector('.site-header');
         var hero = document.querySelector('.hero, .page-hero');
         var ctaBlock = document.querySelector('.cta-block');
-        if (!msc || !hero) return;
-        function update() {
-          var heroBottom = hero.getBoundingClientRect().bottom;
-          var ctaTop = ctaBlock ? ctaBlock.getBoundingClientRect().top : Infinity;
-          var vh = window.innerHeight;
-          var shouldShow = heroBottom < 60 && ctaTop > vh - 80;
-          msc.classList.toggle('is-visible', shouldShow);
-          msc.setAttribute('aria-hidden', shouldShow ? 'false' : 'true');
+        var msc = document.getElementById('msc');
+        function onScroll() {
+          var y = window.scrollY || window.pageYOffset;
+          if (header) header.classList.toggle('is-scrolled', y > 8);
+          if (hero && !reduced) {
+            var rect = hero.getBoundingClientRect();
+            if (rect.bottom > 0 && rect.top < window.innerHeight) {
+              var offset = Math.max(-80, Math.min(80, y * 0.18));
+              hero.style.setProperty('--parallax-y', offset + 'px');
+            }
+          }
+          if (msc && hero) {
+            var heroBottom = hero.getBoundingClientRect().bottom;
+            var ctaTop = ctaBlock ? ctaBlock.getBoundingClientRect().top : Infinity;
+            var vh = window.innerHeight;
+            var shouldShow = heroBottom < 60 && ctaTop > vh - 80;
+            msc.classList.toggle('is-visible', shouldShow);
+            msc.setAttribute('aria-hidden', shouldShow ? 'false' : 'true');
+          }
         }
-        window.addEventListener('scroll', update, { passive: true });
-        window.addEventListener('resize', update);
-        update();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        onScroll();
+        if (!reduced && 'IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add('is-in');
+                io.unobserve(e.target);
+              }
+            });
+          }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+          var auto = document.querySelectorAll(
+            '.section-head, .hero-inner > div, .mock-window, .cmp-wrap, .wpp-mess, .phone'
+          );
+          auto.forEach(function (el) {
+            el.classList.add('reveal');
+            io.observe(el);
+          });
+          var grids = document.querySelectorAll('.grid, .princ-grid, .trust, .flow-grid');
+          grids.forEach(function (g) {
+            g.classList.add('stagger');
+            io.observe(g);
+          });
+        }
       })();
     </script>
   </body>
