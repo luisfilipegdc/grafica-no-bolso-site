@@ -2544,3 +2544,288 @@ a.link-anim:hover::after {
     display: none !important;
   }
 }
+
+/* ============================================================
+   LOTE D — Polish visual (parecer caro)
+   Sombras estratificadas, focus rings, tipografia, gradientes
+   ============================================================ */
+
+:root {
+  /* Sistema de sombras (4 niveis) */
+  --shadow-xs: 0 1px 2px rgba(17, 24, 39, 0.05);
+  --shadow-sm: 0 2px 4px rgba(17, 24, 39, 0.06),
+               0 1px 2px rgba(17, 24, 39, 0.04);
+  --shadow-md: 0 8px 16px -6px rgba(17, 24, 39, 0.10),
+               0 2px 6px -2px rgba(17, 24, 39, 0.06);
+  --shadow-lg: 0 20px 40px -12px rgba(17, 24, 39, 0.18),
+               0 4px 12px -4px rgba(17, 24, 39, 0.08);
+  --shadow-xl: 0 28px 64px -16px rgba(17, 24, 39, 0.24),
+               0 8px 20px -6px rgba(17, 24, 39, 0.10);
+  --shadow-brand: 0 14px 32px -10px rgba(22, 163, 74, 0.35);
+  --shadow-cta: 0 14px 32px -10px rgba(255, 107, 43, 0.45);
+
+  /* Focus ring acessivel */
+  --focus-ring: 0 0 0 3px rgba(22, 163, 74, 0.30);
+}
+
+/* --- Focus visible (acessibilidade + visual) --- */
+*:focus {
+  outline: none;
+}
+*:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: 6px;
+}
+.btn:focus-visible,
+.nav-cta:focus-visible,
+.btn-cta:focus-visible,
+.btn-brand:focus-visible {
+  box-shadow: var(--focus-ring), var(--shadow-md);
+}
+
+/* --- Cards com sombra estratificada (override hover do lote B) --- */
+.card,
+.princ,
+.aud-card,
+.pillar {
+  box-shadow: var(--shadow-xs);
+}
+.card:hover,
+.princ:hover,
+.aud-card:hover,
+.pillar:hover {
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* --- Card destacado: glow sutil verde --- */
+.card-featured {
+  position: relative;
+  box-shadow: var(--shadow-sm), 0 0 0 1px rgba(22, 163, 74, 0.20) !important;
+}
+.card-featured:hover {
+  box-shadow: var(--shadow-md), 0 0 0 1px rgba(22, 163, 74, 0.35) !important;
+}
+
+/* --- Botoes com sombra refinada --- */
+.btn-cta {
+  box-shadow: var(--shadow-cta);
+}
+.btn-cta:hover {
+  box-shadow: 0 18px 40px -10px rgba(255, 107, 43, 0.55);
+}
+.btn-brand {
+  box-shadow: var(--shadow-brand);
+}
+.btn-brand:hover {
+  box-shadow: 0 18px 40px -10px rgba(22, 163, 74, 0.45);
+}
+.btn-light {
+  box-shadow: var(--shadow-md);
+}
+
+/* --- Phone e mock-window com sombra de profundidade --- */
+.phone {
+  box-shadow: var(--shadow-xl);
+  border-radius: 28px;
+}
+.mock-window {
+  box-shadow: var(--shadow-lg);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* --- Trust strip: sombras quase invisiveis e melhor padding --- */
+.trust {
+  border-radius: 14px;
+  padding: 18px 8px;
+  background: var(--paper);
+  box-shadow: var(--shadow-xs);
+}
+
+/* --- Tipografia refinada --- */
+h1, .h1 {
+  letter-spacing: -0.025em;
+  font-feature-settings: "ss01", "cv11";
+}
+h2, .section-title {
+  letter-spacing: -0.022em;
+  font-feature-settings: "ss01";
+}
+h3 {
+  letter-spacing: -0.015em;
+}
+.hero h1 em.hl {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+.hero h1 em.hl::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 4%;
+  height: 28%;
+  background: var(--brand-soft);
+  z-index: -1;
+  border-radius: 4px;
+}
+
+/* --- Gradientes sutis em sections alternadas --- */
+.section-cream {
+  background: linear-gradient(180deg, var(--cream) 0%, #FCFDFE 100%);
+}
+.section-ink {
+  background: linear-gradient(180deg, var(--bg-soft) 0%, #F0F4FA 100%);
+}
+
+/* --- Eyebrow refinada (chip estilo) --- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.section-head .eyebrow {
+  padding: 5px 11px;
+  background: var(--brand-soft);
+  border-radius: 999px;
+  color: var(--brand-text);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+/* --- Tabela comparativa polida --- */
+.cmp {
+  border-spacing: 0;
+  border-collapse: separate;
+}
+.cmp thead th {
+  background: var(--bg-soft);
+  font-weight: 700;
+  font-size: 0.86rem;
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--border);
+}
+.cmp thead th.us {
+  background: linear-gradient(180deg, var(--brand) 0%, var(--brand-dark) 100%);
+  color: #fff;
+  border-bottom-color: var(--brand-dark);
+  position: relative;
+}
+.cmp thead th.us .tag-us {
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.66rem;
+  margin-left: 6px;
+  font-weight: 600;
+}
+.cmp tbody td {
+  padding: 13px 16px;
+  font-size: 0.92rem;
+  border-bottom: 1px solid var(--border);
+}
+.cmp tbody td.col-us {
+  background: var(--brand-soft);
+  border-left: 2px solid var(--brand);
+  border-right: 2px solid var(--brand);
+}
+.cmp tbody tr:last-child td.col-us {
+  border-bottom: 2px solid var(--brand);
+}
+.cmp tbody tr:first-child td.col-us {
+  border-top: 2px solid var(--brand);
+}
+.cmp .yes {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: var(--brand);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.cmp .no {
+  color: #C4C9D2;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.cmp .maybe {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* --- Section dividers sutis --- */
+section + section {
+  position: relative;
+}
+
+/* --- Container do hero com mais respiro --- */
+.hero {
+  padding-top: 60px;
+  padding-bottom: 88px;
+}
+
+/* --- WhatsApp bubble refinada --- */
+.wpp-mess {
+  box-shadow: var(--shadow-lg);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+/* --- Footer mais elegante --- */
+.site-footer {
+  background: linear-gradient(180deg, #111827 0%, #0B121F 100%);
+}
+.site-footer .footer-grid {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 18px;
+}
+
+/* --- Refinar hero-checks como pills --- */
+.hero-checks {
+  margin-top: 26px;
+}
+.hero-checks > span {
+  background: rgba(22, 163, 74, 0.06);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  border: 1px solid rgba(22, 163, 74, 0.15);
+}
+
+/* --- Refinar badge MVP --- */
+.badge {
+  background: linear-gradient(135deg, var(--brand-soft) 0%, #ECFDF5 100%);
+  border: 1px solid rgba(22, 163, 74, 0.18);
+  box-shadow: var(--shadow-xs);
+}
+
+/* --- Sticky CTA mobile com sombra do design system --- */
+.mobile-sticky-cta {
+  box-shadow: var(--shadow-lg) !important;
+}
+
+/* --- Texto selecionado --- */
+::selection {
+  background: var(--brand-soft);
+  color: var(--brand-text);
+}
+
+/* --- Smooth scroll global --- */
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
