@@ -1,23 +1,41 @@
 /* Gráfica no Bolso — site de marketing
-   Identidade da marca: creme + roxo + laranja, fonte basic-sans (Adobe Fonts). */
+   Identidade: dark + dourado, logo só no texto. Fonte basic-sans (Adobe Fonts). */
 
 :root {
-  --ink: #1c1c1e;
-  --paper: #f3e9e1;
-  --cream: #ece1d5;
-  --card: #ffffff;
-  --brand: #7032d4;
-  --brand-dark: #5a23b8;
-  --brand-soft: #ede0fa;
-  --gold: #fec806;
-  --cta: #ff621c;
-  --cta-dark: #e5530f;
-  --cta-soft: #fdeae0;
-  --green: #00b978;
-  --muted: #8a8077;
-  --muted-2: #b0a799;
-  --border: #e7ddd0;
-  --border-dark: #d8cdbd;
+  /* Texto */
+  --ink: #1A1A1A;            /* texto principal sobre claro */
+  --paper-ink: #FFFFFF;      /* texto principal sobre escuro */
+  --paper-ink-soft: #F2F2F2; /* texto secundário sobre escuro */
+  --muted: #888580;
+  --muted-2: #aaa5a0;
+
+  /* Backgrounds */
+  --paper: #F5F0E8;          /* creme quente — body / seções claras default */
+  --cream: #EBE3D6;          /* creme mais fundo — alternância (.section-cream) */
+  --card: #FFFFFF;           /* cards brancos */
+  --bg-dark: #0D0D0D;        /* preto profundo — hero, CTA, nav, section-ink */
+  --bg-dark-warm: #1A1410;   /* preto quente — depth alternativo */
+  --bg-footer: #111010;      /* preto rodapé */
+
+  /* Marca: dourado */
+  --brand: #D7AD44;
+  --brand-dark: #B8860B;     /* hover / depth */
+  --brand-text: #9A6F00;     /* dourado pra texto sobre claro (contraste WCAG) */
+  --brand-soft: rgba(215, 173, 68, 0.15);
+  --gold: #D7AD44;
+
+  /* CTA = dourado (substitui o laranja) */
+  --cta: #D7AD44;
+  --cta-dark: #B8860B;
+  --cta-soft: rgba(215, 173, 68, 0.15);
+
+  /* Acentos */
+  --accent: #C0622F;         /* terracota — segunda cor de acento */
+  --green: #22C55E;          /* WhatsApp */
+
+  /* Bordas */
+  --border: rgba(0, 0, 0, 0.08);
+  --border-dark: rgba(0, 0, 0, 0.16);
   --radius: 16px;
 }
 
@@ -150,9 +168,9 @@ svg {
 header.site-header {
   position: sticky;
   top: 0;
-  background: rgba(243, 233, 225, 0.92);
+  background: rgba(13, 13, 13, 0.92);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   z-index: 50;
 }
 .header-inner {
@@ -178,10 +196,10 @@ header.site-header {
   letter-spacing: -0.02em;
 }
 .logo .wm-ink {
-  color: var(--ink);
+  color: var(--paper-ink);
 }
 .logo .wm-cta {
-  color: var(--ink);
+  color: var(--paper-ink);
 }
 .nav-links {
   display: flex;
@@ -192,7 +210,7 @@ header.site-header {
 .nav-links a {
   font-weight: 500;
   font-size: 0.92rem;
-  color: var(--muted);
+  color: var(--paper-ink-soft);
   padding: 8px 12px;
   border-radius: 9px;
   transition:
@@ -200,11 +218,11 @@ header.site-header {
     background 0.15s ease;
 }
 .nav-links a:hover {
-  color: var(--ink);
+  color: var(--paper-ink);
 }
 .nav-links a.active {
-  color: var(--ink);
-  background: rgba(170, 107, 251, 0.1);
+  color: var(--brand);
+  background: rgba(215, 173, 68, 0.12);
 }
 .nav-spacer {
   flex: 1;
@@ -278,8 +296,8 @@ section {
   border-bottom: 1px solid var(--border);
 }
 .section-ink {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--bg-dark);
+  color: var(--paper-ink);
 }
 .section-ink h1,
 .section-ink h2,
@@ -427,10 +445,11 @@ em.hl {
   background:
     radial-gradient(
       circle at 88% 4%,
-      rgba(170, 107, 251, 0.13) 0%,
-      transparent 46%
+      rgba(215, 173, 68, 0.22) 0%,
+      transparent 50%
     ),
-    var(--paper);
+    var(--bg-dark);
+  color: var(--paper-ink);
 }
 .hero-inner {
   display: grid;
@@ -1743,7 +1762,7 @@ em.hl {
   padding: 44px 0;
 }
 .cta-inner {
-  background: var(--ink);
+  background: var(--bg-dark);
   color: var(--paper);
   border-radius: 20px;
   padding: 56px 40px;
@@ -1772,8 +1791,8 @@ em.hl {
 
 /* ---- Footer ---- */
 footer.site-footer {
-  background: #0a0908;
-  color: #8a847b;
+  background: var(--bg-footer);
+  color: var(--paper-ink-soft);
   margin-top: 8px;
 }
 .footer-grid {
@@ -1787,10 +1806,10 @@ footer.site-footer {
   font-size: 1.2rem;
 }
 .footer-brand .wm-ink {
-  color: var(--paper);
+  color: var(--paper-ink);
 }
 .footer-brand .wm-cta {
-  color: var(--paper);
+  color: var(--paper-ink);
 }
 .footer-brand p {
   font-size: 0.9rem;
