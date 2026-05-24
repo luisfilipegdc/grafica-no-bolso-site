@@ -87,6 +87,51 @@
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
+
+    /* --- Scrollbar verde personalizada (Chromium + Firefox) --- */
+    html{
+      scrollbar-width:thin;
+      scrollbar-color:var(--brand) transparent;
+    }
+    *::-webkit-scrollbar{width:10px;height:10px}
+    *::-webkit-scrollbar-track{background:transparent}
+    *::-webkit-scrollbar-thumb{
+      background:linear-gradient(180deg,var(--brand),var(--brand-dark));
+      border-radius:99px;
+      border:2px solid var(--bg);
+      transition:background .2s ease;
+    }
+    *::-webkit-scrollbar-thumb:hover{
+      background:linear-gradient(180deg,#22c55e,#0b7f3b);
+    }
+    *::-webkit-scrollbar-corner{background:transparent}
+
+    /* CTA benefits list (no CTA final) */
+    .cta-benefits{
+      list-style:none;
+      display:grid;
+      gap:8px;
+      margin:14px 0 24px;
+      padding:0;
+    }
+    .cta-benefits li{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:rgba(255,255,255,.95);
+      font-size:.96rem;
+      font-weight:500;
+    }
+    .cta-benefits .check{
+      width:22px;height:22px;
+      display:inline-grid;place-items:center;
+      background:rgba(255,255,255,.20);
+      color:#FFFFFF;
+      border-radius:50%;
+      font-size:.78rem;font-weight:700;
+      flex-shrink:0;
+    }
+
     html{scroll-behavior:smooth;background:var(--bg);transition:background .3s ease}
     body{
       font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
@@ -921,9 +966,12 @@
     }
     .audience-grid{
       display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:14px;
+      grid-template-columns:repeat(5,1fr);
+      gap:12px;
     }
+    @media (max-width:980px){.audience-grid{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:680px){.audience-grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:420px){.audience-grid{grid-template-columns:1fr}}
     .audience-card{
       background:var(--surface);
       border:1px solid var(--border);
@@ -1509,22 +1557,22 @@
       </div>
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow"><span class="pulse"></span> MVP em construção · acesso antecipado pros primeiros</span>
+          <span class="eyebrow"><span class="pulse"></span> Acesso antecipado aberto pras primeiras gráficas</span>
           <h1>Pare de perder pedido no <em class="hl">WhatsApp</em>.</h1>
-          <p class="lead">Vitrine no celular, pedidos num kanban e cliente cadastrado sozinho. <b>Feito por quem tem gráfica.</b></p>
+          <p class="lead">Crie uma vitrine no celular, receba pedidos completos e acompanhe cada etapa da produção em um painel simples — <b>feito para gráficas pequenas</b>.</p>
           <div class="cta-row">
-            <a class="btn btn-lg btn-cta" href="#cta">Quero acesso antecipado <span class="arrow">→</span></a>
-            <a class="btn btn-lg btn-ghost" href="#produto">Ver como funciona</a>
+            <a class="btn btn-lg btn-cta" href="#cta">Quero organizar meus pedidos <span class="arrow">→</span></a>
+            <a class="btn btn-lg btn-ghost" href="#funciona">Ver como funciona</a>
           </div>
           <div class="microproof">
-            <span><span class="check">✓</span> Sem cartão pra testar</span>
-            <span><span class="check">✓</span> Seus dados no Brasil</span>
-            <span><span class="check">✓</span> Em português, do balcão</span>
+            <span><span class="check">✓</span> Acesso antecipado</span>
+            <span><span class="check">✓</span> Sem cartão para testar</span>
+            <span><span class="check">✓</span> Feito para gráficas, papelarias e personalizados</span>
           </div>
           <div class="hero-metrics">
-            <div class="metric"><b>1 link</b><span>pra vitrine, pedido e cliente</span></div>
-            <div class="metric"><b>0 troca</b><span>do WhatsApp que você usa</span></div>
-            <div class="metric"><b>90s</b><span>pra subir seu catálogo</span></div>
+            <div class="metric"><b>1 link</b><span>Sua vitrine pronta pra mandar no WhatsApp e colocar na bio.</span></div>
+            <div class="metric"><b>0 bagunça</b><span>Pedido chega com produto, cliente, prazo e detalhes no lugar.</span></div>
+            <div class="metric"><b>90s</b><span>Cadastra um produto e já começa a vender.</span></div>
           </div>
         </div>
 
@@ -1600,13 +1648,6 @@
         <div class="audience-grid">
           <article class="audience-card">
             <div class="aud-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>
-            </div>
-            <h3>Papelaria personalizada</h3>
-            <p>Cartões, convites, embalagens e tags sob demanda.</p>
-          </article>
-          <article class="audience-card">
-            <div class="aud-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="9" rx="2"/><path d="M6 18v3h12v-3"/><circle cx="17" cy="13" r=".8" fill="currentColor"/></svg>
             </div>
             <h3>Gráfica de bairro</h3>
@@ -1614,10 +1655,24 @@
           </article>
           <article class="audience-card">
             <div class="aud-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>
+            </div>
+            <h3>Papelaria personalizada</h3>
+            <p>Cartões, convites, embalagens e tags sob demanda.</p>
+          </article>
+          <article class="audience-card">
+            <div class="aud-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="1.5"/><path d="M12 17v4M8 21h8"/></svg>
             </div>
             <h3>Comunicação visual</h3>
             <p>Banners, adesivos, fachadas, brindes e sinalização.</p>
+          </article>
+          <article class="audience-card">
+            <div class="aud-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-4 3 3 5-6 6 7"/><circle cx="8" cy="8" r="2"/></svg>
+            </div>
+            <h3>Designer que vende impressão</h3>
+            <p>Você faz a arte, o cliente fecha pelo link, a gráfica produz.</p>
           </article>
           <article class="audience-card">
             <div class="aud-icon" aria-hidden="true">
@@ -1666,8 +1721,8 @@
       <div class="container">
         <div class="section-head">
           <div class="kicker">Como funciona</div>
-          <h2>Quatro passos. <em class="hl">Sem treinamento.</em></h2>
-          <p>O fluxo que você já usa no WhatsApp — só que agora organizado.</p>
+          <h2>Quatro passos. <em class="hl">Sem complicação.</em></h2>
+          <p>Pronto pra usar em poucos minutos — o fluxo que você já tem no WhatsApp, só que organizado.</p>
         </div>
         <div class="steps">
           <article class="step">
@@ -1702,12 +1757,12 @@
           <p>Sem promessa do que não fizemos. O que aparece aqui já funciona no ambiente de demonstração.</p>
         </div>
         <div class="features">
-          <article class="feature featured"><div class="feature-icon">⌘</div><h3>Link único da sua marca</h3><p>Subdomínio próprio — sua-marca.gnb.com.br. Compartilha em qualquer lugar.</p></article>
+          <article class="feature featured"><div class="feature-icon">☰</div><h3>Pedido organizado</h3><p>Cada pedido cai pronto: produto, quantidade, acabamento, cliente, prazo. Sem precisar perguntar pela 5ª vez.</p></article>
+          <article class="feature"><div class="feature-icon">⌘</div><h3>Link único da sua marca</h3><p>Subdomínio próprio — sua-marca.gnb.com.br. Compartilha em qualquer lugar.</p></article>
           <article class="feature"><div class="feature-icon">▦</div><h3>Catálogo organizado</h3><p>Categorias, faixas de preço (100/500/1000) e variações.</p></article>
-          <article class="feature"><div class="feature-icon">☰</div><h3>Pedidos num kanban</h3><p>Criando arte, em produção, pronto, entregue — cada card com cliente e valor.</p></article>
-          <article class="feature"><div class="feature-icon">⊕</div><h3>Carrinho que entende</h3><p>Cliente escolhe quantidade e variação, fecha com nome + WhatsApp.</p></article>
-          <article class="feature"><div class="feature-icon">◎</div><h3>Cadastro automático</h3><p>Toda venda gera ficha do cliente — pedidos, total gasto e última compra.</p></article>
-          <article class="feature"><div class="feature-icon">↗</div><h3>WhatsApp como saída</h3><p>Confirme pedido, mande arte ou cobrança com um toque.</p></article>
+          <article class="feature"><div class="feature-icon">◷</div><h3>Status de produção</h3><p>Kanban: criando arte → em produção → pronto → entregue. Você sabe onde tá cada um.</p></article>
+          <article class="feature"><div class="feature-icon">↗</div><h3>WhatsApp como saída</h3><p>Confirme pedido, mande arte ou cobrança com um toque. Continua usando o canal que você já tem.</p></article>
+          <article class="feature"><div class="feature-icon">⊕</div><h3>Carrinho que entende impressão</h3><p>O cliente escolhe quantidade, acabamento, prazo e observações antes de chamar no WhatsApp.</p></article>
         </div>
       </div>
     </section>
@@ -1716,8 +1771,8 @@
       <div class="container demo-grid">
         <div class="demo-copy">
           <div class="kicker">Por dentro</div>
-          <h2 class="big-title">O painel <em class="hl">do dono da gráfica</em>.</h2>
-          <p>Telas do produto em construção. Tudo que aparece aqui já funciona no ambiente de demonstração — você pode entrar e testar.</p>
+          <h2 class="big-title">Veja tudo que acontece na sua gráfica <em class="hl">sem caçar conversa</em>.</h2>
+          <p>O painel do dono — kanban com 7 status, ficha de cliente, histórico completo. Já funciona no ambiente de demonstração; você pode entrar e testar.</p>
           <ul class="demo-list">
             <li><span class="good">✓</span> Kanban com 7 status padrão.</li>
             <li><span class="good">✓</span> Ficha do cliente com histórico completo.</li>
@@ -1773,8 +1828,8 @@
       <div class="container">
         <div class="section-head">
           <div class="kicker">Comparativo</div>
-          <h2>Por que <em class="hl">não</em> é só mais um catálogo.</h2>
-          <p>Comparado com o que você usa hoje — e com o que tentou e desistiu.</p>
+          <h2>Catálogo mostra produto. <em class="hl">Gráfica no Bolso organiza pedido.</em></h2>
+          <p>Essa é a diferença. Comparado com o que você usa hoje — e com o que tentou e desistiu.</p>
         </div>
         <div class="comparison-wrap">
           <div class="comparison">
@@ -1807,7 +1862,7 @@
       <div class="container">
         <div class="section-head">
           <div class="kicker">Quatro promessas</div>
-          <h2>O que <em class="hl">não</em> vamos fazer com você.</h2>
+          <h2>Sem ERP gigante. Sem curso obrigatório. <em class="hl">Sem promessa mágica.</em></h2>
           <p>Princípios escritos antes do código. Cada feature passou por eles antes de ir pro ar.</p>
         </div>
         <div class="promises">
@@ -1842,7 +1897,9 @@
           <h2>Dúvidas honestas, <em class="hl">respostas honestas</em>.</h2>
         </div>
         <div class="faq">
-          <details><summary>Quanto custa?</summary><p>Planos a definir antes do lançamento — sem trial enganoso, sem letra miúda.</p></details>
+          <details><summary>Preciso parar de usar WhatsApp?</summary><p>Não. A Gráfica no Bolso organiza o pedido <strong>antes</strong> de ele chegar no WhatsApp. Você continua vendendo no canal que já usa — só recebe a informação mais completa.</p></details>
+          <details><summary>Funciona pra quem não tem muitos produtos?</summary><p>Funciona melhor ainda. O sistema é desenhado pra gráfica pequena com 10–30 produtos — você sobe o catálogo em minutos, sem precisar virar especialista em SaaS.</p></details>
+          <details><summary>Quanto custa?</summary><p>Planos a definir antes do lançamento — sem trial enganoso, sem letra miúda. As primeiras gráficas têm condição especial (preço fundador).</p></details>
           <details><summary>Preciso ter conhecimento técnico?</summary><p>Não. Se você manda PDF no WhatsApp, sabe usar.</p></details>
           <details><summary>Posso usar com o WhatsApp da empresa?</summary><p>Sim. Toda comunicação inicial continua no WhatsApp — só fica organizada.</p></details>
           <details><summary>Meus dados ficam onde?</summary><p>Em VPS própria, no Brasil. Backup e exportação no roadmap antes do plano pago.</p></details>
@@ -1857,9 +1914,16 @@
         <div>
           <div class="kicker">Acesso antecipado</div>
           <h2>Sua próxima venda começa com <span class="hl">um link</span>.</h2>
-          <p>Suba seu catálogo em 90 segundos e compartilhe no Instagram, no WhatsApp ou na embalagem. Sem cartão pra testar.</p>
+          <p>Pra primeiras gráficas que entrarem agora:</p>
+          <ul class="cta-benefits">
+            <li><span class="check">✓</span> Teste sem cartão</li>
+            <li><span class="check">✓</span> Ajuda direta pra montar sua primeira vitrine</li>
+            <li><span class="check">✓</span> Prioridade no lançamento</li>
+            <li><span class="check">✓</span> Preço fundador — condição especial vitalícia ou anual</li>
+            <li><span class="check">✓</span> Canal direto com quem está construindo</li>
+          </ul>
           <div class="cta-row">
-            <a class="btn btn-lg btn-cta" href="https://app.graficanobolso.com.br/login">Quero acesso antecipado <span class="arrow">→</span></a>
+            <a class="btn btn-lg btn-cta" href="https://app.graficanobolso.com.br/login">Quero organizar meus pedidos <span class="arrow">→</span></a>
             <a class="btn btn-lg btn-ghost" href="#funciona">Como funciona</a>
           </div>
         </div>
