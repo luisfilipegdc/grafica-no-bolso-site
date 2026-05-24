@@ -354,29 +354,44 @@
 
     .light-ring{
       position:absolute;
-      inset:90px -40px auto auto;
-      width:520px;height:380px;border-radius:50%;
-      border:1px solid rgba(22,163,74,.18);
+      inset:80px -60px auto auto;
+      width:620px;height:460px;border-radius:50%;
+      border:1.5px solid rgba(22,163,74,.26);
       transform:rotateX(63deg) rotateZ(-22deg);
-      box-shadow:0 0 60px rgba(22,163,74,.10);
-      animation:orbit 9s ease-in-out infinite alternate;
+      box-shadow:0 0 90px rgba(22,163,74,.18),inset 0 0 60px rgba(22,163,74,.10);
+      animation:orbit 8s ease-in-out infinite alternate;
       pointer-events:none;
     }
+    [data-theme="dark"] .light-ring{
+      border-color:rgba(53,227,111,.32);
+      box-shadow:0 0 110px rgba(53,227,111,.22),inset 0 0 70px rgba(53,227,111,.14);
+    }
     @keyframes orbit{
-      to{transform:rotateX(63deg) rotateZ(-14deg) translateY(14px)}
+      to{transform:rotateX(63deg) rotateZ(-14deg) translateY(18px)}
     }
 
     .phone-3d{
       position:absolute;
       right:130px;top:14px;
-      width:270px;height:560px;
-      border-radius:42px;padding:11px;
+      width:282px;height:586px;
+      border-radius:46px;padding:13px;
       background:linear-gradient(145deg,#E5E7EB,#9CA3AF 40%,#D1D5DB);
       border:1px solid var(--border);
-      box-shadow:var(--shadow-xl);
-      transform:rotateZ(4deg) rotateY(-10deg) rotateX(3deg);
-      animation:floatPhone 6s ease-in-out infinite;
+      box-shadow:
+        0 46px 90px rgba(17,24,39,.30),
+        0 0 70px rgba(22,163,74,.18),
+        inset 0 0 0 1px rgba(255,255,255,.40);
+      transform:rotateZ(6deg) rotateY(-14deg) rotateX(4deg);
+      animation:floatPhone 5.8s ease-in-out infinite;
       z-index:5;
+    }
+    [data-theme="dark"] .phone-3d{
+      background:linear-gradient(145deg,#26312F,#060B0A 40%,#38423F);
+      border:1px solid rgba(255,255,255,.20);
+      box-shadow:
+        0 46px 90px rgba(0,0,0,.55),
+        0 0 80px rgba(53,227,111,.28),
+        inset 0 0 0 1px rgba(255,255,255,.06);
     }
     @keyframes floatPhone{
       0%,100%{translate:0 0}
@@ -432,15 +447,28 @@
       box-shadow:0 6px 14px rgba(0,0,0,.06);
     }
 
-    /* Floating cards — brancos com sombra, NÃO glass dark */
+    /* Floating cards — brancos no light, glass dark com green glow no dark */
     .float-card{
       position:absolute;z-index:6;
-      border-radius:16px;padding:14px 16px;
+      border-radius:18px;padding:14px 16px;
       background:var(--surface);
       border:1px solid var(--border);
       box-shadow:var(--shadow-lg);
       animation:floatCard 6s ease-in-out infinite;
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
     }
+    [data-theme="dark"] .float-card{
+      background:rgba(7,30,25,.72);
+      border:1px solid rgba(53,227,111,.30);
+      box-shadow:
+        0 24px 64px rgba(0,0,0,.45),
+        0 0 40px rgba(53,227,111,.18),
+        inset 0 0 0 1px rgba(255,255,255,.04);
+    }
+    [data-theme="dark"] .float-card small{color:#A7BDB9}
+    [data-theme="dark"] .float-card b{color:#FFFFFF}
+    [data-theme="dark"] .float-card em{color:#66FF95}
     .float-card small{display:block;color:var(--muted);font-size:.7rem;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
     .float-card b{display:block;font-size:1.15rem;letter-spacing:-.03em;color:var(--ink);font-weight:800}
     .float-card em{font-style:normal;color:var(--brand-text);font-size:.74rem;font-weight:700;margin-left:6px}
@@ -477,14 +505,26 @@
     .order-pop strong{display:block;font-size:1.05rem;margin-top:6px;color:var(--brand-text);font-weight:800}
 
     .dash-mini{
-      position:absolute;left:0;bottom:20px;width:312px;
-      border-radius:18px;overflow:hidden;z-index:4;
+      position:absolute;left:0;bottom:20px;width:330px;
+      border-radius:22px;overflow:hidden;z-index:4;
       transform:rotateZ(-2deg);
       background:var(--surface);
       border:1px solid var(--border);
       box-shadow:var(--shadow-lg);
       animation:floatCard 7s ease-in-out infinite reverse;
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
     }
+    [data-theme="dark"] .dash-mini{
+      background:rgba(7,30,25,.78);
+      border:1px solid rgba(53,227,111,.24);
+      box-shadow:0 24px 60px rgba(0,0,0,.50),0 0 36px rgba(53,227,111,.14);
+    }
+    [data-theme="dark"] .dash-mini-top{background:rgba(255,255,255,.06);border-bottom-color:rgba(255,255,255,.10)}
+    [data-theme="dark"] .mini-stat{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.08)}
+    [data-theme="dark"] .mini-col{background:rgba(255,255,255,.04)}
+    [data-theme="dark"] .mini-task{background:rgba(53,227,111,.20);border-color:rgba(53,227,111,.30)}
+    [data-theme="dark"] .mini-task.orange{background:rgba(255,107,43,.18);border-color:rgba(255,107,43,.26)}
     .dash-mini-top{
       height:38px;background:var(--cream);
       display:flex;align-items:center;justify-content:space-between;
@@ -1638,6 +1678,25 @@
         </div>
       </div>
     </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-word">BOLSANDO</span>
+        <span class="marquee-word">TINTOU</span>
+        <span class="marquee-word">NO PAPEL</span>
+        <span class="marquee-word">JÁ SAIU</span>
+        <span class="marquee-word">NA PRENSA</span>
+        <span class="marquee-word">PRA ENTREGA</span>
+        <span class="marquee-word">CHEGOU NO BALCÃO</span>
+        <span class="marquee-word">BOLSANDO</span>
+        <span class="marquee-word">TINTOU</span>
+        <span class="marquee-word">NO PAPEL</span>
+        <span class="marquee-word">JÁ SAIU</span>
+        <span class="marquee-word">NA PRENSA</span>
+        <span class="marquee-word">PRA ENTREGA</span>
+        <span class="marquee-word">CHEGOU NO BALCÃO</span>
+      </div>
+    </div>
 
     <section class="audience-strip" aria-labelledby="audience-title">
       <div class="container">
