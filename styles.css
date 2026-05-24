@@ -917,9 +917,25 @@ section{position:relative;padding:96px 0}
   background:linear-gradient(135deg,var(--green2),var(--green3));
 }
 .cta-box{display:grid;grid-template-columns:1fr .9fr;gap:36px;align-items:center;position:relative;z-index:1}
+/* Kicker contraste em cima do gradient verde */
+.cta-box .kicker{
+  background:rgba(255,255,255,.18);
+  color:#FFFFFF;
+  border-color:rgba(255,255,255,.30);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
 .cta-box h2{font-size:clamp(36px,5vw,58px);line-height:1.02;letter-spacing:-.06em;margin-bottom:16px;color:#FFFFFF}
 .cta-box h2 .grad{background:linear-gradient(90deg,#FFFFFF,#9cffb8);-webkit-background-clip:text;background-clip:text;color:transparent}
 .cta-box p{font-size:18px;color:#d5e7e2;max-width:590px;margin-bottom:28px}
+[data-theme="light"] .cta-box p{color:rgba(255,255,255,.92)}
+/* btn-ghost em cima do fundo verde precisa de border branca, não escura */
+.final-cta .btn-ghost{
+  background:rgba(255,255,255,.10);
+  border-color:rgba(255,255,255,.30);
+  color:#FFFFFF;
+}
+.final-cta .btn-ghost:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.50)}
 .cta-benefits{list-style:none;display:grid;gap:8px;margin:0 0 24px;max-width:540px;padding:0}
 .cta-benefits li{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.96);font-size:15px}
 .cta-benefits .check{background:rgba(255,255,255,.20);color:#FFFFFF;border-color:transparent}
