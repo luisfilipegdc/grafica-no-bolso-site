@@ -221,20 +221,40 @@ header.is-scrolled{box-shadow:0 6px 22px -10px rgba(0,0,0,.30)}
 .nav-links a:hover::after{right:0}
 .nav-actions{display:flex;align-items:center;gap:10px}
 
-/* Theme toggle (sol/lua) */
+/* Theme toggle (sol/lua) — ambos absolute centralizados pra perfect overlap */
 .theme-toggle{
   width:38px;height:38px;border-radius:999px;
   background:var(--surface-1);color:var(--ink);
   border:1px solid var(--line);
-  cursor:pointer;display:inline-grid;place-items:center;
-  transition:all .2s ease;position:relative;
+  cursor:pointer;
+  display:inline-block;
+  transition:all .2s ease;
+  position:relative;flex-shrink:0;
+  padding:0;
 }
 .theme-toggle:hover{transform:translateY(-1px);border-color:var(--green);color:var(--green)}
-.theme-toggle svg{width:18px;height:18px;transition:opacity .25s ease,transform .35s ease}
-.theme-toggle .sun{position:absolute;opacity:0;transform:rotate(-45deg) scale(.6)}
-.theme-toggle .moon{opacity:1;transform:rotate(0) scale(1)}
-[data-theme="light"] .theme-toggle .sun{opacity:1;transform:rotate(0) scale(1)}
-[data-theme="light"] .theme-toggle .moon{opacity:0;transform:rotate(45deg) scale(.6)}
+.theme-toggle svg{
+  position:absolute;
+  top:50%;left:50%;
+  width:18px;height:18px;
+  transition:opacity .25s ease,transform .35s ease;
+}
+.theme-toggle .moon{
+  opacity:1;
+  transform:translate(-50%,-50%) rotate(0) scale(1);
+}
+.theme-toggle .sun{
+  opacity:0;
+  transform:translate(-50%,-50%) rotate(-45deg) scale(.6);
+}
+[data-theme="light"] .theme-toggle .moon{
+  opacity:0;
+  transform:translate(-50%,-50%) rotate(45deg) scale(.6);
+}
+[data-theme="light"] .theme-toggle .sun{
+  opacity:1;
+  transform:translate(-50%,-50%) rotate(0) scale(1);
+}
 
 /* Hamburguer */
 .nav-toggle{
