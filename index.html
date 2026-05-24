@@ -772,6 +772,176 @@
     }
 
     /* ============================================================
+       MOTION++ — efeitos extras nas 3 áreas-chave (V5 cherry)
+       ============================================================ */
+
+    /* --- 1) Brand mark do nav: glow respirando --- */
+    .brand .brand-mark{
+      position:relative;
+      transition:transform .3s ease;
+    }
+    .brand .brand-mark::after{
+      content:"";
+      position:absolute;inset:-4px;
+      border-radius:inherit;
+      background:inherit;
+      filter:blur(10px);
+      opacity:.45;
+      z-index:-1;
+      animation:brand-breathe 3.2s ease-in-out infinite;
+    }
+    @keyframes brand-breathe{
+      0%,100%{opacity:.35;transform:scale(1)}
+      50%{opacity:.65;transform:scale(1.12)}
+    }
+    .brand:hover .brand-mark{transform:rotate(-6deg) scale(1.05)}
+
+    /* --- 1b) Shine sweep no highlight do "WhatsApp" --- */
+    h1 .hl{overflow:hidden}
+    h1 .hl::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);
+      transform:translateX(-100%);
+      animation:hl-shine 5.5s ease-in-out infinite;
+      animation-delay:2s;
+      pointer-events:none;
+      z-index:1;
+    }
+    @keyframes hl-shine{
+      0%,30%{transform:translateX(-100%)}
+      55%,100%{transform:translateX(110%)}
+    }
+    [data-theme="dark"] h1 .hl::before{
+      background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.30) 50%,transparent 65%);
+    }
+
+    /* --- 1c) Hero background particles (dots flutuando) --- */
+    .hero{position:relative}
+    .hero-particles{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      overflow:hidden;
+      z-index:1;
+    }
+    .hero-particles span{
+      position:absolute;
+      width:6px;height:6px;
+      border-radius:50%;
+      background:var(--brand);
+      opacity:.18;
+      animation:particle-float 12s linear infinite;
+    }
+    .hero-particles span:nth-child(1){left:8%;top:80%;animation-delay:0s;animation-duration:14s}
+    .hero-particles span:nth-child(2){left:22%;top:20%;width:4px;height:4px;animation-delay:-2s;animation-duration:18s;background:var(--cta);opacity:.15}
+    .hero-particles span:nth-child(3){left:55%;top:90%;animation-delay:-5s;animation-duration:13s}
+    .hero-particles span:nth-child(4){left:78%;top:30%;width:5px;height:5px;animation-delay:-8s;animation-duration:16s;background:var(--cta);opacity:.20}
+    .hero-particles span:nth-child(5){left:42%;top:60%;width:3px;height:3px;animation-delay:-3s;animation-duration:20s}
+    .hero-particles span:nth-child(6){left:90%;top:70%;animation-delay:-6s;animation-duration:15s}
+    @keyframes particle-float{
+      0%{transform:translateY(0) translateX(0);opacity:0}
+      10%,90%{opacity:.18}
+      50%{transform:translateY(-60px) translateX(20px)}
+      100%{transform:translateY(-120px) translateX(-10px);opacity:0}
+    }
+
+    /* --- 2) Orbe Problema/Solução: glow respirando + breath pulse + connector flow --- */
+    .ps-core{
+      position:relative;
+      animation:orb-breath 3.5s ease-in-out infinite;
+    }
+    @keyframes orb-breath{
+      0%,100%{transform:scale(1);box-shadow:0 0 50px rgba(22,163,74,.40),0 14px 32px rgba(22,163,74,.25)}
+      50%{transform:scale(1.04);box-shadow:0 0 80px rgba(22,163,74,.55),0 18px 40px rgba(22,163,74,.35)}
+    }
+    /* Anel externo respirando (sempre visível, não só ping) */
+    .ps-core{position:relative}
+    .ps-core > svg{position:relative;z-index:2}
+    .ps-core::before,.ps-core::after{z-index:1}
+
+    .connector-line{
+      position:absolute;height:2px;
+      left:calc(50% - 280px);right:calc(50% - 280px);
+      background:linear-gradient(90deg,transparent 0%,var(--brand) 20%,var(--brand) 80%,transparent 100%);
+      opacity:.5;z-index:-1;
+      overflow:hidden;
+    }
+    .connector-line::after{
+      content:"";
+      position:absolute;
+      top:0;left:0;
+      width:80px;height:100%;
+      background:linear-gradient(90deg,transparent,#FFFFFF,transparent);
+      filter:drop-shadow(0 0 6px var(--brand));
+      animation:connector-flow 3s ease-in-out infinite;
+    }
+    @keyframes connector-flow{
+      0%{transform:translateX(-100px)}
+      100%{transform:translateX(calc(560px + 100px))}
+    }
+
+    /* --- 3) Final CTA cube: lightning beam + sparkles + breath glow --- */
+    .cta-orb::after{
+      content:"";
+      position:absolute;
+      left:-5%;right:-5%;
+      top:52%;height:2px;
+      background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.95) 50%,transparent 100%);
+      filter:drop-shadow(0 0 12px rgba(255,255,255,.8)) drop-shadow(0 0 24px var(--brand));
+      transform:rotate(-12deg);
+      animation:cta-beam 4.5s ease-in-out infinite;
+    }
+    @keyframes cta-beam{
+      0%,100%{opacity:.55;transform:rotate(-12deg) scaleX(1)}
+      50%{opacity:1;transform:rotate(-14deg) scaleX(1.08)}
+    }
+
+    .cube{position:relative}
+    .cube::before{
+      content:"";
+      position:absolute;
+      inset:-20px;
+      border-radius:42px;
+      background:radial-gradient(circle,rgba(255,255,255,.4),transparent 60%);
+      animation:cube-glow 3.2s ease-in-out infinite;
+      pointer-events:none;
+      z-index:-1;
+    }
+    @keyframes cube-glow{
+      0%,100%{opacity:.35;transform:scale(1)}
+      50%{opacity:.7;transform:scale(1.18)}
+    }
+
+    /* Sparkles ao redor do cube */
+    .cta-sparkle{
+      position:absolute;
+      width:6px;height:6px;border-radius:50%;
+      background:#FFFFFF;
+      box-shadow:0 0 12px rgba(255,255,255,.9),0 0 20px var(--brand);
+      pointer-events:none;
+      animation:sparkle 2.4s ease-in-out infinite;
+    }
+    .cta-sparkle.s1{left:18%;top:22%;animation-delay:0s}
+    .cta-sparkle.s2{right:14%;top:18%;animation-delay:-.6s;width:4px;height:4px}
+    .cta-sparkle.s3{left:24%;bottom:24%;animation-delay:-1.2s;width:5px;height:5px}
+    .cta-sparkle.s4{right:20%;bottom:18%;animation-delay:-1.8s}
+    .cta-sparkle.s5{left:50%;top:8%;animation-delay:-.3s;width:3px;height:3px}
+    .cta-sparkle.s6{right:8%;top:50%;animation-delay:-1.5s;width:4px;height:4px}
+    @keyframes sparkle{
+      0%,100%{opacity:0;transform:scale(0.4)}
+      50%{opacity:1;transform:scale(1.2)}
+    }
+
+    /* Reduced motion override pra MOTION++ */
+    @media (prefers-reduced-motion: reduce){
+      .brand .brand-mark::after,.hero-particles span,.ps-core,.connector-line::after,
+      .cta-orb::after,.cube::before,.cta-sparkle,h1 .hl::before{animation:none !important}
+      .ps-core{transform:none !important}
+    }
+
+    /* ============================================================
        MOTION+ — animações extras (hero stagger, parallax, tilt, shimmer)
        ============================================================ */
 
@@ -1096,6 +1266,9 @@
 
   <main id="top">
     <section class="hero">
+      <div class="hero-particles" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
       <div class="container hero-grid">
         <div class="hero-copy">
           <span class="eyebrow"><span class="pulse"></span> MVP em construção · acesso antecipado pros primeiros</span>
@@ -1433,6 +1606,12 @@
           </div>
         </div>
         <div class="cta-orb">
+          <span class="cta-sparkle s1" aria-hidden="true"></span>
+          <span class="cta-sparkle s2" aria-hidden="true"></span>
+          <span class="cta-sparkle s3" aria-hidden="true"></span>
+          <span class="cta-sparkle s4" aria-hidden="true"></span>
+          <span class="cta-sparkle s5" aria-hidden="true"></span>
+          <span class="cta-sparkle s6" aria-hidden="true"></span>
           <div class="cube">
             <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2">
               <rect x="6" y="5" width="16" height="3.4" rx="1"/>
