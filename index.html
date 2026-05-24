@@ -426,27 +426,54 @@
     .mini-task{height:22px;border-radius:6px;background:var(--brand-soft);border:1px solid rgba(22,163,74,.20);margin-bottom:5px}
     .mini-task.orange{background:#FFEDD5;border-color:#FED7AA}
 
-    /* Marquee de vocabulário (verde sobre creme) */
+    /* Marquee de vocabulário — efeitos: fade lateral, hover lift, dots pulsando */
     .marquee{
       position:relative;z-index:2;
       border-top:1px solid var(--border);
       border-bottom:1px solid var(--border);
-      background:var(--cream-2);
+      background:linear-gradient(180deg,var(--cream-2) 0%,var(--cream) 100%);
       overflow:hidden;
+      /* Fade nas bordas — palavras somem suaves em vez de cortar */
+      mask-image:linear-gradient(90deg,transparent 0%,black 8%,black 92%,transparent 100%);
+      -webkit-mask-image:linear-gradient(90deg,transparent 0%,black 8%,black 92%,transparent 100%);
     }
     .marquee-track{
-      display:flex;width:max-content;gap:50px;align-items:center;
-      padding:20px 0;color:var(--brand-text);
+      display:flex;width:max-content;gap:54px;align-items:center;
+      padding:22px 0;color:var(--brand-text);
       animation:marquee 32s linear infinite;
     }
     .marquee-word{
-      font-size:1.4rem;font-weight:800;
+      font-size:1.45rem;font-weight:800;
       letter-spacing:-.025em;opacity:.55;
-      display:inline-flex;align-items:center;gap:18px;
+      display:inline-flex;align-items:center;gap:22px;
+      cursor:default;
+      transition:opacity .25s ease,transform .25s cubic-bezier(.22,1,.36,1),color .25s ease;
     }
-    .marquee-word::after{content:"·";color:rgba(22,163,74,.35);font-size:1.8rem}
+    .marquee-word::after{
+      content:"·";
+      color:rgba(22,163,74,.40);
+      font-size:1.8rem;
+      animation:marquee-dot 2.4s ease-in-out infinite;
+      display:inline-block;
+    }
+    .marquee-word:nth-child(2n)::after{animation-delay:-.6s}
+    .marquee-word:nth-child(3n)::after{animation-delay:-1.2s}
+    .marquee-word:nth-child(4n)::after{animation-delay:-1.8s}
+    @keyframes marquee-dot{
+      0%,100%{transform:scale(1);opacity:.4}
+      50%{transform:scale(1.45);opacity:.85;color:var(--brand)}
+    }
+    .marquee-word:hover{
+      opacity:1;
+      transform:translateY(-2px) scale(1.04);
+      color:var(--brand);
+    }
     .marquee:hover .marquee-track{animation-play-state:paused}
     @keyframes marquee{to{transform:translateX(-50%)}}
+
+    @media (prefers-reduced-motion: reduce){
+      .marquee-word::after{animation:none !important;color:rgba(22,163,74,.40) !important}
+    }
 
     /* Sections */
     section{position:relative;padding:88px 0}
