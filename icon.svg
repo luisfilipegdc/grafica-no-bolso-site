@@ -1,4 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#0D0D0D"/>
-  <text x="32" y="46" font-family="basic-sans, system-ui, -apple-system, Arial, sans-serif" font-size="38" font-weight="800" fill="#D7AD44" text-anchor="middle" letter-spacing="-1.5">G</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" fill="none">
+  <!-- Brand mark V6 — pocket-shield em verde WhatsApp (AD-009 V6 cherry) -->
+  <rect width="28" height="28" rx="6" fill="#16A34A"/>
+  <g stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="6" y="5" width="16" height="3.4" rx="1" fill="none"/>
+    <path d="M6 10h16v9l-8 5-8-5z" fill="none"/>
+  </g>
 </svg>
