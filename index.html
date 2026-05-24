@@ -771,9 +771,120 @@
       .cube svg{width:62px}
     }
 
+    /* ============================================================
+       MOTION+ — animações extras (hero stagger, parallax, tilt, shimmer)
+       ============================================================ */
+
+    /* Hero entrance em cascata (auto no load) */
+    @keyframes hero-fade-up{
+      from{opacity:0;transform:translateY(18px)}
+      to{opacity:1;transform:none}
+    }
+    .hero-copy .eyebrow,
+    .hero-copy h1,
+    .hero-copy .lead,
+    .hero-copy .cta-row,
+    .hero-copy .microproof,
+    .hero-copy .hero-metrics{
+      opacity:0;
+      animation:hero-fade-up .7s cubic-bezier(.22,1,.36,1) forwards;
+    }
+    .hero-copy .eyebrow{animation-delay:.05s}
+    .hero-copy h1{animation-delay:.15s}
+    .hero-copy .lead{animation-delay:.30s}
+    .hero-copy .cta-row{animation-delay:.42s}
+    .hero-copy .microproof{animation-delay:.52s}
+    .hero-copy .hero-metrics{animation-delay:.62s}
+
+    .stage{opacity:0;animation:hero-fade-up .9s cubic-bezier(.22,1,.36,1) forwards;animation-delay:.35s}
+
+    /* Header com sombra ao scrollar */
+    header.is-scrolled{
+      box-shadow:0 6px 22px -10px rgba(17,24,39,.18);
+      background:color-mix(in srgb, var(--header-bg) 96%, var(--ink) 4%);
+    }
+
+    /* Parallax dos blobs do hero (driven by --parallax-y CSS var) */
+    .hero::before{
+      transform:translate3d(0, var(--parallax-y, 0), 0);
+      transition:transform .15s linear;
+    }
+    .hero::after{
+      transform:translate3d(0, calc(var(--parallax-y, 0) * -0.6), 0);
+      transition:transform .15s linear;
+    }
+
+    /* Phone tilt no mouseover da stage (driven por CSS vars) */
+    .stage{--tilt-x:0deg;--tilt-y:0deg}
+    .phone-3d{
+      transform:rotateZ(4deg) rotateY(calc(-10deg + var(--tilt-y))) rotateX(calc(3deg + var(--tilt-x)));
+      transition:transform .35s cubic-bezier(.22,1,.36,1);
+    }
+
+    /* Shimmer no quote-card (brilho atravessando a cada N segundos) */
+    .quote-card{position:relative;overflow:hidden}
+    .quote-card::after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.65) 50%,transparent 70%);
+      transform:translateX(-100%);
+      animation:quote-shimmer 4.5s ease-in-out infinite;
+      animation-delay:1.5s;
+      pointer-events:none;
+    }
+    @keyframes quote-shimmer{
+      0%{transform:translateX(-100%)}
+      40%,100%{transform:translateX(100%)}
+    }
+
+    /* Metric count-up: helper de animação progressiva */
+    .metric b{font-variant-numeric:tabular-nums}
+    .metric.is-counting b{
+      background:linear-gradient(135deg,var(--brand) 0%,var(--ink) 100%);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+
+    /* Hover refinado nos cards LP-level (intensifica o lift do Lote B) */
+    .ps-card{transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s ease,border-color .2s}
+    .ps-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+    .promise:hover{box-shadow:var(--shadow-lg)}
+
+    /* Float cards com leve scale no hover */
+    .float-card{transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease}
+    .float-card:hover{transform:scale(1.04) translateY(-4px);box-shadow:var(--shadow-xl);z-index:7}
+
+    /* Botão CTA com ripple ao clicar */
+    .btn{position:relative;isolation:isolate}
+    .btn .ripple{
+      position:absolute;border-radius:50%;
+      background:rgba(255,255,255,.45);
+      transform:scale(0);
+      animation:ripple .55s ease-out;
+      pointer-events:none;
+    }
+    @keyframes ripple{
+      to{transform:scale(4);opacity:0}
+    }
+
+    /* Marquee fica mais opaco ao passar mouse (já tinha pause) */
+    .marquee:hover .marquee-word{opacity:.85;transition:opacity .3s}
+
+    /* Smooth shadow underneath sections in dark mode pra dar profundidade */
+    [data-theme="dark"] .ps-card,
+    [data-theme="dark"] .step,
+    [data-theme="dark"] .feature,
+    [data-theme="dark"] .promise,
+    [data-theme="dark"] .float-card,
+    [data-theme="dark"] .dash-mini,
+    [data-theme="dark"] .product-ui{
+      box-shadow:var(--shadow-lg),inset 0 1px 0 rgba(255,255,255,.04);
+    }
+
     @media (prefers-reduced-motion: reduce){
-      body::after,.pulse,.phone-3d,.float-card,.dash-mini,.light-ring,.ps-core::before,.ps-core::after,.cube,.marquee-track,.cta-orb::before{animation:none !important}
+      body::after,.pulse,.phone-3d,.float-card,.dash-mini,.light-ring,.ps-core::before,.ps-core::after,.cube,.marquee-track,.cta-orb::before,
+      .hero-copy .eyebrow,.hero-copy h1,.hero-copy .lead,.hero-copy .cta-row,.hero-copy .microproof,.hero-copy .hero-metrics,
+      .stage,.quote-card::after{animation:none !important;opacity:1 !important;transform:none !important}
       html{scroll-behavior:auto}
+      .hero::before,.hero::after{transform:none !important}
     }
 
     /* ============================================================
@@ -1437,25 +1548,89 @@
         });
       }
 
-      // --- Sticky CTA mobile ---
+      // --- onScroll: header sombra + parallax do hero + sticky CTA ---
+      var header = document.querySelector('header');
       var msc = document.getElementById('mscta');
       var hero = document.querySelector('.hero');
       var ctaBlock = document.querySelector('.final-cta');
 
       function onScroll(){
-        if(!msc || !hero) return;
-        var heroBottom = hero.getBoundingClientRect().bottom;
-        var ctaTop = ctaBlock ? ctaBlock.getBoundingClientRect().top : Infinity;
-        var vh = window.innerHeight;
-        var shouldShow = heroBottom < 60 && ctaTop > vh - 80;
-        msc.classList.toggle('is-visible', shouldShow);
-        msc.setAttribute('aria-hidden', shouldShow ? 'false' : 'true');
+        var y = window.scrollY || window.pageYOffset;
+
+        // Header sombra após 8px
+        if(header) header.classList.toggle('is-scrolled', y > 8);
+
+        // Parallax dos blobs do hero (driven by --parallax-y)
+        if(hero && !reduced){
+          var rect = hero.getBoundingClientRect();
+          if(rect.bottom > 0 && rect.top < window.innerHeight){
+            var offset = Math.max(-90, Math.min(90, y * 0.20));
+            hero.style.setProperty('--parallax-y', offset + 'px');
+          }
+        }
+
+        // Sticky CTA mobile
+        if(msc && hero){
+          var heroBottom = hero.getBoundingClientRect().bottom;
+          var ctaTop = ctaBlock ? ctaBlock.getBoundingClientRect().top : Infinity;
+          var vh = window.innerHeight;
+          var shouldShow = heroBottom < 60 && ctaTop > vh - 80;
+          msc.classList.toggle('is-visible', shouldShow);
+          msc.setAttribute('aria-hidden', shouldShow ? 'false' : 'true');
+        }
       }
       window.addEventListener('scroll', onScroll, { passive:true });
       window.addEventListener('resize', onScroll);
       onScroll();
 
-      // --- Scroll reveal sutil (Intersection Observer) ---
+      // --- Phone tilt no mouseover da stage (desktop only, sutil) ---
+      var stage = document.querySelector('.stage');
+      if(stage && !reduced && window.matchMedia('(hover:hover) and (min-width:821px)').matches){
+        var stageRect = null;
+        function updateStageRect(){ stageRect = stage.getBoundingClientRect(); }
+        updateStageRect();
+        window.addEventListener('resize', updateStageRect);
+        window.addEventListener('scroll', updateStageRect, { passive:true });
+
+        stage.addEventListener('mousemove', function(e){
+          if(!stageRect) return;
+          var cx = stageRect.left + stageRect.width / 2;
+          var cy = stageRect.top + stageRect.height / 2;
+          var dx = (e.clientX - cx) / stageRect.width;   // -0.5..0.5
+          var dy = (e.clientY - cy) / stageRect.height;  // -0.5..0.5
+          var maxTilt = 6; // graus
+          stage.style.setProperty('--tilt-y', (dx * maxTilt).toFixed(2) + 'deg');
+          stage.style.setProperty('--tilt-x', (-dy * maxTilt).toFixed(2) + 'deg');
+        });
+        stage.addEventListener('mouseleave', function(){
+          stage.style.setProperty('--tilt-y', '0deg');
+          stage.style.setProperty('--tilt-x', '0deg');
+        });
+      }
+
+      // --- Count-up nas metrics quando entram em view ---
+      function animateNumber(el){
+        var raw = el.textContent.trim();
+        // Detecta padrão "N + sufixo" (ex: "90s", "1 link", "0 troca")
+        var m = raw.match(/^(\d+)(.*)$/);
+        if(!m){ el.parentElement.classList.add('is-counting'); return; }
+        var target = parseInt(m[1], 10);
+        var suffix = m[2] || '';
+        if(target === 0){ el.parentElement.classList.add('is-counting'); return; }
+        var duration = 900;
+        var start = performance.now();
+        var ease = function(t){ return 1 - Math.pow(1 - t, 3); };
+        function tick(now){
+          var p = Math.min(1, (now - start) / duration);
+          var v = Math.round(target * ease(p));
+          el.textContent = v + suffix;
+          if(p < 1) requestAnimationFrame(tick);
+          else el.parentElement.classList.add('is-counting');
+        }
+        requestAnimationFrame(tick);
+      }
+
+      // --- Scroll reveal + metric count-up via Intersection Observer ---
       if(!reduced && 'IntersectionObserver' in window){
         var io = new IntersectionObserver(function(entries){
           entries.forEach(function(e){
@@ -1469,7 +1644,37 @@
           el.classList.add('reveal');
           io.observe(el);
         });
+
+        // Count-up nas metrics do hero
+        var metricObserver = new IntersectionObserver(function(entries){
+          entries.forEach(function(e){
+            if(e.isIntersecting){
+              var b = e.target.querySelector('b');
+              if(b) animateNumber(b);
+              metricObserver.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.metric').forEach(function(el){ metricObserver.observe(el); });
       }
+
+      // --- Ripple ao clicar nos botões ---
+      document.querySelectorAll('.btn').forEach(function(btn){
+        btn.addEventListener('click', function(e){
+          if(reduced) return;
+          var rect = btn.getBoundingClientRect();
+          var size = Math.max(rect.width, rect.height);
+          var x = (e.clientX || rect.left + rect.width/2) - rect.left - size/2;
+          var y = (e.clientY || rect.top + rect.height/2) - rect.top - size/2;
+          var r = document.createElement('span');
+          r.className = 'ripple';
+          r.style.width = r.style.height = size + 'px';
+          r.style.left = x + 'px';
+          r.style.top = y + 'px';
+          btn.appendChild(r);
+          setTimeout(function(){ r.remove(); }, 560);
+        });
+      });
     })();
   </script>
 </body>
