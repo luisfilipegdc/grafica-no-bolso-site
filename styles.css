@@ -101,7 +101,7 @@ body{
 }
 a{color:inherit;text-decoration:none}
 button,input{font:inherit}
-.container{width:min(1180px,calc(100% - 42px));margin:0 auto}
+.container{width:min(1180px,calc(100% - 80px));margin:0 auto}
 
 /* Scrollbar verde personalizada */
 *::-webkit-scrollbar{width:10px;height:10px}
@@ -419,7 +419,7 @@ h1{
   animation:floatPhone 5.8s ease-in-out infinite;
   z-index:5;
 }
-@keyframes floatPhone{0%,100%{translate:0 0}50%{translate:0 -16px}}
+@keyframes floatPhone{0%,100%{translate:0 0}50%{translate:0 -22px}}
 .phone::before{
   content:"";position:absolute;
   top:10px;left:50%;width:88px;height:22px;
@@ -496,7 +496,7 @@ h1{
 .chart svg{width:100%;height:100%;overflow:visible}
 .chart path{stroke:#67ff95;stroke-width:3;fill:none;filter:drop-shadow(0 0 7px rgba(103,255,149,.65))}
 [data-theme="light"] .chart path{stroke:var(--green2);filter:drop-shadow(0 0 6px rgba(22,163,74,.50))}
-@keyframes floatCard{0%,100%{translate:0 0}50%{translate:0 -12px}}
+@keyframes floatCard{0%,100%{translate:0 0}50%{translate:0 -18px}}
 
 .revenue{right:0;top:66px;width:214px;animation-delay:-1s}
 .orders{right:6px;top:236px;width:184px;animation-delay:-2s}
@@ -1000,11 +1000,101 @@ footer .brand{color:#FFFFFF;margin-bottom:14px}
 }
 
 /* ============================================================
+   MOTION+ — hero stagger, brand breathe, h1 shine, hover lift
+   ============================================================ */
+
+/* Hero entrance em cascata (cada elemento aparece com delay) */
+@keyframes heroFadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:none}
+}
+.hero-copy .eyebrow,
+.hero-copy h1,
+.hero-copy .lead,
+.hero-copy .cta-row,
+.hero-copy .microproof,
+.hero-copy .hero-metrics{
+  opacity:0;
+  animation:heroFadeUp .8s cubic-bezier(.22,1,.36,1) forwards;
+}
+.hero-copy .eyebrow{animation-delay:.10s}
+.hero-copy h1{animation-delay:.20s}
+.hero-copy .lead{animation-delay:.34s}
+.hero-copy .cta-row{animation-delay:.46s}
+.hero-copy .microproof{animation-delay:.56s}
+.hero-copy .hero-metrics{animation-delay:.66s}
+
+/* Brand mark do nav: glow respirando atrás do ícone */
+.brand .brand-mark{position:relative}
+.brand .brand-mark::after{
+  content:"";
+  position:absolute;inset:-4px;
+  border-radius:inherit;
+  background:linear-gradient(135deg,#43ff81,#0b8e42);
+  filter:blur(10px);
+  opacity:.5;
+  z-index:-1;
+  animation:brandBreathe 3.2s ease-in-out infinite;
+}
+@keyframes brandBreathe{
+  0%,100%{opacity:.35;transform:scale(1)}
+  50%{opacity:.7;transform:scale(1.15)}
+}
+
+/* H1 — destaque "WhatsApp" com fundo verde + shine sweep periódico */
+.hero h1{position:relative}
+.hero h1::before{
+  content:"";
+  position:absolute;
+  left:-2px;right:-2px;top:0;bottom:0;
+  background:linear-gradient(110deg,transparent 30%,rgba(53,227,111,.18) 50%,transparent 70%);
+  transform:translateX(-100%);
+  animation:h1Shine 6s ease-in-out infinite;
+  animation-delay:2s;
+  pointer-events:none;
+  z-index:-1;
+}
+@keyframes h1Shine{
+  0%,25%{transform:translateX(-100%)}
+  55%,100%{transform:translateX(100%)}
+}
+
+/* Hover lift extra nos cards LP-level (intensifica) */
+.step,.feature,.ps-card,.promise{
+  transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s ease,border-color .2s;
+}
+.step:hover,.feature:hover,.ps-card:hover,.promise:hover{
+  transform:translateY(-4px);
+}
+
+/* Floating cards: hover scale + lift mais marcado */
+.float-card{
+  transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease,border-color .2s;
+}
+.float-card:hover{
+  transform:scale(1.05) translateY(-6px) !important;
+  z-index:8;
+}
+
+/* Phone tilt no mouse (desktop only) */
+.stage{--tilt-x:0deg;--tilt-y:0deg}
+@media (hover:hover) and (min-width:821px){
+  .phone{
+    transform:rotateZ(6deg) rotateY(calc(-18deg + var(--tilt-y))) rotateX(calc(4deg + var(--tilt-x)));
+    transition:transform .35s cubic-bezier(.22,1,.36,1);
+  }
+}
+
+/* ============================================================
    Reduced motion
    ============================================================ */
 @media (prefers-reduced-motion: reduce){
-  body::after,.pulse,.phone,.float-card,.dash-mini,.ring,.ps-core::before,.ps-core::after,.cube,.marquee-track,.cta-orb::before,.quote-card::after,.theme-toggle svg,.brand-mark,.cube::before{
+  body::after,.pulse,.phone,.float-card,.dash-mini,.ring,.ps-core::before,.ps-core::after,.cube,.marquee-track,.cta-orb::before,.quote-card::after,.theme-toggle svg,.brand-mark,.cube::before,
+  .brand .brand-mark::after,.hero h1::before,
+  .hero-copy .eyebrow,.hero-copy h1,.hero-copy .lead,.hero-copy .cta-row,.hero-copy .microproof,.hero-copy .hero-metrics{
     animation:none !important;
+    opacity:1 !important;
+    transform:none !important;
   }
   html{scroll-behavior:auto}
   .floating-cta{transition:none}

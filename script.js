@@ -119,6 +119,33 @@
   onScroll();
 
   // ----------------------------------------------------------
+  // Phone tilt no mouseover da stage (desktop only)
+  // ----------------------------------------------------------
+  const stage = document.querySelector('.stage');
+  if (stage && !reduced && window.matchMedia('(hover:hover) and (min-width:821px)').matches) {
+    let stageRect = null;
+    function refreshStageRect() { stageRect = stage.getBoundingClientRect(); }
+    refreshStageRect();
+    window.addEventListener('resize', refreshStageRect);
+    window.addEventListener('scroll', refreshStageRect, { passive: true });
+
+    stage.addEventListener('mousemove', function (e) {
+      if (!stageRect) return;
+      const cx = stageRect.left + stageRect.width / 2;
+      const cy = stageRect.top + stageRect.height / 2;
+      const dx = (e.clientX - cx) / stageRect.width;
+      const dy = (e.clientY - cy) / stageRect.height;
+      const maxTilt = 6;
+      stage.style.setProperty('--tilt-y', (dx * maxTilt).toFixed(2) + 'deg');
+      stage.style.setProperty('--tilt-x', (-dy * maxTilt).toFixed(2) + 'deg');
+    });
+    stage.addEventListener('mouseleave', function () {
+      stage.style.setProperty('--tilt-y', '0deg');
+      stage.style.setProperty('--tilt-x', '0deg');
+    });
+  }
+
+  // ----------------------------------------------------------
   // Count-up das metrics (entrada em viewport)
   // ----------------------------------------------------------
   function animateNumber(el) {
