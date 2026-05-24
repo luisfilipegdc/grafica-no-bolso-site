@@ -43,36 +43,43 @@
   --body-base-3:#061711;
 }
 
-/* Light theme — overrides via data-theme="light" */
+/* Light theme — "Modo Papel" via data-theme="light"
+   Paleta inspirada em papel digital (off-white) pra combinar
+   com identidade de gráfica. NÃO branco puro (cansa o olho). */
 [data-theme="light"]{
-  --bg:#FFFFFF;
-  --bg2:#F9FAFB;
-  --ink:#111827;
-  --muted:#6B7280;
-  --muted2:#9CA3AF;
-  --line:rgba(17,24,39,.10);
-  --line-soft:rgba(17,24,39,.06);
+  --bg:#F7FAF8;
+  --bg2:#FFFFFF;
+  --ink:#102018;
+  --muted:#667085;
+  --muted2:#94A3B8;
+  --line:rgba(16,32,24,.10);
+  --line-soft:#E5E7EB;
   --line-green:rgba(22,163,74,.30);
-  --glass:rgba(17,24,39,.04);
-  --glass-2:rgba(17,24,39,.02);
+  --glass:rgba(16,32,24,.04);
+  --glass-2:rgba(16,32,24,.02);
   --glass-strong:rgba(255,255,255,.92);
   --surface-1:#FFFFFF;
-  --surface-2:#F9FAFB;
-  --shadow:0 24px 60px -16px rgba(17,24,39,.20),0 8px 18px -4px rgba(17,24,39,.08);
-  --text-soft:#374151;
-  --text-dim:#4B5563;
-  --text-dimmer:#6B7280;
-  --topbar-bg:rgba(17,24,39,.95);
-  --header-bg:rgba(255,255,255,.92);
+  --surface-2:#F7FAF8;
+  --shadow:0 24px 60px -16px rgba(16,32,24,.18),0 8px 18px -4px rgba(16,32,24,.06);
+  --text-soft:#1F2A24;
+  --text-dim:#374151;
+  --text-dimmer:#667085;
+  --topbar-bg:rgba(16,32,24,.95);
+  --header-bg:rgba(247,250,248,.92);
   --footer-bg:#0B1410;
   --aurora-1:rgba(22,163,74,.07);
-  --aurora-2:rgba(255,107,43,.05);
+  --aurora-2:rgba(255,122,26,.05);
   --grid-line:rgba(22,163,74,.04);
   --body-grad-1:rgba(22,163,74,.10);
   --body-grad-2:rgba(22,163,74,.05);
-  --body-base-1:#FFFFFF;
-  --body-base-2:#FAFBFC;
-  --body-base-3:#F9FAFB;
+  --body-base-1:#F7FAF8;
+  --body-base-2:#FAFCFA;
+  --body-base-3:#F4F8F5;
+  /* Cores específicas sugeridas pelo fundador */
+  --green2:#16A34A;
+  --green3:#0F7A3A;
+  --orange:#FF7A1A;
+  --orange2:#E85F0A;
 }
 
 /* ============================================================
