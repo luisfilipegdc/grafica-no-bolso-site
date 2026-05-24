@@ -101,36 +101,44 @@
     a{color:inherit;text-decoration:none}
     .container{width:min(1100px,calc(100% - 80px));margin:0 auto}
 
-    /* Aurora background — sutil, troca com tema */
+    /* Grid pattern de fundo — visível mas sutil, troca com tema */
     body::before{
       content:"";
       position:fixed;
       inset:0;
       pointer-events:none;
-      opacity:.16;
+      opacity:.22;
       background-image:
         linear-gradient(var(--grid-line) 1px,transparent 1px),
         linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);
-      background-size:64px 64px;
-      mask-image:linear-gradient(180deg,black,transparent 60%);
-      z-index:-3;
+      background-size:58px 58px;
+      mask-image:linear-gradient(180deg,black,transparent 76%);
+      z-index:-4;
     }
+    /* Aurora cônica rotacionando (substitui o radial estático) */
     body::after{
       content:"";
       position:fixed;
-      top:-15%;
-      right:-10%;
-      width:60vw;
-      height:60vw;
-      background:radial-gradient(circle,var(--aurora-1),transparent 60%);
-      filter:blur(40px);
+      inset:-22%;
+      background:conic-gradient(from 120deg at 50% 50%,transparent,var(--aurora-1),transparent,var(--aurora-2),transparent);
+      filter:blur(38px);
+      animation:aurora 24s linear infinite;
       pointer-events:none;
-      z-index:-4;
-      animation:aurora 24s ease-in-out infinite alternate;
+      z-index:-5;
     }
-    @keyframes aurora{
-      to{transform:translate(-8%,4%) scale(1.08)}
+    @keyframes aurora{to{transform:rotate(360deg)}}
+
+    /* Noise overlay — film grain sutil */
+    .noise{
+      position:fixed;
+      inset:0;
+      z-index:99;
+      pointer-events:none;
+      opacity:.035;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      mix-blend-mode:overlay;
     }
+    [data-theme="dark"] .noise{opacity:.05}
 
     .label-bar{
       position:relative;
@@ -163,7 +171,7 @@
       display:grid;place-items:center;
       background:linear-gradient(135deg,#22C55E,#15803D);
       color:#FFFFFF;
-      box-shadow:0 6px 18px -4px rgba(22,163,74,.45);
+      box-shadow:0 0 0 1px rgba(187,247,208,.30),0 14px 30px rgba(22,163,74,.40);
     }
     .brand-mark svg{width:22px;height:22px;stroke-width:2}
     .nav-links{display:flex;align-items:center;gap:22px;list-style:none;color:var(--ink-soft);font-size:.92rem;font-weight:500}
@@ -199,18 +207,38 @@
     .hero{position:relative;padding:72px 0 80px;overflow:hidden}
     .hero::before{
       content:"";position:absolute;
-      right:-15%;top:0;width:720px;height:520px;
-      background:radial-gradient(circle,rgba(22,163,74,.10),transparent 60%);
-      filter:blur(20px);
+      right:-8%;top:8%;width:760px;height:560px;
+      background:radial-gradient(circle,rgba(22,163,74,.18),transparent 63%);
+      filter:blur(18px);
       pointer-events:none;
     }
     .hero::after{
       content:"";position:absolute;
       left:-10%;bottom:-30%;width:520px;height:520px;
-      background:radial-gradient(circle,rgba(255,107,43,.06),transparent 60%);
+      background:radial-gradient(circle,rgba(255,107,43,.10),transparent 60%);
       filter:blur(28px);
       pointer-events:none;
     }
+    [data-theme="dark"] .hero::before{background:radial-gradient(circle,rgba(53,227,111,.24),transparent 63%)}
+    [data-theme="dark"] .hero::after{background:radial-gradient(circle,rgba(255,107,43,.12),transparent 60%)}
+
+    /* Anel elíptico gigante rotacionado atrás do hero */
+    .hero-ring{
+      position:absolute;
+      left:50%;top:13%;
+      width:930px;height:460px;
+      border:1px solid rgba(22,163,74,.16);
+      border-radius:50%;
+      transform:translateX(-5%) rotate(-16deg);
+      box-shadow:0 0 90px rgba(22,163,74,.10),inset 0 0 42px rgba(22,163,74,.06);
+      pointer-events:none;
+      z-index:0;
+    }
+    [data-theme="dark"] .hero-ring{
+      border-color:rgba(53,227,111,.22);
+      box-shadow:0 0 90px rgba(53,227,111,.16),inset 0 0 42px rgba(53,227,111,.10);
+    }
+
     .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(450px,.98fr);gap:54px;align-items:center}
 
     .eyebrow{
@@ -373,7 +401,15 @@
     .float-card em{font-style:normal;color:var(--brand-text);font-size:.74rem;font-weight:700;margin-left:6px}
     .chart{height:32px;margin-top:8px}
     .chart svg{width:100%;height:100%;overflow:visible}
-    .chart path{stroke:var(--brand);stroke-width:2.5;fill:none}
+    .chart path{
+      stroke:var(--brand);
+      stroke-width:2.5;fill:none;
+      filter:drop-shadow(0 0 6px rgba(22,163,74,.55));
+    }
+    [data-theme="dark"] .chart path{
+      stroke:#67ff95;
+      filter:drop-shadow(0 0 8px rgba(103,255,149,.70));
+    }
     @keyframes floatCard{
       0%,100%{translate:0 0}
       50%{translate:0 -10px}
@@ -560,7 +596,18 @@
       background:var(--surface);border:1px solid var(--border);
       box-shadow:var(--shadow-sm);
       transition:transform .22s cubic-bezier(.4,0,.2,1),box-shadow .22s ease,border-color .2s ease;
+      overflow:hidden;
     }
+    /* Radial glow no canto sup-esq de cada step */
+    .step::before{
+      content:"";position:absolute;inset:-1px;
+      background:radial-gradient(circle at 20% 0,rgba(22,163,74,.16),transparent 40%);
+      pointer-events:none;border-radius:inherit;
+    }
+    [data-theme="dark"] .step::before{
+      background:radial-gradient(circle at 20% 0,rgba(53,227,111,.24),transparent 40%);
+    }
+    .step > *{position:relative;z-index:1}
     .step:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:rgba(22,163,74,.30)}
     .step-num{
       width:42px;height:42px;border-radius:12px;
@@ -582,7 +629,21 @@
       transition:transform .22s cubic-bezier(.4,0,.2,1),box-shadow .22s ease,border-color .2s;
       position:relative;overflow:hidden;
     }
+    /* Radial glow na base de cada feature */
+    .feature::after{
+      content:"";position:absolute;
+      inset:auto -30% -40% -30%;
+      height:120px;
+      background:radial-gradient(circle,rgba(22,163,74,.16),transparent 65%);
+      pointer-events:none;
+    }
+    [data-theme="dark"] .feature::after{
+      background:radial-gradient(circle,rgba(53,227,111,.22),transparent 65%);
+    }
+    .feature > *{position:relative;z-index:1}
     .feature:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:rgba(22,163,74,.30)}
+    .feature:hover::after{background:radial-gradient(circle,rgba(22,163,74,.26),transparent 65%)}
+    [data-theme="dark"] .feature:hover::after{background:radial-gradient(circle,rgba(53,227,111,.32),transparent 65%)}
     .feature-icon{
       width:38px;height:38px;border-radius:11px;
       background:var(--brand-soft);
@@ -1393,6 +1454,7 @@
   </style>
 </head>
 <body>
+  <div class="noise" aria-hidden="true"></div>
   <header>
     <div class="container nav">
       <a href="#top" class="brand" aria-label="Gráfica no Bolso">
@@ -1441,6 +1503,7 @@
 
   <main id="top">
     <section class="hero">
+      <div class="hero-ring" aria-hidden="true"></div>
       <div class="hero-particles" aria-hidden="true">
         <span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
@@ -1718,26 +1781,25 @@
             <div class="comp-row comp-head">
               <div>O que importa pra você</div>
               <div class="comp-cell-us">Gráfica no Bolso</div>
-              <div class="comp-cell-them">CatalogLab</div>
-              <div class="comp-cell-them">WebGráficas</div>
+              <div class="comp-cell-them">PDF + WhatsApp</div>
+              <div class="comp-cell-them">ERP gráfico</div>
             </div>
-            <div class="comp-row"><div>Mobile-first de verdade</div><div class="comp-cell-us">✓</div><div class="comp-cell-them us-win-x">×</div><div class="comp-cell-them us-win-x">×</div></div>
-            <div class="comp-row"><div>Foco — vitrine, pedido, cliente</div><div class="comp-cell-us">✓</div><div class="comp-cell-them">vários módulos</div><div class="comp-cell-them">all-in-one</div></div>
-            <div class="comp-row"><div>Setup em minutos, sem treinamento</div><div class="comp-cell-us">✓</div><div class="comp-cell-them them-check">✓</div><div class="comp-cell-them us-win-x">requer setup</div></div>
-            <div class="comp-row"><div>Servidor próprio, dados isolados</div><div class="comp-cell-us">✓</div><div class="comp-cell-them us-win-x">SaaS compartilhado</div><div class="comp-cell-them us-win-x">SaaS compartilhado</div></div>
-            <div class="comp-row"><div>Fundador rodando gráfica todo dia</div><div class="comp-cell-us">✓</div><div class="comp-cell-them us-win-x">background AQV</div><div class="comp-cell-them us-win-x">empresa de 10 anos</div></div>
-            <div class="comp-row"><div>PDV, financeiro, integrações robustas</div><div class="comp-cell-us them-win">Fase 2</div><div class="comp-cell-them them-check">✓</div><div class="comp-cell-them them-check">✓</div></div>
+            <div class="comp-row"><div>Link único da sua marca</div><div class="comp-cell-us">✓</div><div class="comp-cell-them us-win-x">×</div><div class="comp-cell-them">às vezes</div></div>
+            <div class="comp-row"><div>Pedido cai pronto no painel</div><div class="comp-cell-us">✓</div><div class="comp-cell-them us-win-x">×</div><div class="comp-cell-them">extra</div></div>
+            <div class="comp-row"><div>Cliente cadastrado sozinho</div><div class="comp-cell-us">✓</div><div class="comp-cell-them us-win-x">×</div><div class="comp-cell-them us-win-x">×</div></div>
+            <div class="comp-row"><div>Feito pro celular</div><div class="comp-cell-us">✓</div><div class="comp-cell-them us-win-x">×</div><div class="comp-cell-them us-win-x">×</div></div>
+            <div class="comp-row"><div>Subir em minutos</div><div class="comp-cell-us">✓</div><div class="comp-cell-them them-check">✓</div><div class="comp-cell-them us-win-x">×</div></div>
+            <div class="comp-row"><div>Sem cartão pra testar</div><div class="comp-cell-us">✓</div><div class="comp-cell-them them-check">✓</div><div class="comp-cell-them">às vezes</div></div>
           </div>
           <div class="result-card">
             <div>
               <div class="kicker" style="margin-bottom:12px">Por que</div>
-              <h3>Pra quem precisa do essencial — não da Suíça.</h3>
-              <p>Se você precisa de ERP completo, escolhe um dos veteranos. Se quer vitrine + pedidos resolvidos amanhã, vem com a gente.</p>
+              <h3>Nada disso é truque novo.</h3>
+              <p>É juntar o que já funciona (WhatsApp, link, catálogo) num lugar só, feito por quem usa todo dia.</p>
             </div>
             <a class="btn btn-md btn-brand" href="#cta" style="margin-top:20px">Quero acesso antecipado <span class="arrow">→</span></a>
           </div>
         </div>
-        <p class="comp-disclaimer">Comparativo baseado em pesquisa pública (mai/2026). Concorrentes citados são respeitados — atendem perfis diferentes. Aqui estão as diferenças de approach, não julgamentos de qualidade.</p>
       </div>
     </section>
 
