@@ -99,7 +99,7 @@
       transition:background .3s ease,color .3s ease;
     }
     a{color:inherit;text-decoration:none}
-    .container{width:min(1180px,calc(100% - 40px));margin:0 auto}
+    .container{width:min(1100px,calc(100% - 80px));margin:0 auto}
 
     /* Aurora background — sutil, troca com tema */
     body::before{
@@ -764,6 +764,7 @@
       .footer-grid{grid-template-columns:1fr 1fr}
     }
     @media (max-width:820px){
+      .container{width:min(1100px,calc(100% - 40px))}
       .nav-links{display:none}
       .hero{padding-top:48px}
       .hero-grid{gap:24px}
@@ -772,6 +773,8 @@
       .ps-core{margin:0 auto;height:84px;width:84px}
       .connector-line{display:none}
       .steps,.features{grid-template-columns:1fr}
+      .audience-grid{grid-template-columns:1fr 1fr}
+      .audience-strip{padding:42px 0}
       .ui-body{grid-template-columns:1fr}
       .sidebar{display:none}
       .board{grid-template-columns:1fr 1fr}
@@ -782,20 +785,165 @@
       .float-card,.dash-mini{max-width:100%;animation:none}
       .order-pop{transform:none}
       .marquee-word{font-size:1.1rem}
+      /* Comparativo: header sticky no scroll horizontal; cells menores */
+      .comp-row{grid-template-columns:1.2fr .8fr .8fr .8fr !important}
+      .comp-row>*{padding:11px 10px;font-size:.78rem}
     }
     @media (max-width:560px){
       h1{font-size:2.3rem}
       .cta-row .btn{width:100%}
       .hero{padding-top:36px}
       .board,.promises,.footer-grid{grid-template-columns:1fr}
-      .comp-row{grid-template-columns:1fr}
-      .comp-row>*{border-right:0}
+      .audience-grid{grid-template-columns:1fr}
+
+      /* Comparativo em mobile: header some, cada linha vira card com criterion + 3 mini-pills */
+      .comp-head{display:none}
+      .comp-row{
+        display:block !important;
+        background:var(--surface);
+        border:1px solid var(--border);
+        border-radius:12px;
+        padding:14px 16px;
+        margin-bottom:10px;
+      }
+      .comp-row>*{
+        border:0;padding:0;
+        font-size:.86rem;
+      }
+      .comp-row>*:first-child{
+        display:block;
+        font-weight:700;color:var(--ink);
+        margin-bottom:10px;
+        padding-bottom:8px;
+        border-bottom:1px solid var(--border-soft);
+      }
+      .comp-row .comp-cell-us,
+      .comp-row .comp-cell-them{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:6px 10px;
+        border-radius:8px;
+        margin-bottom:4px;
+        text-align:left;
+        font-size:.8rem;
+      }
+      .comp-row .comp-cell-us::before{content:"Gráfica no Bolso";font-weight:600;color:var(--brand-text)}
+      .comp-row .comp-cell-them:nth-of-type(3)::before{content:"CatalogLab";font-weight:500;color:var(--muted)}
+      .comp-row .comp-cell-them:nth-of-type(4)::before{content:"WebGráficas";font-weight:500;color:var(--muted)}
+      .comp-row .comp-cell-us{background:var(--brand-soft)}
+      .comp-row .comp-cell-them{background:var(--surface-2)}
+
       .phone-3d{height:540px}
       .hero-metrics{margin-top:22px;grid-template-columns:1fr}
       .section-head{text-align:left}
       .cta-orb{height:200px}
       .cube{width:110px;height:110px}
       .cube svg{width:62px}
+    }
+
+    /* ============================================================
+       Audience strip (substitui marquee de vocabulário — opção c)
+       ============================================================ */
+    .audience-strip{
+      position:relative;z-index:2;
+      padding:54px 0;
+      background:linear-gradient(180deg,var(--cream-2) 0%,var(--cream) 100%);
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+    }
+    .audience-head{text-align:center;margin-bottom:32px}
+    .audience-head h2{
+      font-size:clamp(1.4rem,2.4vw,1.8rem);
+      font-weight:800;letter-spacing:-.022em;
+      color:var(--ink);margin-top:6px;
+    }
+    .audience-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+    }
+    .audience-card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:18px 16px;
+      text-align:center;
+      transition:transform .25s cubic-bezier(.22,1,.36,1),
+                 box-shadow .25s ease,
+                 border-color .2s ease;
+      box-shadow:var(--shadow-xs);
+    }
+    .audience-card:hover{
+      transform:translateY(-4px);
+      box-shadow:var(--shadow-md);
+      border-color:rgba(22,163,74,.32);
+    }
+    .aud-icon{
+      width:44px;height:44px;
+      margin:0 auto 12px;
+      border-radius:12px;
+      background:var(--brand-soft);
+      color:var(--brand-text);
+      border:1px solid rgba(22,163,74,.18);
+      display:grid;place-items:center;
+    }
+    .aud-icon svg{width:22px;height:22px}
+    .audience-card h3{
+      font-size:.94rem;font-weight:700;
+      color:var(--ink);margin-bottom:4px;
+      letter-spacing:-.015em;
+    }
+    .audience-card p{font-size:.78rem;color:var(--ink-soft);line-height:1.45}
+
+    /* ============================================================
+       Comparativo nomeando concorrentes (modo defensivo)
+       Estilo: nossa coluna domina visualmente, concorrentes muted
+       ============================================================ */
+    .comp-row{grid-template-columns:1.4fr 1fr 1fr 1fr !important}
+    .comp-head .comp-cell-them{
+      background:transparent;
+      color:var(--muted);
+      font-weight:600;font-size:.78rem;
+      text-align:center;
+      letter-spacing:.01em;
+    }
+    .comp-head .comp-cell-us{
+      background:linear-gradient(180deg,var(--brand) 0%,var(--brand-dark) 100%);
+      color:#FFFFFF;
+      font-weight:800;
+      text-align:center;
+    }
+    .comp-row .comp-cell-them{
+      text-align:center;
+      color:var(--muted);
+      font-size:.84rem;
+    }
+    .comp-row .comp-cell-us{
+      background:var(--brand-soft);
+      color:var(--brand-text);
+      font-weight:700;
+      text-align:center;
+    }
+    .comp-row .comp-cell-us.them-win{
+      background:var(--surface);
+      color:var(--muted);
+      font-weight:500;
+      font-style:italic;
+    }
+    .comp-row .comp-cell-them.us-win-x{
+      color:#C4C9D2;
+      font-weight:600;
+    }
+    .comp-row .comp-cell-them.them-check{
+      color:var(--ink-soft);
+      font-weight:600;
+    }
+    .comp-disclaimer{
+      font-size:.78rem;color:var(--muted);
+      text-align:center;margin-top:14px;
+      max-width:60ch;margin-left:auto;margin-right:auto;
+      line-height:1.5;
     }
 
     /* ============================================================
@@ -1380,24 +1528,44 @@
       </div>
     </section>
 
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span class="marquee-word">BOLSANDO</span>
-        <span class="marquee-word">TINTOU</span>
-        <span class="marquee-word">NO PAPEL</span>
-        <span class="marquee-word">JÁ SAIU</span>
-        <span class="marquee-word">NA PRENSA</span>
-        <span class="marquee-word">PRA ENTREGA</span>
-        <span class="marquee-word">CHEGOU NO BALCÃO</span>
-        <span class="marquee-word">BOLSANDO</span>
-        <span class="marquee-word">TINTOU</span>
-        <span class="marquee-word">NO PAPEL</span>
-        <span class="marquee-word">JÁ SAIU</span>
-        <span class="marquee-word">NA PRENSA</span>
-        <span class="marquee-word">PRA ENTREGA</span>
-        <span class="marquee-word">CHEGOU NO BALCÃO</span>
+    <section class="audience-strip" aria-labelledby="audience-title">
+      <div class="container">
+        <div class="audience-head">
+          <span class="kicker">Para quem é</span>
+          <h2 id="audience-title">Tipos de negócio que <em class="hl">atendemos</em></h2>
+        </div>
+        <div class="audience-grid">
+          <article class="audience-card">
+            <div class="aud-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>
+            </div>
+            <h3>Papelaria personalizada</h3>
+            <p>Cartões, convites, embalagens e tags sob demanda.</p>
+          </article>
+          <article class="audience-card">
+            <div class="aud-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="9" rx="2"/><path d="M6 18v3h12v-3"/><circle cx="17" cy="13" r=".8" fill="currentColor"/></svg>
+            </div>
+            <h3>Gráfica de bairro</h3>
+            <p>Impressos rápidos pro comércio local e clientes recorrentes.</p>
+          </article>
+          <article class="audience-card">
+            <div class="aud-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="1.5"/><path d="M12 17v4M8 21h8"/></svg>
+            </div>
+            <h3>Comunicação visual</h3>
+            <p>Banners, adesivos, fachadas, brindes e sinalização.</p>
+          </article>
+          <article class="audience-card">
+            <div class="aud-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h12l-2-2M20 17H8l2 2"/><circle cx="6" cy="17" r="1.6"/><circle cx="18" cy="7" r="1.6"/></svg>
+            </div>
+            <h3>Revendedor</h3>
+            <p>Capta no Instagram, vende no link, terceiriza a produção.</p>
+          </article>
+        </div>
       </div>
-    </div>
+    </section>
 
     <section id="problema" class="section-cream">
       <div class="container">
@@ -1549,26 +1717,27 @@
           <div class="comparison">
             <div class="comp-row comp-head">
               <div>O que importa pra você</div>
-              <div style="text-align:center">Gráfica no Bolso</div>
-              <div style="text-align:center">PDF + WhatsApp</div>
-              <div style="text-align:center">ERP gráfico</div>
+              <div class="comp-cell-us">Gráfica no Bolso</div>
+              <div class="comp-cell-them">CatalogLab</div>
+              <div class="comp-cell-them">WebGráficas</div>
             </div>
-            <div class="comp-row"><div>Link único da sua marca</div><div class="comp-good">✓</div><div class="comp-bad">×</div><div class="comp-bad">às vezes</div></div>
-            <div class="comp-row"><div>Pedido cai pronto no painel</div><div class="comp-good">✓</div><div class="comp-bad">×</div><div class="comp-bad">extra</div></div>
-            <div class="comp-row"><div>Cliente cadastrado sozinho</div><div class="comp-good">✓</div><div class="comp-bad">×</div><div class="comp-bad">×</div></div>
-            <div class="comp-row"><div>Feito pro celular</div><div class="comp-good">✓</div><div class="comp-bad">×</div><div class="comp-bad">×</div></div>
-            <div class="comp-row"><div>Subir em minutos</div><div class="comp-good">✓</div><div class="comp-good">✓</div><div class="comp-bad">×</div></div>
-            <div class="comp-row"><div>Sem cartão pra testar</div><div class="comp-good">✓</div><div class="comp-good">✓</div><div class="comp-bad">às vezes</div></div>
+            <div class="comp-row"><div>Mobile-first de verdade</div><div class="comp-cell-us">✓</div><div class="comp-cell-them us-win-x">×</div><div class="comp-cell-them us-win-x">×</div></div>
+            <div class="comp-row"><div>Foco — vitrine, pedido, cliente</div><div class="comp-cell-us">✓</div><div class="comp-cell-them">vários módulos</div><div class="comp-cell-them">all-in-one</div></div>
+            <div class="comp-row"><div>Setup em minutos, sem treinamento</div><div class="comp-cell-us">✓</div><div class="comp-cell-them them-check">✓</div><div class="comp-cell-them us-win-x">requer setup</div></div>
+            <div class="comp-row"><div>Servidor próprio, dados isolados</div><div class="comp-cell-us">✓</div><div class="comp-cell-them us-win-x">SaaS compartilhado</div><div class="comp-cell-them us-win-x">SaaS compartilhado</div></div>
+            <div class="comp-row"><div>Fundador rodando gráfica todo dia</div><div class="comp-cell-us">✓</div><div class="comp-cell-them us-win-x">background AQV</div><div class="comp-cell-them us-win-x">empresa de 10 anos</div></div>
+            <div class="comp-row"><div>PDV, financeiro, integrações robustas</div><div class="comp-cell-us them-win">Fase 2</div><div class="comp-cell-them them-check">✓</div><div class="comp-cell-them them-check">✓</div></div>
           </div>
           <div class="result-card">
             <div>
               <div class="kicker" style="margin-bottom:12px">Por que</div>
-              <h3>Nada disso é truque novo.</h3>
-              <p>É juntar o que já funciona (WhatsApp, link, catálogo) num lugar só, feito por quem usa todo dia.</p>
+              <h3>Pra quem precisa do essencial — não da Suíça.</h3>
+              <p>Se você precisa de ERP completo, escolhe um dos veteranos. Se quer vitrine + pedidos resolvidos amanhã, vem com a gente.</p>
             </div>
             <a class="btn btn-md btn-brand" href="#cta" style="margin-top:20px">Quero acesso antecipado <span class="arrow">→</span></a>
           </div>
         </div>
+        <p class="comp-disclaimer">Comparativo baseado em pesquisa pública (mai/2026). Concorrentes citados são respeitados — atendem perfis diferentes. Aqui estão as diferenças de approach, não julgamentos de qualidade.</p>
       </div>
     </section>
 
