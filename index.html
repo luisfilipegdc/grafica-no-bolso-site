@@ -354,10 +354,10 @@
 
     .light-ring{
       position:absolute;
-      inset:80px -60px auto auto;
-      width:620px;height:460px;border-radius:50%;
+      right:-42px;top:94px;
+      width:560px;height:420px;border-radius:50%;
       border:1.5px solid rgba(22,163,74,.26);
-      transform:rotateX(63deg) rotateZ(-22deg);
+      transform:rotateX(63deg) rotateZ(-26deg);
       box-shadow:0 0 90px rgba(22,163,74,.18),inset 0 0 60px rgba(22,163,74,.10);
       animation:orbit 8s ease-in-out infinite alternate;
       pointer-events:none;
@@ -367,12 +367,12 @@
       box-shadow:0 0 110px rgba(53,227,111,.22),inset 0 0 70px rgba(53,227,111,.14);
     }
     @keyframes orbit{
-      to{transform:rotateX(63deg) rotateZ(-14deg) translateY(18px)}
+      to{transform:rotateX(63deg) rotateZ(-18deg) translateY(18px)}
     }
 
     .phone-3d{
       position:absolute;
-      right:130px;top:14px;
+      right:142px;top:12px;
       width:282px;height:586px;
       border-radius:46px;padding:13px;
       background:linear-gradient(145deg,#E5E7EB,#9CA3AF 40%,#D1D5DB);
@@ -381,7 +381,7 @@
         0 46px 90px rgba(17,24,39,.30),
         0 0 70px rgba(22,163,74,.18),
         inset 0 0 0 1px rgba(255,255,255,.40);
-      transform:rotateZ(6deg) rotateY(-14deg) rotateX(4deg);
+      transform:rotateZ(6deg) rotateY(calc(-18deg + var(--tilt-y,0))) rotateX(calc(4deg + var(--tilt-x,0)));
       animation:floatPhone 5.8s ease-in-out infinite;
       z-index:5;
     }
@@ -450,7 +450,7 @@
     /* Floating cards — brancos no light, glass dark com green glow no dark */
     .float-card{
       position:absolute;z-index:6;
-      border-radius:18px;padding:14px 16px;
+      border-radius:22px;padding:18px;
       background:var(--surface);
       border:1px solid var(--border);
       box-shadow:var(--shadow-lg);
@@ -487,26 +487,28 @@
       0%,100%{translate:0 0}
       50%{translate:0 -10px}
     }
-    .revenue{right:0;top:60px;width:200px;animation-delay:-1s}
-    .orders{right:6px;top:218px;width:172px;animation-delay:-2s}
+    .revenue{right:0;top:66px;width:214px;animation-delay:-1s}
+    .orders{right:6px;top:236px;width:184px;animation-delay:-2s}
     .order-pop{
-      right:46px;bottom:108px;width:236px;
-      transform:rotate(-3deg);
+      right:52px;bottom:116px;width:255px;
+      transform:rotate(-4deg);
       animation-delay:-3s;
     }
     .order-pop .badge{
       display:inline-flex;
-      background:#FEF3C7;color:#92400E;
-      border:1px solid #FDE68A;
-      border-radius:999px;padding:3px 8px;
-      font-size:.62rem;font-weight:700;margin-left:6px;
+      background:rgba(255,209,102,.16);color:#92400E;
+      border:1px solid rgba(255,209,102,.45);
+      border-radius:999px;padding:4px 8px;
+      font-size:.66rem;font-weight:700;margin-left:6px;
     }
-    .order-pop b{font-size:.78rem;line-height:1.3;display:block;margin-top:6px}
-    .order-pop strong{display:block;font-size:1.05rem;margin-top:6px;color:var(--brand-text);font-weight:800}
+    [data-theme="dark"] .order-pop .badge{color:#FFD166;border-color:rgba(255,209,102,.30)}
+    .order-pop b{font-size:.86rem;line-height:1.3;display:block;margin-top:6px}
+    .order-pop strong{display:block;font-size:1.25rem;margin-top:8px;color:var(--brand-text);font-weight:800;letter-spacing:-.02em}
+    [data-theme="dark"] .order-pop strong{color:#FFFFFF}
 
     .dash-mini{
-      position:absolute;left:0;bottom:20px;width:330px;
-      border-radius:22px;overflow:hidden;z-index:4;
+      position:absolute;left:0;bottom:25px;width:330px;
+      border-radius:28px;overflow:hidden;z-index:4;
       transform:rotateZ(-2deg);
       background:var(--surface);
       border:1px solid var(--border);
@@ -1619,7 +1621,7 @@
         <div class="stage">
           <div class="light-ring"></div>
 
-          <div class="phone-3d">
+          <div class="phone-3d" data-parallax="-12">
             <div class="phone-screen">
               <div class="phone-head">
                 <div class="mini-top"><span>9:41</span><span>WhatsApp</span></div>
@@ -1642,25 +1644,25 @@
             </div>
           </div>
 
-          <div class="float-card revenue">
+          <div class="float-card revenue" data-parallax="18">
             <small>Pedidos do dia</small>
             <b>9 abertos <em>demo</em></b>
             <div class="chart"><svg viewBox="0 0 180 45"><path d="M2 36 C22 28 29 31 42 22 S65 13 80 19 S105 38 125 20 S148 11 178 7"/></svg></div>
           </div>
 
-          <div class="float-card orders">
+          <div class="float-card orders" data-parallax="10">
             <small>Em produção</small>
             <b>3 ativos</b>
             <div class="chart"><svg viewBox="0 0 180 45"><path d="M2 34 L38 34 L38 25 L76 25 L76 18 L118 18 L118 11 L178 11"/></svg></div>
           </div>
 
-          <div class="float-card order-pop">
+          <div class="float-card order-pop" data-parallax="-16">
             <small>Pedido #2840 <span class="badge">Em produção</span></small>
             <b>Cartões couché · Marcos / Aurora MEI</b>
             <strong>R$ 240,00</strong>
           </div>
 
-          <div class="dash-mini">
+          <div class="dash-mini" data-parallax="8">
             <div class="dash-mini-top"><div class="dots"><i></i><i></i><i></i></div><span class="live-dot">demo</span></div>
             <div class="dash-mini-body">
               <div class="dash-mini-grid">
@@ -2114,6 +2116,13 @@
       var hero = document.querySelector('.hero');
       var ctaBlock = document.querySelector('.final-cta');
 
+      // Cache dos elementos data-parallax (phone, floats, dash-mini)
+      var pxItems = !reduced ? Array.prototype.slice.call(document.querySelectorAll('[data-parallax]')) : [];
+      var pxData = pxItems.map(function(el){
+        var v = parseFloat(el.getAttribute('data-parallax')) || 0;
+        return { el: el, v: v };
+      });
+
       function onScroll(){
         var y = window.scrollY || window.pageYOffset;
 
@@ -2126,6 +2135,14 @@
           if(rect.bottom > 0 && rect.top < window.innerHeight){
             var offset = Math.max(-90, Math.min(90, y * 0.20));
             hero.style.setProperty('--parallax-y', offset + 'px');
+
+            // Parallax individual por card (data-parallax) — velocidade diferente cada
+            // marginTop em vez de transform pra não brigar com keyframes/rotates
+            for(var i=0;i<pxData.length;i++){
+              var item = pxData[i];
+              var move = Math.max(-60, Math.min(60, y * (item.v / 60)));
+              item.el.style.marginTop = move.toFixed(1) + 'px';
+            }
           }
         }
 
