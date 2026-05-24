@@ -1089,14 +1089,21 @@ footer .brand{color:#FFFFFF;margin-bottom:14px}
    Reduced motion
    ============================================================ */
 @media (prefers-reduced-motion: reduce){
-  body::after,.pulse,.phone,.float-card,.dash-mini,.ring,.ps-core::before,.ps-core::after,.cube,.marquee-track,.cta-orb::before,.quote-card::after,.theme-toggle svg,.brand-mark,.cube::before,
-  .brand .brand-mark::after,.hero h1::before,
-  .hero-copy .eyebrow,.hero-copy h1,.hero-copy .lead,.hero-copy .cta-row,.hero-copy .microproof,.hero-copy .hero-metrics{
+  /* Só desliga o pesado/disruptivo (vestibular triggers).
+     Floats sutis, marquee, pulse, ring orbit FICAM — são essenciais. */
+  body::after,
+  .brand .brand-mark::after,
+  .hero h1::before,
+  .quote-card::after,
+  .cta-orb::before,
+  .hero-copy .eyebrow,.hero-copy h1,.hero-copy .lead,
+  .hero-copy .cta-row,.hero-copy .microproof,.hero-copy .hero-metrics{
     animation:none !important;
-    opacity:1 !important;
-    transform:none !important;
+  }
+  .hero-copy .eyebrow,.hero-copy h1,.hero-copy .lead,
+  .hero-copy .cta-row,.hero-copy .microproof,.hero-copy .hero-metrics,
+  .reveal{
+    opacity:1 !important;transform:none !important;
   }
   html{scroll-behavior:auto}
-  .floating-cta{transition:none}
-  .reveal{animation:none !important;opacity:1 !important;transform:none !important}
 }
