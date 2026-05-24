@@ -1,353 +1,303 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Para revendedor — Gráfica no Bolso</title>
-    <meta
-      name="description"
-      content="Para o revendedor que vende impressos com tráfego pago: vitrine com link único, pedidos organizados e clientes salvos — mobile-first."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="pt_BR" />
-    <meta property="og:site_name" content="Gráfica no Bolso" />
-    <meta property="og:url" content="https://graficanobolso.com.br/revendedor.html" />
-    <meta property="og:title" content="Para revendedor — Gráfica no Bolso" />
-    <meta property="og:description" content="Para o revendedor que vende impressos com tráfego pago: vitrine com link único, pedidos organizados e clientes salvos — mobile-first." />
-    <meta property="og:image" content="https://graficanobolso.com.br/icon.svg" />
-    <meta name="twitter:card" content="summary" />
-    <link rel="icon" type="image/svg+xml" href="icon.svg?v=loteD" />
-    <link rel="preconnect" href="https://use.typekit.net" crossorigin />
-    <link rel="stylesheet" href="https://use.typekit.net/yhy8nmx.css" />
-    <link rel="stylesheet" href="styles.css?v=loteD" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container header-inner">
-        <a href="index.html" class="logo" aria-label="Gráfica no Bolso">
-          <span class="wm"><svg class="wm-icon" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="5" width="16" height="3.2" rx="0.8"/><path d="M 6 10 H 22 V 19 L 14 24 L 6 19 Z"/></svg><span class="wm-text"><span class="wm-ink">Gráfica</span> <span class="wm-cta">no Bolso</span></span></span>
-        </a>
-        <ul class="nav-links">
-          <li><a href="grafica.html">Para gráfica</a></li>
-          <li><a href="revendedor.html" class="active">Para revendedor</a></li>
-          <li><a href="como-funciona.html">Como funciona</a></li>
-          <li><a href="precos.html">Preços</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-        </ul>
-        <div class="nav-spacer"></div>
-        <div class="nav-right">
-          <a href="https://app.graficanobolso.com.br/login" class="nav-enter">Entrar</a>
-          <a href="precos.html" class="btn btn-brand btn-sm">Ver planos <span class="arr">&rarr;</span></a>
-        </div>
-        <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu"><span class="bar"></span></button>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#020f0d" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#F7FAF8" media="(prefers-color-scheme: light)" />
+  <title>Para revendedor — Gráfica no Bolso</title>
+  <meta name="description" content="Capta no Instagram, vende pelo link, terceiriza a produção. A vitrine com sua marca, pedido organizado, gráfica fornecedora cuida do resto." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Gráfica no Bolso" />
+  <meta property="og:url" content="https://graficanobolso.com.br/revendedor.html" />
+  <meta property="og:title" content="Para revendedor — Gráfica no Bolso" />
+  <meta property="og:description" content="Capta no tráfego, cliente compra na sua vitrine, terceiriza a produção." />
+  <meta property="og:image" content="https://graficanobolso.com.br/icon.svg" />
+  <link rel="canonical" href="https://graficanobolso.com.br/revendedor.html" />
+  <link rel="icon" type="image/svg+xml" href="icon.svg?v=v7-10" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="styles.css?v=v7-10" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=v7-10" />
+</head>
+<body>
+  <a class="skip-link" href="#top">Pular para o conteúdo</a>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="Gráfica no Bolso">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="5" width="16" height="3.4" rx="1"/>
+            <path d="M6 10h16v9l-8 5-8-5z"/>
+            <path d="M10 14h8M10 17h5"/>
+          </svg>
+        </span>
+        Gráfica no Bolso
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="grafica.html">Para gráfica</a></li>
+        <li><a href="revendedor.html">Para revendedor</a></li>
+        <li><a href="precos.html">Preços</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a class="btn btn-sm btn-green" href="index.html#cta">Quero organizar meus pedidos</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar Modo Papel / Modo Noite" title="Modo Papel / Modo Noite" type="button">
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu" type="button"><span class="bar"></span></button>
       </div>
-      <div class="mobile-menu">
-        <a href="grafica.html">Para gráfica</a>
-        <a href="revendedor.html">Para revendedor</a>
-        <a href="como-funciona.html">Como funciona</a>
-        <a href="precos.html">Preços</a>
-        <a href="faq.html">FAQ</a>
-        <div class="mm-actions">
-          <a href="https://app.graficanobolso.com.br/login" class="btn btn-outline">Entrar</a>
-          <a href="precos.html" class="btn btn-outline">Ver planos</a>
-        </div>
-      </div>
-    </header>
-
-    <main>
-      <!-- HERO -->
-      <section class="page-hero">
-        <div class="container">
-          <p class="eyebrow">Para revendedor · perfil freelancer</p>
-          <h1>Capta no Instagram, terceiriza, <em class="hl">entrega</em>.</h1>
-          <p class="ph-sub">
-            Para o revendedor freelancer que vende impressos com tráfego pago e
-            ainda opera num emaranhado de planilha + Canva + portal da gráfica
-            fornecedora.
-          </p>
-          <div class="ph-ctas">
-            <a href="precos.html" class="btn btn-cta">Ver os planos <span class="arr">&rarr;</span></a>
-            <a href="como-funciona.html" class="btn btn-outline">Ver fluxo completo</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- MOCKUP DOIS CELULARES -->
-      <section style="padding-top: 28px">
-        <div class="container">
-          <div class="card" style="background: var(--cream); display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; padding: 40px">
-            <div class="phone" style="width: 240px">
-              <div class="phone-screen">
-                <div class="phone-top">
-                  <div class="ps-tag">Catálogo</div>
-                  <div class="ps-name">Sua Marca</div>
-                </div>
-                <div class="phone-search">Buscar produto&hellip;</div>
-                <div class="phone-body" style="padding: 10px 14px">
-                  <div class="pp-card"><div class="pp-img b"></div><div class="pp-info"><div class="pp-n">Cartão Couché 300g</div><div class="pp-meta"><span class="pp-tag">1000 un.</span><span class="pp-p">R$ 35</span></div></div></div>
-                  <div class="pp-card"><div class="pp-img"></div><div class="pp-info"><div class="pp-n">Adesivo vinil</div><div class="pp-meta"><span class="pp-tag">Por m&sup2;</span><span class="pp-p">R$ 18</span></div></div></div>
-                </div>
-                <div class="phone-cta">Fazer pedido</div>
-              </div>
-            </div>
-            <div class="phone" style="width: 240px">
-              <div class="phone-screen">
-                <div class="phone-top">
-                  <div class="ps-tag">Catálogo / Cartões</div>
-                  <div class="ps-name">Cartão de visita</div>
-                </div>
-                <div style="padding: 14px">
-                  <div style="font-size:.78rem;color:var(--muted)">Couché 300g · 4&times;4 cores · verniz total</div>
-                  <div style="margin-top:12px;border:1px solid var(--border);border-radius:9px;padding:10px;background:var(--card)">
-                    <div style="font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">Quantidade</div>
-                    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:6px">
-                      <div style="text-align:center;border:1px solid var(--border);border-radius:6px;padding:5px 2px"><div style="font-size:.7rem;font-weight:700">100</div><div style="font-size:.6rem;color:var(--muted)">R$ 19</div></div>
-                      <div style="text-align:center;border:1px solid var(--border);border-radius:6px;padding:5px 2px"><div style="font-size:.7rem;font-weight:700">500</div><div style="font-size:.6rem;color:var(--muted)">R$ 28</div></div>
-                      <div style="text-align:center;border:1px solid var(--brand);background:var(--brand);color:#fff;border-radius:6px;padding:5px 2px"><div style="font-size:.7rem;font-weight:700">1000</div><div style="font-size:.6rem;opacity:.85">R$ 35</div></div>
-                      <div style="text-align:center;border:1px solid var(--border);border-radius:6px;padding:5px 2px"><div style="font-size:.7rem;font-weight:700">2000</div><div style="font-size:.6rem;color:var(--muted)">R$ 56</div></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="phone-cta">&#128172; Pedir · R$ 35</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- DIAGNÓSTICO -->
-      <section>
-        <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">Diagnóstico</p>
-            <h2 class="section-title">Hoje você opera com uma <em class="hl">colcha de retalhos</em>.</h2>
-            <p class="section-intro">
-              A pesquisa de mercado mostrou: não existe ferramenta dedicada ao
-              revendedor. Você atende com o que sobra.
-            </p>
-          </div>
-          <div class="grid cols-2">
-            <div class="split-card split-hoje">
-              <p class="eyebrow" style="color: var(--cta); margin-bottom: 14px">Hoje</p>
-              <ul>
-                <li><span class="num">01</span> Instagram capta — você responde DM com PDF</li>
-                <li><span class="num">02</span> Cliente pede preço — você abre Excel</li>
-                <li><span class="num">03</span> Aceita o pedido — você abre o portal da gráfica</li>
-                <li><span class="num">04</span> Repassa — você anota num caderno</li>
-                <li><span class="num">05</span> Cobra — você esquece quem ainda não pagou</li>
-                <li><span class="num">06</span> Entrega — sem histórico pra próxima venda</li>
-              </ul>
-            </div>
-            <div class="split-card split-gnb">
-              <p class="eyebrow" style="margin-bottom: 14px">Com Gráfica no Bolso</p>
-              <ul>
-                <li><span class="ck">&#10003;</span> Instagram leva pro seu link único</li>
-                <li><span class="ck">&#10003;</span> Cliente vê o preço — você não precisa responder</li>
-                <li><span class="ck">&#10003;</span> Pedido entra organizado no painel</li>
-                <li><span class="ck">&#10003;</span> Você só repassa pra gráfica — ainda manual no MVP</li>
-                <li><span class="ck">&#10003;</span> Cliente fica salvo automaticamente</li>
-                <li><span class="ck">&#10003;</span> Histórico pronto pra próxima venda</li>
-              </ul>
-              <div class="split-foot">
-                Rede de terceirização integrada chega na Fase 3 — pesquisa de
-                mercado confirma a brecha.
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- MOBILE-FIRST -->
-      <section class="section-cream">
-        <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">Cabe na sua rotina</p>
-            <h2 class="section-title">Mobile-first <em class="hl">de verdade</em>.</h2>
-            <p class="section-intro">
-              A vitrine, o painel e a finalização de pedido foram desenhados pro
-              celular antes do desktop. Você opera entre uma ligação e outra.
-            </p>
-          </div>
-          <div class="grid cols-3">
-            <div class="card">
-              <div class="icon-chip">&#9889;</div>
-              <h3>Setup em minutos</h3>
-              <p>Cadastra, cola produtos, ajusta a marca. Mande o link na bio antes da próxima campanha.</p>
-            </div>
-            <div class="card">
-              <div class="icon-chip">&#9783;</div>
-              <h3>Link único pro Instagram</h3>
-              <p>Coloca na bio, no story, no anúncio. Cliente entra direto na vitrine — sem fricção de DM.</p>
-            </div>
-            <div class="card">
-              <div class="icon-chip">&#9786;</div>
-              <h3>Cliente fica salvo</h3>
-              <p>Cadastro automático pelo WhatsApp. Da próxima vez, você reconhece quem comprou.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ROADMAP -->
-      <section>
-        <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">Roadmap aberto</p>
-            <h2 class="section-title">O que ainda não está pronto — <em class="hl">e quando chega</em>.</h2>
-            <p class="section-intro">
-              Transparência total. Você decide se entra agora ou espera a feature
-              que importa pra você.
-            </p>
-          </div>
-          <div class="roadmap">
-            <div class="roadmap-row">
-              <span class="fase">MVP</span>
-              <span class="titulo">Catálogo + pedidos + clientes</span>
-              <span class="estado live">Em construção</span>
-            </div>
-            <div class="roadmap-row soft">
-              <span class="fase">Fase 2a</span>
-              <span class="titulo">Módulos da gráfica · PDV, financeiro, produção</span>
-              <span class="estado">Próximo</span>
-            </div>
-            <div class="roadmap-row soft">
-              <span class="fase">Fase 2b</span>
-              <span class="titulo">Módulos do revendedor · tráfego, conexão direta com gráfica</span>
-              <span class="estado">Planejado</span>
-            </div>
-            <div class="roadmap-row soft">
-              <span class="fase">Fase 3</span>
-              <span class="titulo">Rede de terceirização integrada</span>
-              <span class="estado">Visão</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA -->
-      <section class="cta-block">
-        <div class="container">
-          <div class="cta-inner">
-            <p class="eyebrow">Pronto?</p>
-            <h2>Comece a vender com <em class="hl">um link só</em>.</h2>
-            <p>Sem migrar nada. Sua próxima campanha pode rodar com vitrine de verdade.</p>
-            <div class="cta-actions">
-              <a href="precos.html" class="btn btn-light">Ver os planos <span class="arr">&rarr;</span></a>
-              <a href="como-funciona.html" class="btn btn-outline" style="color: var(--paper); border-color: rgba(243,233,225,.25)">Ver como funciona</a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <span class="wm"><svg class="wm-icon" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="5" width="16" height="3.2" rx="0.8"/><path d="M 6 10 H 22 V 19 L 14 24 L 6 19 Z"/></svg><span class="wm-text"><span class="wm-ink">Gráfica</span> <span class="wm-cta">no Bolso</span></span></span>
-            <p>Vitrine digital, pedidos organizados e cadastro de clientes — para quem vive de impressos no Brasil.</p>
-          </div>
-          <div class="footer-col">
-            <h4>Produto</h4>
-            <ul>
-              <li><a href="grafica.html">Para gráfica</a></li>
-              <li><a href="revendedor.html">Para revendedor</a></li>
-              <li><a href="como-funciona.html">Como funciona</a></li>
-              <li><a href="precos.html">Preços</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Saber mais</h4>
-            <ul>
-              <li><a href="faq.html">FAQ</a></li>
-              <li><a href="index.html">Início</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Conecte</h4>
-            <ul>
-              <li><a href="https://www.instagram.com/graficanobolso/" target="_blank" rel="noopener">Instagram</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <span>&copy; 2026 Gráfica no Bolso · graficanobolso.com.br</span>
-          <span>v0.1 — MVP em construção</span>
-        </div>
-      </div>
-    </footer>
-    <!-- Bottom sticky CTA (mobile only) -->
-    <div class="mobile-sticky-cta" id="msc" aria-hidden="true">
-      <a href="https://app.graficanobolso.com.br/login" class="btn btn-outline">Entrar</a>
-      <a href="precos.html" class="btn btn-cta">Ver os planos <span class="arr">&rarr;</span></a>
     </div>
-    <script>
-      (function () {
-        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        var t = document.querySelector('.nav-toggle');
-        var m = document.querySelector('.mobile-menu');
-        if (t && m) {
-          m.id = 'mobile-menu';
-          t.addEventListener('click', function () {
-            var open = m.classList.toggle('is-open');
-            t.setAttribute('aria-expanded', open ? 'true' : 'false');
-          });
-          m.querySelectorAll('a').forEach(function (a) {
-            a.addEventListener('click', function () {
-              m.classList.remove('is-open');
-              t.setAttribute('aria-expanded', 'false');
-            });
-          });
-        }
-        var header = document.querySelector('.site-header');
-        var hero = document.querySelector('.hero, .page-hero');
-        var ctaBlock = document.querySelector('.cta-block');
-        var msc = document.getElementById('msc');
-        function onScroll() {
-          var y = window.scrollY || window.pageYOffset;
-          if (header) header.classList.toggle('is-scrolled', y > 8);
-          if (hero && !reduced) {
-            var rect = hero.getBoundingClientRect();
-            if (rect.bottom > 0 && rect.top < window.innerHeight) {
-              var offset = Math.max(-80, Math.min(80, y * 0.18));
-              hero.style.setProperty('--parallax-y', offset + 'px');
-            }
-          }
-          if (msc && hero) {
-            var heroBottom = hero.getBoundingClientRect().bottom;
-            var ctaTop = ctaBlock ? ctaBlock.getBoundingClientRect().top : Infinity;
-            var vh = window.innerHeight;
-            var shouldShow = heroBottom < 60 && ctaTop > vh - 80;
-            msc.classList.toggle('is-visible', shouldShow);
-            msc.setAttribute('aria-hidden', shouldShow ? 'false' : 'true');
-          }
-        }
-        window.addEventListener('scroll', onScroll, { passive: true });
-        window.addEventListener('resize', onScroll);
-        onScroll();
-        if (!reduced && 'IntersectionObserver' in window) {
-          var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (e) {
-              if (e.isIntersecting) {
-                e.target.classList.add('is-in');
-                io.unobserve(e.target);
-              }
-            });
-          }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-          var auto = document.querySelectorAll(
-            '.section-head, .hero-inner > div, .mock-window, .cmp-wrap, .wpp-mess, .phone'
-          );
-          auto.forEach(function (el) {
-            el.classList.add('reveal');
-            io.observe(el);
-          });
-          var grids = document.querySelectorAll('.grid, .princ-grid, .trust, .flow-grid');
-          grids.forEach(function (g) {
-            g.classList.add('stagger');
-            io.observe(g);
-          });
-        }
-      })();
-    </script>
-  </body>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Menu mobile">
+      <a href="index.html">Início</a>
+      <a href="grafica.html">Para gráfica</a>
+      <a href="revendedor.html">Para revendedor</a>
+      <a href="precos.html">Preços</a>
+      <a href="faq.html">FAQ</a>
+      <div class="mm-actions">
+        <a class="btn btn-md btn-green" href="index.html#cta">Quero organizar meus pedidos</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow"><span class="pulse"></span> Para revendedor, designer e papelaria que terceiriza</span>
+          <h1>Captou no Instagram, <span class="grad">vende no link.</span></h1>
+          <p class="lead">Sua vitrine com sua marca, cliente compra direto pelo link, o pedido cai organizado pra você repassar pra gráfica fornecedora. <strong>Sem perder venda no scroll do WhatsApp.</strong></p>
+          <div class="cta-row">
+            <a class="btn btn-lg btn-orange" href="index.html#cta">Quero organizar meus pedidos <span class="arrow">→</span></a>
+            <a class="btn btn-lg btn-ghost" href="index.html#produto">Ver o painel</a>
+          </div>
+          <div class="microproof">
+            <span><i class="check">✓</i> Link único pra bio do Instagram</span>
+            <span><i class="check">✓</i> Sua marca, não a da gráfica</span>
+            <span><i class="check">✓</i> Pedido pronto pra repassar</span>
+          </div>
+        </div>
+        <div class="stage reveal">
+          <div class="ring"></div>
+          <div class="phone" data-parallax="-12">
+            <div class="phone-screen">
+              <div class="phone-head">
+                <div class="mini-top"><span>9:41</span><span>Sua Marca</span></div>
+                <h3>Sua vitrine no celular</h3>
+                <p>link na bio · 12 produtos</p>
+              </div>
+              <div class="chat">
+                <div class="msg left">Vi no Insta. Quanto custa convite 100un?</div>
+                <div class="msg right">Tudo na vitrine: suamarca.gnb.com.br</div>
+                <div class="quote-card">
+                  <small>Pedido #1287 · veio da bio</small>
+                  <b>Convite 10×15cm</b>
+                  <small>100 un · couché 250g · laminação</small>
+                  <b>R$ 280,00</b>
+                  <span>Ver no painel</span>
+                </div>
+                <div class="msg left">Fechado! Posso enviar a arte amanhã?</div>
+              </div>
+              <div class="phone-input">Mensagem</div>
+            </div>
+          </div>
+          <div class="float-card revenue" data-parallax="18">
+            <small>Vendas do mês</small>
+            <b>R$ 4.820 <em>demo</em></b>
+            <div class="chart"><svg viewBox="0 0 180 45"><path d="M2 36 C22 28 29 31 42 22 S65 13 80 19 S105 38 125 20 S148 11 178 7"/></svg></div>
+          </div>
+          <div class="float-card orders" data-parallax="10">
+            <small>Pedidos em aberto</small>
+            <b>5 ativos</b>
+            <div class="chart"><svg viewBox="0 0 180 45"><path d="M2 34 L38 34 L38 25 L76 25 L76 18 L118 18 L118 11 L178 11"/></svg></div>
+          </div>
+          <div class="float-card order-pop" data-parallax="-16">
+            <small>Pedido #1287 <span class="badge">Aguardando arte</span></small>
+            <b>Convite 10×15 · 100 un</b>
+            <strong>R$ 280,00</strong>
+          </div>
+          <div class="dash-mini glass" data-parallax="8">
+            <div class="dash-mini-top"><div class="dots"><i></i><i></i><i></i></div><span class="live">demo</span></div>
+            <div class="dash-mini-body">
+              <div class="dash-mini-grid">
+                <div class="mini-stat"><small>Pedidos</small><b>5</b></div>
+                <div class="mini-stat"><small>Clientes</small><b>38</b></div>
+                <div class="mini-stat"><small>Mês</small><b>R$4,8k</b></div>
+              </div>
+              <div class="mini-kanban">
+                <div class="mini-col"><div class="mini-task"></div><div class="mini-task orange"></div></div>
+                <div class="mini-col"><div class="mini-task"></div><div class="mini-task"></div></div>
+                <div class="mini-col"><div class="mini-task orange"></div><div class="mini-task"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">Seu fluxo hoje</div>
+          <h2>Captou no tráfego e <span>perdeu no atendimento</span>.</h2>
+          <p>Você investe em Instagram e tráfego pago, gera lead, e na hora de fechar a venda o cliente some no WhatsApp. Detalhe sumido, fornecedor cobrando, prazo virando bagunça.</p>
+        </div>
+        <div class="problem-solution reveal">
+          <div class="ps-card bad-card glass">
+            <h3><span class="bad">!</span> Hoje, sem sistema</h3>
+            <ul>
+              <li><span class="bad">×</span> Lead do tráfego pede preço por DM e some.</li>
+              <li><span class="bad">×</span> Você vira tabela ambulante de preço.</li>
+              <li><span class="bad">×</span> Pedido fica em 3 chats: cliente, gráfica e o seu.</li>
+              <li><span class="bad">×</span> Cliente não sabe em que etapa tá, fica cobrando.</li>
+            </ul>
+          </div>
+          <div class="ps-core">
+            <div class="connector"></div>
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"><rect x="6" y="5" width="16" height="3.4" rx="1"/><path d="M6 10h16v9l-8 5-8-5z"/></svg>
+          </div>
+          <div class="ps-card good-card glass">
+            <h3><span class="good">✓</span> Com Gráfica no Bolso</h3>
+            <ul>
+              <li><span class="good">✓</span> Lead clica no link, escolhe, fecha sozinho.</li>
+              <li><span class="good">✓</span> Pedido cai pronto pra você repassar pra gráfica.</li>
+              <li><span class="good">✓</span> Kanban mostra arte, produção, pronto, entregue.</li>
+              <li><span class="good">✓</span> Cliente acompanha sem perguntar a cada hora.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">O fluxo do revendedor</div>
+          <h2>Quatro passos pra <span>vender no link</span>.</h2>
+          <p>O processo do dia de quem terceiriza a produção e quer escalar sem virar gerente de WhatsApp.</p>
+        </div>
+        <div class="steps">
+          <article class="step glass reveal">
+            <div class="step-icon">📸</div>
+            <div class="step-num">1</div>
+            <h3>Sua vitrine com sua marca</h3>
+            <p>Logo, capa, cor. O cliente vê sua marca — não a da gráfica fornecedora.</p>
+          </article>
+          <article class="step glass reveal">
+            <div class="step-icon">🔗</div>
+            <div class="step-num">2</div>
+            <h3>Link na bio</h3>
+            <p>WhatsApp, Instagram, anúncio. O lead vem pelo seu canal e cai direto na sua vitrine.</p>
+          </article>
+          <article class="step glass reveal">
+            <div class="step-icon">🛒</div>
+            <div class="step-num">3</div>
+            <h3>Cliente fecha sozinho</h3>
+            <p>Quantidade, acabamento, prazo, observações, arquivo. Tudo organizado no card do pedido.</p>
+          </article>
+          <article class="step glass reveal">
+            <div class="step-icon">📨</div>
+            <div class="step-num">4</div>
+            <h3>Você repassa pra gráfica</h3>
+            <p>Mensagem pronta pra mandar no WhatsApp da fornecedora — com tudo que ela precisa.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">Pra que serve</div>
+          <h2>Seis usos práticos pra <span>revendedor de impressos</span>.</h2>
+          <p>O que muda no seu fluxo nas primeiras semanas usando o Gráfica no Bolso.</p>
+        </div>
+        <div class="features">
+          <article class="feature glass reveal"><div class="feature-icon">🎨</div><h3>Vitrine com sua marca</h3><p>Cliente vê sua identidade visual. A gráfica fornecedora não aparece.</p></article>
+          <article class="feature glass reveal"><div class="feature-icon">🔗</div><h3>Link único na bio</h3><p>Um lugar pra mandar todo lead que vem do Insta, WhatsApp ou tráfego.</p></article>
+          <article class="feature glass reveal"><div class="feature-icon">📊</div><h3>Pedido pra repassar</h3><p>Cada pedido sai formatado pra você mandar direto pra gráfica fornecedora.</p></article>
+          <article class="feature glass reveal"><div class="feature-icon">📁</div><h3>Arquivo + observação</h3><p>Cliente sobe arquivo, escreve observação. Tudo num card só.</p></article>
+          <article class="feature glass reveal"><div class="feature-icon">👁️</div><h3>Cliente acompanha</h3><p>Link de status pra ele ver — sem te perguntar "ficou pronto?" cada hora.</p></article>
+          <article class="feature glass reveal"><div class="feature-icon">📈</div><h3>Histórico do cliente</h3><p>Quem comprou o quê, quando, quanto. Pra você remarketing sem planilha.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" id="cta">
+      <div class="container cta-box">
+        <div>
+          <div class="kicker">Acesso antecipado</div>
+          <h2>Seu lead vira venda com <span class="grad">um link</span>.</h2>
+          <p>Pra primeiros revendedores que entrarem agora: teste sem cartão, ajuda pra montar a vitrine, preço fundador.</p>
+          <div class="cta-row">
+            <a class="btn btn-lg btn-orange" href="https://app.graficanobolso.com.br/login">Quero organizar meus pedidos <span class="arrow">→</span></a>
+            <a class="btn btn-lg btn-ghost" href="index.html#funciona">Como funciona</a>
+          </div>
+        </div>
+        <div class="cta-orb">
+          <div class="cube">
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"><rect x="6" y="5" width="16" height="3.4" rx="1"/><path d="M6 10h16v9l-8 5-8-5z"/></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand">
+            <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="5" width="16" height="3.4" rx="1"/><path d="M6 10h16v9l-8 5-8-5z"/></svg></span>
+            Gráfica no Bolso
+          </div>
+          <p>Vitrine digital, pedidos organizados e cadastro de clientes — pra quem vive de impressos no Brasil.</p>
+        </div>
+        <div>
+          <h4>Produto</h4>
+          <a href="index.html#funciona">Como funciona</a>
+          <a href="index.html#recursos">Recursos</a>
+          <a href="index.html#produto">Por dentro</a>
+          <a href="index.html#comparativo">Comparativo</a>
+        </div>
+        <div>
+          <h4>Saber mais</h4>
+          <a href="grafica.html">Para gráfica</a>
+          <a href="revendedor.html">Para revendedor</a>
+          <a href="precos.html">Preços</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+        <div>
+          <h4>Acessar</h4>
+          <a href="https://app.graficanobolso.com.br/login">Entrar</a>
+          <a href="index.html#cta">Acesso antecipado</a>
+          <a href="https://www.instagram.com/graficanobolso/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Gráfica no Bolso · graficanobolso.com.br</span>
+        <span>v0.1 — MVP em construção</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="floating-cta" id="floatingCta" href="index.html#cta" aria-hidden="true">
+    <span class="floating-cta-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M13 6l6 6-6 6"/></svg>
+    </span>
+    <span class="floating-cta-copy">
+      <strong>Quero organizar meus pedidos</strong>
+      <span>acesso antecipado · sem cartão</span>
+    </span>
+  </a>
+
+  <script src="script.js?v=v7-10" defer></script>
+</body>
 </html>

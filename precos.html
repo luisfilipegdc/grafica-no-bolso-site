@@ -1,314 +1,254 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Preços — Gráfica no Bolso</title>
-    <meta
-      name="description"
-      content="Transparente antes de cobrar. Os valores finais saem antes do lançamento — sem trial enganoso, sem letra miúda. Veja a estrutura de planos prevista."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="pt_BR" />
-    <meta property="og:site_name" content="Gráfica no Bolso" />
-    <meta property="og:url" content="https://graficanobolso.com.br/precos.html" />
-    <meta property="og:title" content="Preços — Gráfica no Bolso" />
-    <meta property="og:description" content="Transparente antes de cobrar. Os valores finais saem antes do lançamento — sem trial enganoso, sem letra miúda. Veja a estrutura de planos prevista." />
-    <meta property="og:image" content="https://graficanobolso.com.br/icon.svg" />
-    <meta name="twitter:card" content="summary" />
-    <link rel="icon" type="image/svg+xml" href="icon.svg?v=loteD" />
-    <link rel="preconnect" href="https://use.typekit.net" crossorigin />
-    <link rel="stylesheet" href="https://use.typekit.net/yhy8nmx.css" />
-    <link rel="stylesheet" href="styles.css?v=loteD" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container header-inner">
-        <a href="index.html" class="logo" aria-label="Gráfica no Bolso">
-          <span class="wm"><svg class="wm-icon" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="5" width="16" height="3.2" rx="0.8"/><path d="M 6 10 H 22 V 19 L 14 24 L 6 19 Z"/></svg><span class="wm-text"><span class="wm-ink">Gráfica</span> <span class="wm-cta">no Bolso</span></span></span>
-        </a>
-        <ul class="nav-links">
-          <li><a href="grafica.html">Para gráfica</a></li>
-          <li><a href="revendedor.html">Para revendedor</a></li>
-          <li><a href="como-funciona.html">Como funciona</a></li>
-          <li><a href="precos.html" class="active">Preços</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-        </ul>
-        <div class="nav-spacer"></div>
-        <div class="nav-right">
-          <a href="https://app.graficanobolso.com.br/login" class="nav-enter">Entrar</a>
-          <a href="precos.html" class="btn btn-brand btn-sm">Ver planos <span class="arr">&rarr;</span></a>
-        </div>
-        <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu"><span class="bar"></span></button>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#020f0d" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#F7FAF8" media="(prefers-color-scheme: light)" />
+  <title>Preços — Gráfica no Bolso</title>
+  <meta name="description" content="Planos a definir antes do lançamento — sem trial enganoso, sem letra miúda. As primeiras gráficas têm condição especial (preço fundador)." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Gráfica no Bolso" />
+  <meta property="og:url" content="https://graficanobolso.com.br/precos.html" />
+  <meta property="og:title" content="Preços — Gráfica no Bolso" />
+  <meta property="og:description" content="Sem trial enganoso. Preço fundador pras primeiras gráficas." />
+  <meta property="og:image" content="https://graficanobolso.com.br/icon.svg" />
+  <link rel="canonical" href="https://graficanobolso.com.br/precos.html" />
+  <link rel="icon" type="image/svg+xml" href="icon.svg?v=v7-10" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="styles.css?v=v7-10" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=v7-10" />
+</head>
+<body>
+  <a class="skip-link" href="#top">Pular para o conteúdo</a>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand" aria-label="Gráfica no Bolso">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="5" width="16" height="3.4" rx="1"/>
+            <path d="M6 10h16v9l-8 5-8-5z"/>
+            <path d="M10 14h8M10 17h5"/>
+          </svg>
+        </span>
+        Gráfica no Bolso
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="grafica.html">Para gráfica</a></li>
+        <li><a href="revendedor.html">Para revendedor</a></li>
+        <li><a href="precos.html">Preços</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a class="btn btn-sm btn-green" href="index.html#cta">Quero organizar meus pedidos</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar Modo Papel / Modo Noite" title="Modo Papel / Modo Noite" type="button">
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu" type="button"><span class="bar"></span></button>
       </div>
-      <div class="mobile-menu">
-        <a href="grafica.html">Para gráfica</a>
-        <a href="revendedor.html">Para revendedor</a>
-        <a href="como-funciona.html">Como funciona</a>
-        <a href="precos.html">Preços</a>
-        <a href="faq.html">FAQ</a>
-        <div class="mm-actions">
-          <a href="https://app.graficanobolso.com.br/login" class="btn btn-outline">Entrar</a>
-          <a href="precos.html" class="btn btn-outline">Ver planos</a>
-        </div>
-      </div>
-    </header>
-
-    <main>
-      <!-- HERO -->
-      <section class="page-hero center">
-        <div class="container">
-          <p class="eyebrow">Preços</p>
-          <h1>Transparente <em class="hl">antes</em> de cobrar.</h1>
-          <p class="ph-sub">
-            Os valores finais saem antes do lançamento — sem trial enganoso, sem
-            letra miúda. Abaixo, a estrutura prevista de planos.
-          </p>
-        </div>
-      </section>
-
-      <!-- PLANOS -->
-      <section style="padding-top: 24px">
-        <div class="container">
-          <div class="grid cols-3">
-            <!-- Inicial -->
-            <div class="plan">
-              <p class="eyebrow" style="margin: 0">Inicial</p>
-              <h3>Pra quem está começando</h3>
-              <div>
-                <div class="price">em breve</div>
-                <div class="price-note">Valor definido antes do lançamento</div>
-              </div>
-              <span class="btn btn-outline plan-btn" style="opacity:.55;cursor:default;pointer-events:none">Disponível no lançamento</span>
-              <ul>
-                <li><span class="ck">&#10003;</span> até 30 produtos</li>
-                <li><span class="ck">&#10003;</span> 1 link único</li>
-                <li><span class="ck">&#10003;</span> pedidos no kanban</li>
-                <li><span class="ck">&#10003;</span> cadastro de clientes</li>
-                <li><span class="ck">&#10003;</span> 1 imagem por produto</li>
-                <li class="off"><span class="nope">&times;</span> domínio próprio</li>
-                <li class="off"><span class="nope">&times;</span> funcionários</li>
-              </ul>
-            </div>
-            <!-- Profissional -->
-            <div class="plan hl">
-              <span class="ribbon">Recomendado</span>
-              <p class="eyebrow" style="margin: 0">Profissional</p>
-              <h3>Para gráfica em operação</h3>
-              <div>
-                <div class="price">em breve</div>
-                <div class="price-note">Valor definido antes do lançamento</div>
-              </div>
-              <span class="btn btn-light plan-btn" style="opacity:.55;cursor:default;pointer-events:none">Disponível no lançamento</span>
-              <ul>
-                <li><span class="ck">&#10003;</span> até 200 produtos</li>
-                <li><span class="ck">&#10003;</span> 3 imagens por produto</li>
-                <li><span class="ck">&#10003;</span> 10 categorias</li>
-                <li><span class="ck">&#10003;</span> pedidos no kanban</li>
-                <li><span class="ck">&#10003;</span> cadastro + ficha do cliente</li>
-                <li><span class="ck">&#10003;</span> aparência customizável</li>
-                <li><span class="soon">previsto</span> domínio próprio</li>
-              </ul>
-            </div>
-            <!-- Estúdio -->
-            <div class="plan">
-              <p class="eyebrow" style="margin: 0">Estúdio</p>
-              <h3>Volume e equipe</h3>
-              <div>
-                <div class="price">em breve</div>
-                <div class="price-note">Valor definido antes do lançamento</div>
-              </div>
-              <span class="btn btn-outline plan-btn" style="opacity:.55;cursor:default;pointer-events:none">Disponível no lançamento</span>
-              <ul>
-                <li><span class="ck">&#10003;</span> produtos ilimitados</li>
-                <li><span class="ck">&#10003;</span> fotos ilimitadas</li>
-                <li><span class="ck">&#10003;</span> categorias ilimitadas</li>
-                <li><span class="soon">Fase 2</span> funcionários · permissões</li>
-                <li><span class="soon">Fase 2</span> analytics</li>
-                <li><span class="soon">Fase 2</span> domínio próprio</li>
-                <li><span class="soon">Fase 2</span> produção · PDV · financeiro</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ÉTICA -->
-      <section style="padding-top: 8px">
-        <div class="container">
-          <div class="ethics">
-            <div class="e-ic">&#128737;</div>
-            <div>
-              <p class="eyebrow" style="margin-bottom: 6px">Compromisso ético</p>
-              <p>
-                Sem cobrança antes do lançamento. Sem cartão pra testar.
-                Cancelamento em um clique, com a porta sempre aberta pra você
-                exportar seus dados.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- COMPARATIVO -->
-      <section class="section-cream">
-        <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">Comparativo de planos</p>
-            <h2 class="section-title">Tudo lado a <em class="hl">lado</em>.</h2>
-          </div>
-          <div class="cmp-wrap">
-            <table class="cmp">
-              <thead>
-                <tr>
-                  <th>Recurso</th>
-                  <th>Inicial</th>
-                  <th class="us">Profissional <span class="tag-us">recomendado</span></th>
-                  <th>Estúdio</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>Produtos no catálogo</td><td>30</td><td class="col-us">200</td><td>ilimitado</td></tr>
-                <tr><td>Fotos por produto</td><td>1</td><td class="col-us">3</td><td>ilimitado</td></tr>
-                <tr><td>Categorias</td><td>5</td><td class="col-us">10</td><td>ilimitado</td></tr>
-                <tr><td>Pedidos no kanban</td><td><span class="yes">&#10003;</span></td><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="yes">&#10003;</span></td></tr>
-                <tr><td>Cadastro de clientes</td><td><span class="yes">&#10003;</span></td><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="yes">&#10003;</span></td></tr>
-                <tr><td>Aparência (cor, logo, capa)</td><td><span class="yes">&#10003;</span></td><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="yes">&#10003;</span></td></tr>
-                <tr><td>Cabeçalhos de segurança</td><td><span class="yes">&#10003;</span></td><td class="col-us"><span class="yes">&#10003;</span></td><td><span class="yes">&#10003;</span></td></tr>
-                <tr><td>Funcionários e permissões</td><td><span class="no">&times;</span></td><td class="col-us"><span class="maybe">Fase 2</span></td><td><span class="maybe">Fase 2</span></td></tr>
-                <tr><td>Domínio próprio (sua-marca.com.br)</td><td><span class="no">&times;</span></td><td class="col-us"><span class="maybe">Fase 2</span></td><td><span class="maybe">Fase 2</span></td></tr>
-                <tr><td>Produção / PDV / Financeiro</td><td><span class="no">&times;</span></td><td class="col-us"><span class="no">&times;</span></td><td><span class="maybe">Fase 2</span></td></tr>
-                <tr><td>Rede de terceirização</td><td><span class="no">&times;</span></td><td class="col-us"><span class="no">&times;</span></td><td><span class="maybe">Fase 3</span></td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- CTA -->
-      <section class="cta-block">
-        <div class="container">
-          <div class="cta-inner">
-            <p class="eyebrow">Pronto?</p>
-            <h2>Entre na lista — pra <em class="hl">saber primeiro</em>.</h2>
-            <p>Quando o produto sair do MVP e os preços forem publicados, você é o primeiro a saber.</p>
-            <div class="cta-actions">
-              <a href="faq.html" class="btn btn-light">Tirar dúvidas <span class="arr">&rarr;</span></a>
-              <a href="faq.html" class="btn btn-outline" style="color: var(--paper); border-color: rgba(243,233,225,.25)">Tirar dúvida</a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <span class="wm"><svg class="wm-icon" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="5" width="16" height="3.2" rx="0.8"/><path d="M 6 10 H 22 V 19 L 14 24 L 6 19 Z"/></svg><span class="wm-text"><span class="wm-ink">Gráfica</span> <span class="wm-cta">no Bolso</span></span></span>
-            <p>Vitrine digital, pedidos organizados e cadastro de clientes — para quem vive de impressos no Brasil.</p>
-          </div>
-          <div class="footer-col">
-            <h4>Produto</h4>
-            <ul>
-              <li><a href="grafica.html">Para gráfica</a></li>
-              <li><a href="revendedor.html">Para revendedor</a></li>
-              <li><a href="como-funciona.html">Como funciona</a></li>
-              <li><a href="precos.html">Preços</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Saber mais</h4>
-            <ul>
-              <li><a href="faq.html">FAQ</a></li>
-              <li><a href="index.html">Início</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Conecte</h4>
-            <ul>
-              <li><a href="https://www.instagram.com/graficanobolso/" target="_blank" rel="noopener">Instagram</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <span>&copy; 2026 Gráfica no Bolso · graficanobolso.com.br</span>
-          <span>v0.1 — MVP em construção</span>
-        </div>
-      </div>
-    </footer>
-    <!-- Bottom sticky CTA (mobile only) -->
-    <div class="mobile-sticky-cta" id="msc" aria-hidden="true">
-      <a href="https://app.graficanobolso.com.br/login" class="btn btn-outline">Entrar</a>
-      <a href="precos.html" class="btn btn-cta">Ver os planos <span class="arr">&rarr;</span></a>
     </div>
-    <script>
-      (function () {
-        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        var t = document.querySelector('.nav-toggle');
-        var m = document.querySelector('.mobile-menu');
-        if (t && m) {
-          m.id = 'mobile-menu';
-          t.addEventListener('click', function () {
-            var open = m.classList.toggle('is-open');
-            t.setAttribute('aria-expanded', open ? 'true' : 'false');
-          });
-          m.querySelectorAll('a').forEach(function (a) {
-            a.addEventListener('click', function () {
-              m.classList.remove('is-open');
-              t.setAttribute('aria-expanded', 'false');
-            });
-          });
-        }
-        var header = document.querySelector('.site-header');
-        var hero = document.querySelector('.hero, .page-hero');
-        var ctaBlock = document.querySelector('.cta-block');
-        var msc = document.getElementById('msc');
-        function onScroll() {
-          var y = window.scrollY || window.pageYOffset;
-          if (header) header.classList.toggle('is-scrolled', y > 8);
-          if (hero && !reduced) {
-            var rect = hero.getBoundingClientRect();
-            if (rect.bottom > 0 && rect.top < window.innerHeight) {
-              var offset = Math.max(-80, Math.min(80, y * 0.18));
-              hero.style.setProperty('--parallax-y', offset + 'px');
-            }
-          }
-          if (msc && hero) {
-            var heroBottom = hero.getBoundingClientRect().bottom;
-            var ctaTop = ctaBlock ? ctaBlock.getBoundingClientRect().top : Infinity;
-            var vh = window.innerHeight;
-            var shouldShow = heroBottom < 60 && ctaTop > vh - 80;
-            msc.classList.toggle('is-visible', shouldShow);
-            msc.setAttribute('aria-hidden', shouldShow ? 'false' : 'true');
-          }
-        }
-        window.addEventListener('scroll', onScroll, { passive: true });
-        window.addEventListener('resize', onScroll);
-        onScroll();
-        if (!reduced && 'IntersectionObserver' in window) {
-          var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (e) {
-              if (e.isIntersecting) {
-                e.target.classList.add('is-in');
-                io.unobserve(e.target);
-              }
-            });
-          }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-          var auto = document.querySelectorAll(
-            '.section-head, .hero-inner > div, .mock-window, .cmp-wrap, .wpp-mess, .phone'
-          );
-          auto.forEach(function (el) {
-            el.classList.add('reveal');
-            io.observe(el);
-          });
-          var grids = document.querySelectorAll('.grid, .princ-grid, .trust, .flow-grid');
-          grids.forEach(function (g) {
-            g.classList.add('stagger');
-            io.observe(g);
-          });
-        }
-      })();
-    </script>
-  </body>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Menu mobile">
+      <a href="index.html">Início</a>
+      <a href="grafica.html">Para gráfica</a>
+      <a href="revendedor.html">Para revendedor</a>
+      <a href="precos.html">Preços</a>
+      <a href="faq.html">FAQ</a>
+      <div class="mm-actions">
+        <a class="btn btn-md btn-green" href="index.html#cta">Quero organizar meus pedidos</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <section class="hero" style="padding:60px 0 40px">
+      <div class="container">
+        <div class="section-head reveal" style="margin:0 auto 24px">
+          <span class="eyebrow"><span class="pulse"></span> Acesso antecipado · preço fundador</span>
+          <h1 style="margin:14px auto 18px;text-align:center">Sem trial enganoso. <span class="grad">Sem letra miúda.</span></h1>
+          <p style="text-align:center;max-width:680px;margin:0 auto">Plano definido antes do lançamento — você não vai descobrir um preço escondido. As primeiras gráficas que entrarem no acesso antecipado têm <strong>condição especial vitalícia ou anual</strong>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding:20px 0 60px">
+      <div class="container">
+        <div class="features" style="grid-template-columns:repeat(3,1fr)">
+          <article class="feature glass reveal">
+            <div class="feature-icon">🌱</div>
+            <h3 style="font-size:20px">Starter</h3>
+            <p style="margin-bottom:12px">Pra gráfica de bairro começando a organizar.</p>
+            <ul style="list-style:none;padding:0;margin:0 0 16px;display:grid;gap:8px">
+              <li style="font-size:13px"><span class="check" style="display:inline-flex;margin-right:8px">✓</span>Vitrine + link único</li>
+              <li style="font-size:13px"><span class="check" style="display:inline-flex;margin-right:8px">✓</span>Kanban de pedidos</li>
+              <li style="font-size:13px"><span class="check" style="display:inline-flex;margin-right:8px">✓</span>Cadastro de clientes</li>
+              <li style="font-size:13px"><span class="check" style="display:inline-flex;margin-right:8px">✓</span>WhatsApp como saída</li>
+            </ul>
+            <div style="margin-top:auto;padding-top:12px;border-top:1px solid var(--line)">
+              <div style="font-size:13px;color:var(--text-dimmer);margin-bottom:4px">a definir</div>
+              <div style="font-size:13px;color:var(--text-dimmer)">preço fundador no acesso antecipado</div>
+            </div>
+          </article>
+          <article class="feature glass reveal" style="border-color:rgba(53,227,111,.34)">
+            <div class="feature-icon">🚀</div>
+            <h3 style="font-size:20px">Pro <span style="font-size:11px;color:#9cffb8;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-left:6px">mais escolhido</span></h3>
+            <p style="margin-bottom:12px">Pra gráfica/revendedor com volume e equipe.</p>
+            <ul style="list-style:none;padding:0;margin:0 0 16px;display:grid;gap:8px">
+              <li style="font-size:13px"><span class="check" style="display:inline-flex;margin-right:8px">✓</span>Tudo do Starter</li>
+              <li style="font-size:13px"><span class="check" style="display:inline-flex;margin-right:8px">✓</span>Múltiplos usuários (vendedor, designer)</li>
+              <li style="font-size:13px"><span class="check" style="display:inline-flex;margin-right:8px">✓</span>Permissões por papel</li>
+              <li style="font-size:13px"><span class="check" style="display:inline-flex;margin-right:8px">✓</span>Relatórios e métricas</li>
+              <li style="font-size:13px"><span class="check" style="display:inline-flex;margin-right:8px">✓</span>Suporte prioritário</li>
+            </ul>
+            <div style="margin-top:auto;padding-top:12px;border-top:1px solid var(--line)">
+              <div style="font-size:13px;color:var(--text-dimmer);margin-bottom:4px">a definir</div>
+              <div style="font-size:13px;color:var(--text-dimmer)">preço fundador no acesso antecipado</div>
+            </div>
+          </article>
+          <article class="feature glass reveal">
+            <div class="feature-icon">🏢</div>
+            <h3 style="font-size:20px">Empresa</h3>
+            <p style="margin-bottom:12px">Roadmap Fase 2 — PDV, financeiro, integrações.</p>
+            <ul style="list-style:none;padding:0;margin:0 0 16px;display:grid;gap:8px">
+              <li style="font-size:13px"><span class="check" style="display:inline-flex;margin-right:8px">✓</span>Tudo do Pro</li>
+              <li style="font-size:13px"><span class="check" style="display:inline-flex;margin-right:8px">✓</span>PDV presencial (Fase 2)</li>
+              <li style="font-size:13px"><span class="check" style="display:inline-flex;margin-right:8px">✓</span>Financeiro/conciliação (Fase 2)</li>
+              <li style="font-size:13px"><span class="check" style="display:inline-flex;margin-right:8px">✓</span>Integrações Bling/ContaAzul (Fase 2)</li>
+              <li style="font-size:13px"><span class="check" style="display:inline-flex;margin-right:8px">✓</span>SLA + onboarding dedicado</li>
+            </ul>
+            <div style="margin-top:auto;padding-top:12px;border-top:1px solid var(--line)">
+              <div style="font-size:13px;color:var(--text-dimmer);margin-bottom:4px">a definir</div>
+              <div style="font-size:13px;color:var(--text-dimmer)">Fase 2 — pós-lançamento</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">Acesso antecipado</div>
+          <h2>Pras <span>primeiras gráficas</span>.</h2>
+          <p>Você entra agora, ajuda a moldar o produto, paga preço fundador quando o billing ligar — vitalício ou anual, sua escolha.</p>
+        </div>
+        <div class="promises reveal">
+          <article class="promise glass">
+            <div class="num">01 · Teste sem cartão</div>
+            <h3>Você não precisa de cartão pra começar.</h3>
+            <p>Cadastra, sobe catálogo, gera link, recebe pedido. Sem trial timer, sem cobrança surpresa. Quando o billing ligar, você decide se continua.</p>
+          </article>
+          <article class="promise glass">
+            <div class="num">02 · Ajuda pra montar a vitrine</div>
+            <h3>Não joga você numa tela vazia.</h3>
+            <p>Quem entra no acesso antecipado recebe ajuda direta pra subir a primeira vitrine — 3 produtos iniciais, link compartilhável, prontinho.</p>
+          </article>
+          <article class="promise glass">
+            <div class="num">03 · Preço fundador</div>
+            <h3>Condição especial vitalícia ou anual.</h3>
+            <p>Quando os planos forem publicados, primeiras gráficas escolhem entre desconto vitalício ou plano anual subsidiado. Detalhe na hora do lançamento.</p>
+          </article>
+          <article class="promise glass">
+            <div class="num">04 · Canal direto com o fundador</div>
+            <h3>Você fala direto com quem está construindo.</h3>
+            <p>Sem suporte tier 1 / tier 2. Bug, sugestão, dúvida — chega na sua mão, responde rápido. O fundador é dono de gráfica e usa todo dia.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">Perguntas sobre cobrança</div>
+          <h2>O que você precisa <span>saber agora</span>.</h2>
+        </div>
+        <div class="faq reveal">
+          <details><summary>Quando o preço vai ser publicado?</summary><p>Antes do lançamento oficial. Quem entrou no acesso antecipado é avisado com antecedência e tem condição especial garantida.</p></details>
+          <details><summary>Vou pagar enquanto tô no acesso antecipado?</summary><p>Não. O acesso antecipado é gratuito até a publicação dos planos. Você não precisa de cartão pra começar.</p></details>
+          <details><summary>Vai ter trial pago no futuro?</summary><p>Provavelmente um teste curto sem cartão. Você só paga se decidir continuar — sem cobrança automática surpresa.</p></details>
+          <details><summary>Posso cancelar a qualquer momento?</summary><p>Sim. Sem multa, sem fidelidade. Você exporta seus dados (catálogo, pedidos, clientes) e sai.</p></details>
+          <details><summary>O preço fundador é pra sempre?</summary><p>Sim, na opção vitalícia. Ou um plano anual subsidiado — você escolhe quando os planos forem publicados.</p></details>
+          <details><summary>Tem desconto pra anual ou pagamento à vista?</summary><p>Sim, será divulgado junto com os planos. Sem letra miúda.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" id="cta">
+      <div class="container cta-box">
+        <div>
+          <div class="kicker">Acesso antecipado</div>
+          <h2>Entra agora e <span class="grad">trava o preço fundador</span>.</h2>
+          <p>Sem cartão, sem letra miúda. Você ajuda a moldar o produto e paga preço fundador quando o billing ligar.</p>
+          <div class="cta-row">
+            <a class="btn btn-lg btn-orange" href="https://app.graficanobolso.com.br/login">Quero organizar meus pedidos <span class="arrow">→</span></a>
+            <a class="btn btn-lg btn-ghost" href="faq.html">FAQ completo</a>
+          </div>
+        </div>
+        <div class="cta-orb">
+          <div class="cube">
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"><rect x="6" y="5" width="16" height="3.4" rx="1"/><path d="M6 10h16v9l-8 5-8-5z"/></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand">
+            <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="5" width="16" height="3.4" rx="1"/><path d="M6 10h16v9l-8 5-8-5z"/></svg></span>
+            Gráfica no Bolso
+          </div>
+          <p>Vitrine digital, pedidos organizados e cadastro de clientes — pra quem vive de impressos no Brasil.</p>
+        </div>
+        <div>
+          <h4>Produto</h4>
+          <a href="index.html#funciona">Como funciona</a>
+          <a href="index.html#recursos">Recursos</a>
+          <a href="index.html#produto">Por dentro</a>
+          <a href="index.html#comparativo">Comparativo</a>
+        </div>
+        <div>
+          <h4>Saber mais</h4>
+          <a href="grafica.html">Para gráfica</a>
+          <a href="revendedor.html">Para revendedor</a>
+          <a href="precos.html">Preços</a>
+          <a href="faq.html">FAQ</a>
+        </div>
+        <div>
+          <h4>Acessar</h4>
+          <a href="https://app.graficanobolso.com.br/login">Entrar</a>
+          <a href="index.html#cta">Acesso antecipado</a>
+          <a href="https://www.instagram.com/graficanobolso/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Gráfica no Bolso · graficanobolso.com.br</span>
+        <span>v0.1 — MVP em construção</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="floating-cta" id="floatingCta" href="index.html#cta" aria-hidden="true">
+    <span class="floating-cta-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M13 6l6 6-6 6"/></svg>
+    </span>
+    <span class="floating-cta-copy">
+      <strong>Quero organizar meus pedidos</strong>
+      <span>acesso antecipado · sem cartão</span>
+    </span>
+  </a>
+
+  <script src="script.js?v=v7-10" defer></script>
+</body>
 </html>
